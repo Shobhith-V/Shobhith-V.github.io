@@ -1,0 +1,39 @@
+[
+  {
+    "id": "pfizer-bioprocess",
+    "title": "BioProcess R&D - Pfizer",
+    "summary": "GUI development and Physics-Informed Neural Networks for Ion Exchange and Hydrophobic Interaction Chromatography modeling",
+    "tags": ["Machine Learning", "PINNs", "Bioprocess Engineering", "GUI Development"],
+    "date": "December 2024 - Present",
+    "type": "Internship",
+    "github": null,
+    "pdf": null,
+    "description": "I am currently interning at Pfizer for a period of six months. I am working in the BRD downstream modelling team. I am working on two main projects:\n\n1. **GUI Development**: Developing an interactive GUI for laboratory scientists to run ion-exchange chromatography simulations using CADET.\n\n2. **Physics-Informed Neural Networks (PINNs)**: Conducting research on modeling Ion Exchange (IEX) and Hydrophobic Interaction Chromatography (HIC) processes using PINNs. Validating model predictions with experimental data, achieving high fidelity in capturing key chromatographic behaviors.",
+    "thumbnail": null
+  },
+  {
+    "id": "cybathlon-knee-prosthesis",
+    "title": "Active Knee Prosthesis Development - Cybathlon 2024",
+    "summary": "Developed signal processing board for force & angle measurements, achieving 8th place out of 13 teams",
+    "tags": ["Signal Processing", "Embedded Systems", "Biomedical Engineering", "Wireless Communication"],
+    "date": "January 2024 - Present",
+    "type": "Research Project",
+    "github": null,
+    "pdf": null,
+    "description": "Developed a signal processing board for force & angle measurements, wirelessly relaying data & tunable parameters. Minimized lag in 3-axis angle readings by off-loading filtering processes, obtaining accurate 2-DOF pose estimates.\n\n**Achievement**: Placed **8th out of 13 teams** in Cybathlon 2024.",
+    "thumbnail": "assets/images/IMG_2602.jpg"
+  },
+  {
+    "id": "senai-predictive-coding",
+    "title": "Predictive Coding Models for Information Processing",
+    "summary": "Research on predictive coding models for information processing in the brain and programmable algorithm for enhanced object detection",
+    "tags": ["Computational Neuroscience", "Machine Learning", "Predictive Coding", "Object Detection"],
+    "date": "February 2024 - December 2024",
+    "type": "Research",
+    "github": null,
+    "pdf": null,
+    "description": "Conducted in-depth research on predictive coding models for information processing in the brain. Developed a programmable algorithm based on predictive coding to enhance object detection accuracy.",
+    "thumbnail": null
+  }
+]
+
