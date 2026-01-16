@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>About - Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="src/reset.css" />
+  <link rel="stylesheet" href="src/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<table class="header">
+  <tr>
+    <td colspan="2" rowspan="2" class="width-auto">
+      <h1 class="title">Shobhith Vadlamudi</h1>
+      <span class="subtitle">(he/him)</span>
+    </td>
+  </tr>
+  <tr>
+    <th>Updated</th>
+    <td class="width-min"><time style="white-space: pre;">2025-17-03</time></td>
+  </tr>
+  <tr>
+    <th class="width-min">Address</th>
+    <td class="width-auto">Room no. 337, Saraswati Hostel, IIT Madras</td>
+    <th class="width-min">Contact</th>
+    <td class="width-auto">
+      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4">
+      <cite><i class="fa fa-linkedin"></i></cite>
+      </a>
+      <a href="https://x.com/Shobhith_V"><cite><i class="fa fa-twitter"></i></cite></a>
+      <a href="mailto:ed21b069@smail.iitm.ac.in?subject=Hi!"><cite><i class="fa fa-envelope" aria-hidden="true"></i></cite></a>
+      <a href="https://github.com/Shobhith-V"><cite><i class="fa fa-github" aria-hidden="true"></i></cite></a>
+    </td>
+  </tr>
+</table>
+<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle" /> Debug mode</label>
+
+<div id="nav-container" data-current-page="about"></div>
+
+<section id="about-section">
+  <h2>About</h2>
+  <p>I am Shobhith Vadlamudi, a fourth year undergraduate student at IIT Madras. I am currently pursuing a dual degree which includes a Bachelors degree in Engineering Design and a Masters in Data Science. I am set to graduate by May 2026.</p>
+  
+  <h2>Education</h2>
+  <div class="experience">
+    <h3>Indian Institute of Technology Madras (IIT Madras)</h3>
+    <p><strong>2021 - 2026 (Expected)</strong></p>
+    <ul>
+      <li>B.Tech in Engineering Design</li>
+      <li>M.Tech in Data Science</li>
+    </ul>
+  </div>
+</section>
+
+<section id="experience-section">
+  <h2>Experience</h2>
+  
+  <div class="experience">
+    <h3>BioProcess R&D Intern - Pfizer</h3>
+    <p><strong>December 2024 - Present</strong></p>
+    <p>I am currently interning at Pfizer for a period of six months. I am working in the BRD downstream modelling team. I am working on two main projects:</p>
+    <ul>
+      <li><strong>GUI Development</strong>: Developing an interactive GUI for laboratory scientists to run ion-exchange chromatography simulations using CADET.</li>
+      <li><strong>Physics-Informed Neural Networks (PINNs)</strong>: Conducting research on modeling Ion Exchange (IEX) and Hydrophobic Interaction Chromatography (HIC) processes using PINNs. Validating model predictions with experimental data, achieving high fidelity in capturing key chromatographic behaviors.</li>
+    </ul>
+    <p><a href="project-pfizer-bioprocess.html">View project details →</a></p>
+  </div>
+
+  <div class="experience">
+    <h3>Active Knee Prosthesis Development - Cybathlon 2024</h3>
+    <p><strong>January 2024 - Present</strong></p>
+    <ul>
+      <li>Placed <strong>8th out of 13 teams</strong> in Cybathlon 2024.</li>
+      <li>Developed a signal processing board for force & angle measurements, wirelessly relaying data & tunable parameters.</li>
+      <li>Minimized lag in 3-axis angle readings by off-loading filtering processes, obtaining accurate 2-DOF pose estimates.</li>
+    </ul>
+    <p><a href="project-cybathlon-knee-prosthesis.html">View project details →</a></p>
+  </div>
+
+  <div class="experience">
+    <h3>SENAI Lab - IIT Madras</h3>
+    <p><strong>February 2024 - December 2024</strong></p>
+    <ul>
+      <li>Conducted in-depth research on predictive coding models for information processing in the brain.</li>
+      <li>Developed a programmable algorithm based on predictive coding to enhance object detection accuracy.</li>
+    </ul>
+    <p><a href="project-senai-predictive-coding.html">View project details →</a></p>
+  </div>
+</section>
+
+<section id="cv-section">
+  <h2>Curriculum Vitae</h2>
+  <p>Download my CV for a comprehensive overview of my academic background, research experience, and technical skills.</p>
+  <nav>
+    <a href="assets/docs/cv.pdf" target="_blank">
+      <button>
+        <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Download CV (PDF)
+      </button>
+    </a>
+  </nav>
+</section>
+
+<section id="interests-section">
+  <h2>Research Interests</h2>
+  <p>My research interests span multiple domains:</p>
+  <ul>
+    <li><strong>Computational Neuroscience</strong>: Predictive coding models, information processing in the brain</li>
+    <li><strong>Signal Processing</strong>: Real-time filtering, pose estimation, embedded systems</li>
+    <li><strong>Machine Learning</strong>: Physics-Informed Neural Networks (PINNs), object detection</li>
+    <li><strong>Bioprocess Engineering</strong>: Chromatography modeling, process optimization</li>
+  </ul>
+</section>
+
+<style>
+  .experience {
+    margin-bottom: calc(var(--line-height) * 2);
+  }
+  .experience h3 {
+    color: #be9432; /* Gold color */
+    margin-top: 0;
+  }
+  .experience ul {
+    margin-left: 2ch;
+    margin-top: var(--line-height);
+  }
+</style>
+
+<div class="debug-grid"></div>
+<script src="src/index.js"></script>
+<script src="js/navigation.js"></script>
+</body>
+</html>
+
