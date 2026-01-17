@@ -39,26 +39,103 @@
 
 <div id="nav-container" data-current-page="home"></div>
 
-<section id="home-intro">
+<!-- Hero Section -->
+<section class="hero-section reveal">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Shobhith Vadlamudi</h1>
+    <p class="hero-subtitle">
+      Computational Neuroscience • Neurotechnology • AI Research
+    </p>
+    <p class="hero-description">
+      I work at the intersection of computational neuroscience, dynamical systems, and neurotechnology. 
+      My research explores coupled brain–body neural dynamics and closed-loop feedback for future 
+      brain–computer interfaces.
+    </p>
+    <div class="hero-cta">
+      <a href="projects.html"><button><i class="fa fa-flask" aria-hidden="true"></i> View Research</button></a>
+      <a href="publications.html"><button><i class="fa fa-file-text" aria-hidden="true"></i> Publications</button></a>
+      <a href="about.html"><button><i class="fa fa-user" aria-hidden="true"></i> About & CV</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="home-intro" class="reveal reveal-delay-1">
   <h2>About</h2>
   <p>I am Lalanth Shobhith Vadlamudi, a final-year Dual Degree student at IIT Madras pursuing a B.Tech in Engineering Design and an M.Tech in Data Science.</p>
   
-  <p>I work at the intersection of computational neuroscience, dynamical systems, and neurotechnology. My research explores coupled brain–body neural dynamics and closed-loop feedback for future brain–computer interfaces.</p>
+  <p>My research focuses on understanding how the brain and body interact as a coupled dynamical system, with applications in neuroprosthetics, brain-computer interfaces, and computational models of cognition. I combine theoretical frameworks from dynamical systems theory with empirical neuroscience and modern machine learning to build principled models of neural computation.</p>
   
-  <p>Explore my <a href="projects.html">projects and research</a> to learn more about my work, or view my <a href="publications.html">publications and reports</a>.</p>
+  <p>I've had the opportunity to work on diverse projects—from developing closed-loop sensory feedback systems for lower-limb prosthetics (Cybathlon 2024) to modeling heart–brain dynamics using Neural ODEs, and applying deep learning to bioprocess optimization at Pfizer. Each project deepens my understanding of how biological systems process information and adapt in real-time.</p>
 </section>
 
-<section id="quick-links">
-  <h2>Quick Links</h2>
-  <nav>
-    <a href="projects.html"><button><i class="fa fa-flask" aria-hidden="true"></i> Projects & Research</button></a>
-    <a href="publications.html"><button><i class="fa fa-file-text" aria-hidden="true"></i> Publications</button></a>
-    <a href="about.html"><button><i class="fa fa-user" aria-hidden="true"></i> About & CV</button></a>
-  </nav>
+<!-- Featured Achievement: Cybathlon -->
+<section class="video-section reveal reveal-delay-2">
+  <h2>Featured Achievement</h2>
+  <h3 style="text-align: center; margin-bottom: var(--spacing-md); color: var(--color-highlight);">
+    Team Asai at Cybathlon 2024
+  </h3>
+  <div class="video-wrapper">
+    <!-- NOTE: Replace 'YOUR_VIDEO_ID_HERE' with the actual YouTube video ID for Team Asai's Cybathlon 2024 performance -->
+    <!-- Format: https://www.youtube.com/embed/VIDEO_ID -->
+    <iframe 
+      src="https://youtu.be/fbYWwpcDApw?si=XxZ3wUaa0unEyDMW" 
+      title="Team Asai Performance at Cybathlon 2024"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+  <div class="video-description">
+    <p>
+      Representing IIT Madras at Cybathlon 2024 in Zurich, our team achieved <strong>8th place globally</strong> 
+      in the Powered Leg Prosthesis Race—the only Indian team at the event. I developed the signal processing 
+      and closed-loop sensory feedback system that enabled real-time proprioceptive cues through vibrotactile 
+      feedback, improving balance and gait awareness for transfemoral amputees.
+    </p>
+    <p style="margin-top: var(--spacing-md);">
+      <a href="project-cybathlon-knee-prosthesis.html" style="color: var(--color-accent-primary);">
+        Learn more about this project →
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- Research Highlights -->
+<section id="research-highlights" class="reveal reveal-delay-3">
+  <h2>Research Highlights</h2>
+  <p>My work spans multiple domains, unified by a focus on dynamical systems, information processing, and closed-loop interactions:</p>
+  
+  <div style="margin-top: var(--spacing-xl);">
+    <h3 style="color: var(--color-accent-primary); margin-bottom: var(--spacing-sm);">
+      <i class="fa fa-brain" style="margin-right: var(--spacing-sm);"></i>
+      Computational Neuroscience
+    </h3>
+    <p>Investigating predictive coding models, heart–brain dynamics, and hierarchical information processing in neural circuits.</p>
+    
+    <h3 style="color: var(--color-accent-primary); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">
+      <i class="fa fa-microchip" style="margin-right: var(--spacing-sm);"></i>
+      Neurotechnology
+    </h3>
+    <p>Designing closed-loop sensory feedback systems for neuroprosthetics and brain-computer interfaces.</p>
+    
+    <h3 style="color: var(--color-accent-primary); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">
+      <i class="fa fa-line-chart" style="margin-right: var(--spacing-sm);"></i>
+      Machine Learning & AI
+    </h3>
+    <p>Applying Neural ODEs, physics-informed models, and deep learning to solve complex problems in bioprocess engineering and cognitive modeling.</p>
+  </div>
+  
+  <p style="margin-top: var(--spacing-xl);">
+    Explore my <a href="projects.html">projects and research</a> to learn more about my work, 
+    or view my <a href="publications.html">publications and reports</a>.
+  </p>
 </section>
 
 <div class="debug-grid"></div>
 <script src="src/index.js"></script>
 <script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

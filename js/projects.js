@@ -27,18 +27,18 @@ function renderProjectCard(project) {
   linksHTML.push(`<a href="project-${project.id}.html"><i class="fa fa-arrow-right"></i> Details</a>`);
 
   const thumbnailHTML = project.thumbnail 
-    ? `<img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail" />`
-    : '';
+    ? `<img src="${project.thumbnail}" alt="${project.title}" class="project-thumbnail" loading="lazy" />`
+    : `<div class="project-thumbnail" style="background: linear-gradient(135deg, var(--color-bg-tertiary), var(--color-bg-elevated)); height: 250px; display: flex; align-items: center; justify-content: center; color: var(--color-text-tertiary); font-family: var(--font-headline); text-transform: uppercase; letter-spacing: 0.1em;">${project.title.charAt(0)}</div>`;
 
   return `
-    <article class="project-card">
+    <article class="project-card reveal">
       ${thumbnailHTML}
       <div class="project-content">
         <h3><a href="project-${project.id}.html">${project.title}</a></h3>
         <p class="project-meta">${project.type} • ${project.date}</p>
         <p class="project-summary">${project.summary}</p>
         <div class="project-tags">${tagsHTML}</div>
-        <div class="project-links">${linksHTML.join(' • ')}</div>
+        <div class="project-links">${linksHTML.join('')}</div>
       </div>
     </article>
   `;

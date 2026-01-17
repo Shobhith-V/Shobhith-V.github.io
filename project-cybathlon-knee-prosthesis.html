@@ -66,21 +66,51 @@
   
 
     <div class="project-description">
-      <p>This project focused on the design and evaluation of a closed-loop sensory feedback system to restore proprioceptive cues for transfemoral amputees during locomotion. The goal was to improve balance, gait awareness, and task performance in real-world walking scenarios.</p>
-<p>I implemented an Arduino-based real-time control system that translated ground reaction forces measured using A301 force sensors into vibrotactile feedback delivered through coin vibration motors. This closed-loop system enabled intuitive, low-latency sensory substitution during locomotion.</p>
-<p>The effectiveness of the feedback was evaluated through task-based performance metrics inspired by Cybathlon challenges, along with cognitive load assessments to quantify usability and attentional demand. In addition to vibrotactile feedback, I explored multimodal feedback strategies—including visual and auditory cues—and investigated different encoding schemes to enhance sensorimotor perception in lower-limb prosthetics.</p>
-<p>This work culminated in participation at Cybathlon 2024 in Zurich, an international competition that evaluates assistive technologies through realistic, everyday tasks performed by pilots with disabilities. Representing IIT Madras, our team achieved an 8th-place global finish and was the only Indian team at the event, validating the robustness and real-world performance of the system under competitive conditions.</p>
+      <h3 style="margin-top: 0; color: var(--color-accent-primary);">Problem & Motivation</h3>
+      <p>Transfemoral amputees lack proprioceptive feedback from their missing limb, leading to impaired balance, gait awareness, and increased risk of falls. This project focused on the design and evaluation of a closed-loop sensory feedback system to restore proprioceptive cues during locomotion, with the goal of improving balance, gait awareness, and task performance in real-world walking scenarios.</p>
+
+      <h3 style="color: var(--color-accent-primary);">Technical Approach</h3>
+      <p>I implemented an Arduino-based real-time control system that translated ground reaction forces measured using A301 force sensors into vibrotactile feedback delivered through coin vibration motors. This closed-loop system enabled intuitive, low-latency sensory substitution during locomotion. The effectiveness of the feedback was evaluated through task-based performance metrics inspired by Cybathlon challenges, along with cognitive load assessments to quantify usability and attentional demand.</p>
+      
+      <p>In addition to vibrotactile feedback, I explored multimodal feedback strategies—including visual and auditory cues—and investigated different encoding schemes to enhance sensorimotor perception in lower-limb prosthetics. The system architecture prioritized low latency (< 50ms) and reliability under real-world conditions.</p>
+
+      <h3 style="color: var(--color-accent-primary);">Impact & Results</h3>
+      <p>This work culminated in participation at Cybathlon 2024 in Zurich, an international competition that evaluates assistive technologies through realistic, everyday tasks performed by pilots with disabilities. Representing IIT Madras, our team achieved an <strong style="color: var(--color-highlight);">8th-place global finish</strong> and was the only Indian team at the event, validating the robustness and real-world performance of the system under competitive conditions.</p>
     </div>
 
+    <!-- Competition Performance Video -->
+    <section class="video-section" style="margin-top: var(--spacing-3xl);">
+      <h3 style="text-align: center; margin-bottom: var(--spacing-md); color: var(--color-highlight);">
+        Competition Performance
+      </h3>
+      <div class="video-wrapper">
+        <!-- NOTE: Replace with actual Team Asai Cybathlon 2024 YouTube video URL -->
+        <iframe 
+          src="https://youtu.be/fbYWwpcDApw?si=XxZ3wUaa0unEyDMW" 
+          title="Team Asai Performance at Cybathlon 2024"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="video-description">
+        <p>Watch our team's performance at Cybathlon 2024 in Zurich. The competition evaluated assistive technologies through realistic, everyday tasks performed by pilots with disabilities.</p>
+      </div>
+    </section>
     
-    <section style="margin-top: 3rem;">
-      <h3>Report / Poster</h3>
-      <iframe
-        src="/public/reports/ASAI_IDP.pdf"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ccc;"
-      ></iframe>
+    <!-- Report Section -->
+    <section style="margin-top: var(--spacing-3xl);">
+      <h3>Report / Documentation</h3>
+      <div class="pdf-viewer-container">
+        <div class="pdf-controls">
+          <a href="/public/reports/ASAI_IDP.pdf" download><button><i class="fa fa-download"></i> Download PDF</button></a>
+        </div>
+        <iframe
+          src="/public/reports/ASAI_IDP.pdf"
+          class="pdf-viewer"
+          title="Cybathlon Project Report"
+        ></iframe>
+      </div>
     </section>
   
 
@@ -94,5 +124,6 @@
 
 <script src="src/index.js"></script>
 <script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
 </body>
 </html>

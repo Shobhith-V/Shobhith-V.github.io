@@ -12,10 +12,10 @@ async function loadMedia() {
   }
 }
 
-function renderMediaItem(item) {
+function renderMediaItem(item, index) {
   return `
-    <figure class="media-item">
-      <img src="${item.image}" alt="${item.title}" />
+    <figure class="media-item reveal ${index > 0 ? `reveal-delay-${Math.min(index, 3)}` : ''}">
+      <img src="${item.image}" alt="${item.title}" loading="lazy" />
       <figcaption>
         <h3>${item.title}</h3>
         ${item.location ? `<p class="media-location">${item.location}</p>` : ''}
@@ -35,7 +35,7 @@ function renderMediaGallery(mediaItems, containerId) {
     return;
   }
 
-  container.innerHTML = mediaItems.map(item => renderMediaItem(item)).join('');
+  container.innerHTML = mediaItems.map((item, index) => renderMediaItem(item, index)).join('');
 }
 
 // Initialize media page

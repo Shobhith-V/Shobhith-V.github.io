@@ -6,19 +6,22 @@ const downloadLink = document.getElementById("pdf-download-link");
 function renderPublications() {
   list.innerHTML = "";
 
-  publications.forEach(pub => {
+  publications.forEach((pub, index) => {
     const item = document.createElement("div");
-    item.className = "publication-item";
+    item.className = "publication-item reveal";
+    if (index > 0) {
+      item.classList.add(`reveal-delay-${Math.min(index, 3)}`);
+    }
+
+    const pdfButton = pub.pdf 
+      ? `<button onclick="openPDF('${pub.pdf}')"><i class="fa fa-file-pdf-o"></i> View PDF</button>`
+      : '';
 
     item.innerHTML = `
       <h3>${pub.title}</h3>
       <p class="authors">${pub.authors}</p>
       <p class="venue">${pub.venue}, ${pub.year}</p>
-      <div class="pub-actions">
-        <button onclick="openPDF('${pub.pdf}')">
-          <i class="fa fa-file-pdf-o"></i> View PDF
-        </button>
-      </div>
+      ${pdfButton ? `<div class="pub-actions">${pdfButton}</div>` : ''}
     `;
 
     list.appendChild(item);
