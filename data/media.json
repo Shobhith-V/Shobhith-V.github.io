@@ -6,6 +6,22 @@
     "image": "assets/images/kuari.jpg",
     "location": "Uttarakhand, India",
     "date": "2024"
+  },
+  {
+    "id": "bio-process",
+    "title": "Bioprocessing India 2024",
+    "description": "At the Bioprocessing India 2024 Conference representing Pfizer",
+    "image": "assets/images/bioprocess.jpg",
+    "location": "Chennai, India",
+    "date": "2024"
+  },
+  {
+    "id": "interlaken",
+    "title": "Interlaken, Switzerland",
+    "description": "With Team Asai at Interlaken, Switzerland!",
+    "image": "assets/images/interlaken.jpeg",
+    "location": "Interlaken, Switzerland",
+    "date": "2024"
   }
 ]
 
