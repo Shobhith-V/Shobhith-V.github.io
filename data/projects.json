@@ -2,15 +2,6 @@
   {
     "id": "pfizer-bioprocess",
     "title": "BioProcess R&D - Pfizer",
-<<<<<<< HEAD
-    "summary": "GUI development and computational tools for chromatography process development",
-    "tags": ["Machine Learning", "Bioprocess Engineering", "Scientific Computing"],
-    "date": "December 2024 - Present",
-    "type": "Internship",
-    "github": null,
-    "pdf": null,
-    "description": "I am currently interning at Pfizer for a period of six months. I am working in the BRD downstream modelling team. I am working on two main projects:\n\n1. **GUI Development**: Developing an interactive GUI for laboratory scientists to run ion-exchange chromatography simulations using CADET.\n\n2. **Computational Modeling**: Conducting research on modeling Ion Exchange (IEX) and Hydrophobic Interaction Chromatography (HIC) processes. Validating model predictions with experimental data.",
-=======
     "summary": "GUI development and Parameter Estimation using CNN based workflow",
     "tags": ["Machine Learning", "Deep Learning", "Bioprocess Engineering", "Scientific Computing"],
     "date": "December 2024 - August 2025",
@@ -18,44 +9,24 @@
     "github": null,
     "pdf": "/public/reports/Mid_term_poster_Shobhith_new.pdf",
     "description": "I completed an eight-month internship at Pfizer as part of the Bioprocess R&D downstream modeling team. My work focused on developing computational tools and machine learning methods to accelerate and improve chromatography process development.\n\nI contributed to two primary projects:\n\n1. **GUI Development**: Designed and deployed an interactive application that enables laboratory scientists to configure, run, and analyze chromatography simulations. The system was built using Streamlit for the user interface, CADET as the simulation backend, and DataIku for deployment, significantly improving accessibility of model-driven experimentation.\n\n2. **Deep Learning-Based Parameter Estimation**: Designed and implemented a CNN-based active learning workflow for parameter fitting in Hydrophobic Interaction Chromatography (HIC) isotherm models. The approach reduced parameter fitting time while improving estimation accuracy by approximately 5%. The workflow was generalized to support multiple isotherm formulations and validated against experimental data from two production-ready molecules.",
->>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
     "thumbnail": "assets/images/bioprocess.jpg"
   },
   {
     "id": "cybathlon-knee-prosthesis",
     "title": "Active Knee Prosthesis Development - Cybathlon 2024",
     "summary": "Developed signal processing board for force & angle measurements, achieving 8th place out of 13 teams",
-<<<<<<< HEAD
-    "tags": ["Signal Processing", "Embedded Systems", "Biomedical Engineering", "Wireless Communication"],
-    "date": "January 2024 - Present",
-    "type": "Research Project",
-    "github": null,
-    "pdf": null,
-    "description": "Developed a signal processing board for force & angle measurements, wirelessly relaying data & tunable parameters. Minimized lag in 3-axis angle readings by off-loading filtering processes, obtaining accurate 2-DOF pose estimates.\n\n**Achievement**: Placed **8th out of 13 teams** in Cybathlon 2024.",
-=======
     "tags": ["Neuroprosthetics", "Embedded Systems", "Human–Machine Interaction", "Cognitive Neuroscience"],
     "date": "December 2023 - December 2024",
     "type": "Competition",
     "github": "https://github.com/Shobhith-V/Cybathlon-24",
     "pdf": "/public/reports/ASAI_IDP.pdf",
     "description": "This project focused on the design and evaluation of a closed-loop sensory feedback system to restore proprioceptive cues for transfemoral amputees during locomotion. The goal was to improve balance, gait awareness, and task performance in real-world walking scenarios.\n\nI implemented an Arduino-based real-time control system that translated ground reaction forces measured using A301 force sensors into vibrotactile feedback delivered through coin vibration motors. This closed-loop system enabled intuitive, low-latency sensory substitution during locomotion.\n\nThe effectiveness of the feedback was evaluated through task-based performance metrics inspired by Cybathlon challenges, along with cognitive load assessments to quantify usability and attentional demand. In addition to vibrotactile feedback, I explored multimodal feedback strategies—including visual and auditory cues—and investigated different encoding schemes to enhance sensorimotor perception in lower-limb prosthetics.\n\nThis work culminated in participation at Cybathlon 2024 in Zurich, an international competition that evaluates assistive technologies through realistic, everyday tasks performed by pilots with disabilities. Representing IIT Madras, our team achieved an 8th-place global finish and was the only Indian team at the event, validating the robustness and real-world performance of the system under competitive conditions.",
->>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
     "thumbnail": "assets/images/IMG_2602.jpg"
   },
   {
     "id": "senai-predictive-coding",
     "title": "Predictive Coding Models for Information Processing",
     "summary": "Research on predictive coding models for information processing in the brain and programmable algorithm for enhanced object detection",
-<<<<<<< HEAD
-    "tags": ["Computational Neuroscience", "Machine Learning", "Predictive Coding", "Object Detection"],
-    "date": "February 2024 - December 2024",
-    "type": "Research",
-    "github": null,
-    "pdf": null,
-    "description": "Conducted in-depth research on predictive coding models for information processing in the brain. Developed a programmable algorithm based on predictive coding to enhance object detection accuracy.",
-    "thumbnail": null
-  }
-=======
     "tags": ["Computational Neuroscience", "Machine Learning", "Dynamical Systems"],
     "date": "February 2024 - December 2024",
     "type": "Research Project",
@@ -141,6 +112,5 @@
 
   
   
->>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
 ]
 

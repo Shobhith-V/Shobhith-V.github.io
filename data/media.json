@@ -6,25 +6,6 @@
     "image": "assets/images/kuari.jpg",
     "location": "Uttarakhand, India",
     "date": "2024"
-<<<<<<< HEAD
-  },
-  {
-    "id": "bioprocess-conference",
-    "title": "Bioprocess India 2024 Conference",
-    "description": "At the Bioprocess India 2024 conference",
-    "image": "assets/images/bioprocess.jpg",
-    "location": "India",
-    "date": "2024"
-  },
-  {
-    "id": "cybathlon-team",
-    "title": "Team Asai at Cybathlon 2024",
-    "description": "Team Asai at Cybathlon 2024 at Zurich, Switzerland!",
-    "image": "assets/images/IMG_2602.jpg",
-    "location": "Zurich, Switzerland",
-    "date": "2024"
-=======
->>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
   }
 ]
 
