@@ -9,7 +9,7 @@
     "github": null,
     "pdf": "/public/reports/Mid_term_poster_Shobhith_new.pdf",
     "description": "I completed an eight-month internship at Pfizer as part of the Bioprocess R&D downstream modeling team. My work focused on developing computational tools and machine learning methods to accelerate and improve chromatography process development.\n\nI contributed to two primary projects:\n\n1. **GUI Development**: Designed and deployed an interactive application that enables laboratory scientists to configure, run, and analyze chromatography simulations. The system was built using Streamlit for the user interface, CADET as the simulation backend, and DataIku for deployment, significantly improving accessibility of model-driven experimentation.\n\n2. **Deep Learning-Based Parameter Estimation**: Designed and implemented a CNN-based active learning workflow for parameter fitting in Hydrophobic Interaction Chromatography (HIC) isotherm models. The approach reduced parameter fitting time while improving estimation accuracy by approximately 5%. The workflow was generalized to support multiple isotherm formulations and validated against experimental data from two production-ready molecules.",
-    "thumbnail": "assets/images/bioprocess.jpg"
+    "thumbnail": "assets/images/pf.jpg"
   },
   {
     "id": "cybathlon-knee-prosthesis",
