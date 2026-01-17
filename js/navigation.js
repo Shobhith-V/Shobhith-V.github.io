@@ -4,7 +4,8 @@ function renderNavigation(currentPage = 'home') {
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'projects', label: 'Projects & Research', href: 'projects.html' },
     { id: 'publications', label: 'Publications', href: 'publications.html' },
-    { id: 'about', label: 'About', href: 'about.html' }
+    { id: 'about', label: 'About', href: 'about.html' },
+    { id: 'media', label: 'Media', href: 'media.html' }
   ];
 
   let navHTML = '<nav id="main-nav" role="navigation">';

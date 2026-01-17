@@ -2,38 +2,115 @@
   {
     "id": "pfizer-bioprocess",
     "title": "BioProcess R&D - Pfizer",
-    "summary": "GUI development and Physics-Informed Neural Networks for Ion Exchange and Hydrophobic Interaction Chromatography modeling",
-    "tags": ["Machine Learning", "PINNs", "Bioprocess Engineering", "GUI Development"],
-    "date": "December 2024 - Present",
+    "summary": "GUI development and Parameter Estimation using CNN based workflow",
+    "tags": ["Machine Learning", "Deep Learning", "Bioprocess Engineering", "Scientific Computing"],
+    "date": "December 2024 - August 2025",
     "type": "Internship",
     "github": null,
-    "pdf": null,
-    "description": "I am currently interning at Pfizer for a period of six months. I am working in the BRD downstream modelling team. I am working on two main projects:\n\n1. **GUI Development**: Developing an interactive GUI for laboratory scientists to run ion-exchange chromatography simulations using CADET.\n\n2. **Physics-Informed Neural Networks (PINNs)**: Conducting research on modeling Ion Exchange (IEX) and Hydrophobic Interaction Chromatography (HIC) processes using PINNs. Validating model predictions with experimental data, achieving high fidelity in capturing key chromatographic behaviors.",
-    "thumbnail": null
+    "pdf": "/public/reports/Mid_term_poster_Shobhith_new.pdf",
+    "description": "I completed an eight-month internship at Pfizer as part of the Bioprocess R&D downstream modeling team. My work focused on developing computational tools and machine learning methods to accelerate and improve chromatography process development.\n\nI contributed to two primary projects:\n\n1. **GUI Development**: Designed and deployed an interactive application that enables laboratory scientists to configure, run, and analyze chromatography simulations. The system was built using Streamlit for the user interface, CADET as the simulation backend, and DataIku for deployment, significantly improving accessibility of model-driven experimentation.\n\n2. **Deep Learning-Based Parameter Estimation**: Designed and implemented a CNN-based active learning workflow for parameter fitting in Hydrophobic Interaction Chromatography (HIC) isotherm models. The approach reduced parameter fitting time while improving estimation accuracy by approximately 5%. The workflow was generalized to support multiple isotherm formulations and validated against experimental data from two production-ready molecules.",
+    "thumbnail": "assets/images/bioprocess.jpg"
   },
   {
     "id": "cybathlon-knee-prosthesis",
     "title": "Active Knee Prosthesis Development - Cybathlon 2024",
     "summary": "Developed signal processing board for force & angle measurements, achieving 8th place out of 13 teams",
-    "tags": ["Signal Processing", "Embedded Systems", "Biomedical Engineering", "Wireless Communication"],
-    "date": "January 2024 - Present",
-    "type": "Research Project",
-    "github": null,
-    "pdf": null,
-    "description": "Developed a signal processing board for force & angle measurements, wirelessly relaying data & tunable parameters. Minimized lag in 3-axis angle readings by off-loading filtering processes, obtaining accurate 2-DOF pose estimates.\n\n**Achievement**: Placed **8th out of 13 teams** in Cybathlon 2024.",
+    "tags": ["Neuroprosthetics", "Embedded Systems", "Human–Machine Interaction", "Cognitive Neuroscience"],
+    "date": "December 2023 - December 2024",
+    "type": "Competition",
+    "github": "https://github.com/Shobhith-V/Cybathlon-24",
+    "pdf": "/public/reports/ASAI_IDP.pdf",
+    "description": "This project focused on the design and evaluation of a closed-loop sensory feedback system to restore proprioceptive cues for transfemoral amputees during locomotion. The goal was to improve balance, gait awareness, and task performance in real-world walking scenarios.\n\nI implemented an Arduino-based real-time control system that translated ground reaction forces measured using A301 force sensors into vibrotactile feedback delivered through coin vibration motors. This closed-loop system enabled intuitive, low-latency sensory substitution during locomotion.\n\nThe effectiveness of the feedback was evaluated through task-based performance metrics inspired by Cybathlon challenges, along with cognitive load assessments to quantify usability and attentional demand. In addition to vibrotactile feedback, I explored multimodal feedback strategies—including visual and auditory cues—and investigated different encoding schemes to enhance sensorimotor perception in lower-limb prosthetics.\n\nThis work culminated in participation at Cybathlon 2024 in Zurich, an international competition that evaluates assistive technologies through realistic, everyday tasks performed by pilots with disabilities. Representing IIT Madras, our team achieved an 8th-place global finish and was the only Indian team at the event, validating the robustness and real-world performance of the system under competitive conditions.",
     "thumbnail": "assets/images/IMG_2602.jpg"
   },
   {
     "id": "senai-predictive-coding",
     "title": "Predictive Coding Models for Information Processing",
     "summary": "Research on predictive coding models for information processing in the brain and programmable algorithm for enhanced object detection",
-    "tags": ["Computational Neuroscience", "Machine Learning", "Predictive Coding", "Object Detection"],
+    "tags": ["Computational Neuroscience", "Machine Learning", "Dynamical Systems"],
     "date": "February 2024 - December 2024",
-    "type": "Research",
+    "type": "Research Project",
     "github": null,
-    "pdf": null,
-    "description": "Conducted in-depth research on predictive coding models for information processing in the brain. Developed a programmable algorithm based on predictive coding to enhance object detection accuracy.",
+    "pdf": "/public/reports/Math_of_Predictive_coding.pdf",
+    "description": "This project explored the predictive coding paradigm as a computational framework for information processing in the brain. I conducted an extensive literature review covering theoretical foundations, neural interpretations, and modern machine learning formulations of predictive coding.\n\nTo develop a concrete understanding of the framework, I implemented a predictive coding model from scratch and replicated its learning dynamics on the MNIST dataset. The implementation emphasized error-driven inference, hierarchical representations, and local learning rules, allowing direct comparison with standard backpropagation-based neural networks.\n\nThrough this work, I gained practical insight into how predictive coding unifies perception, inference, and learning, and how biologically inspired principles can be translated into executable computational models.",
     "thumbnail": null
+  },
+  {
+    "id": "heart-brain-dynamics",
+    "title": "Closed-Loop Modeling of Heart–Brain Dynamics",
+    "summary": "Hybrid neural–mechanistic modeling of bidirectional heart–brain interactions using coupled oscillators and Neural ODEs",
+    "tags": ["Computational Neuroscience", "Dynamical Systems", "Multimodal Modeling", "Interoception"],
+    "date": "April 2025 – Present",
+    "type": "Master's Thesis",
+    "github": null,
+    "pdf": "/public/reports/poster_sho.pdf",
+    "description": "This project investigates bidirectional heart–brain interactions as a coupled dynamical system, with the goal of understanding how interoceptive signals shape neural dynamics and cognition. I modeled cortical regions and cardiac mechanisms as coupled Hopf oscillators, grounded in subject-specific structural connectivity.\n\nI developed a generative Neural ODE framework that jointly predicts ECG and MEG signals from latent neural states, integrating mechanistic oscillator dynamics with learnable MLP-based observation models. Circuit-level dynamics are learned using Hebbian plasticity, with sequential inference of latent coupling parameters from multimodal neural data.\n\nA key contribution of this work is the introduction of a closed-loop inference mechanism, where ECG reconstruction error is used to compute corrective feedback via an MLP that adapts cardiac oscillator states during inference. Multimodal preprocessing and source reconstruction were performed on the CAM-CAN MEG–ECG dataset using sLORETA to map sensor-space signals to 68 cortical parcels.",
+    "thumbnail": null
+  },
+  {
+    "id": "voice-processing-eyetracking",
+    "title": "Cognitive Processing of Voice Constructions",
+    "summary": "Eye-tracking study on how syntactic voice influences attention and sentence processing",
+    "tags": ["Psycholinguistics", "Cognitive Neuroscience", "Statistical Modeling"],
+    "date": "December 2024 – Present",
+    "type": "Research Project",
+    "github": "https://github.com/Shobhith-V/Active_passive_eyetracking",
+    "pdf": "/public/reports/ID4900_report.pdf",
+    "description": "This project investigates how syntactic voice constructions (active vs. passive) influence real-time sentence processing and attentional allocation. I designed and conducted a psycholinguistic eye-tracking experiment using PsychoPy on the EyeLink Portable Duo system to capture gaze dynamics during sentence comprehension.\n\nTo analyze time-resolved eye-movement data from 48 participants, I employed Generalized Additive Mixed Models (GAMMs), enabling flexible modeling of nonlinear gaze trajectories while accounting for subject-level variability. The analysis aims to uncover cognitive load differences and validate the agent-first hypothesis in incremental sentence parsing.\n\nConceptually, this work formalizes voice alternations as representational transformations and examines how syntactic role assignment modulates attentional dynamics during language comprehension.",
+    "thumbnail": "assets/images/eye.jpg"
+  },
+  {
+    "id": "language-hierarchical-agent",
+    "title": "Language-Based Hierarchical Agent for Reasoning",
+    "summary": "Language-driven representation learning for reasoning in partially observable environments",
+    "tags": ["Reinforcement Learning", "Representation Learning", "Symbolic AI"],
+    "date": "July 2024 – November 2024",
+    "type": "Course Project",
+    "github": "https://github.com/Shobhith-V/DA7400_code_repo",
+    "pdf": "/public/reports/endterm_report.pdf",
+    "description": "This project explored the use of language as a representational substrate for hierarchical reasoning in partially observable environments. I encoded image-based POMDP environments into structured language representations to support reasoning and action selection.\n\nI developed an autoencoder-like architecture that reconstructs images from text representations, enabling feature extraction for a downstream PPO agent. Through systematic analysis, I identified failure modes arising from limited scene context extraction, linking these shortcomings to language model capacity, autoencoder complexity, and the constraints of text-based representations.",
+    "thumbnail": null
+  },
+  {
+    "id": "circulomics-cbr",
+    "title": "Circulomics: A Case-Based Reasoning Framework for Circularity",
+    "summary": "Structured diagnosis and resolution of circular dependencies in AI and cognitive systems",
+    "tags": ["Symbolic AI", "Explainable AI", "Cognitive Neuroscience"],
+    "date": "July 2025 – November 2025",
+    "type": "Course Project",
+    "github": null,
+    "pdf": "/public/reports/Circularity_project.pdf",
+    "description": "This project addressed the problem of circularity in AI and cognitive systems by developing a Case-Based Reasoning (CBR) framework to detect and resolve feedback-driven failure modes. Circular dependencies were represented as structured cases capturing loop topology and system dynamics.\n\nI designed a feature schema and topology-aware similarity metric to retrieve analogous loop structures across domains, such as mapping the Barber Paradox to instability in recurrent neural networks. Solutions were adapted using a guided LLM-based reasoning procedure combined with symbolic validation, enabling reliable cross-domain transfer of corrective strategies.",
+    "thumbnail": null
+  },
+  {
+    "id": "team-abhiyaan-autonomy",
+    "title": "Autonomous Vehicle Systems Engineering",
+    "summary": "Design of drive-by-wire systems for autonomous ground vehicles",
+    "tags": ["Robotics", "Autonomous Systems", "Embedded Systems"],
+    "date": "April 2022 – April 2023",
+    "type": "Engineering Project",
+    "github": "https://www.teamabhiyaan.com/",
+    "pdf": null,
+    "description": "As part of Team Abhiyaan, IIT Madras' autonomous ground vehicle team, I worked on the design and implementation of brake-by-wire and steer-by-wire systems for a commercial golf cart platform.\n\nThe system enabled full autonomous control and was evaluated at the Intelligent Ground Vehicle Competition (IGVC) at Oakland University, Michigan, where the team placed first among 25+ global universities in the Design Challenge. I also presented the team’s work to delegates from the education ministries of G20 countries, highlighting the system’s engineering and societal impact.",
+    "thumbnail": "assets/images/abhiyaan.png"
+  },
+  {
+    "id": "mando-ai-document-assistant",
+    "title": "Mando AI – Multimodal Document Q&A Assistant",
+    "summary": "LLM-powered document intelligence system with multimodal ingestion and executable data analysis",
+    "tags": ["Machine Learning", "Multimodal Modeling", "Scientific Computing", "Human–Machine Interaction"],
+    "date": "February 2025 – March 2025",
+    "type": "Hackathon (Finalist)",
+    "github": "https://github.com/Shobhith-V/Mando_hackathon",
+    "pdf": null,
+    "description": "This project involved building a Streamlit-based AI assistant with a conversational interface for question answering over heterogeneous document formats using LLM-powered semantic search. The system was designed to support interactive exploration of unstructured, semi-structured, and structured data within a unified chat interface.\n\nI engineered a robust data ingestion pipeline that performs OCR to extract text from images, crawls web pages and embedded links to augment document context, and parses structured data files (CSV, Excel, JSON) for downstream analysis. For structured inputs, the system dynamically generated interactive Plotly visualizations to support exploratory data analysis.\n\nAdditionally, I enabled secure execution of LLM-generated Python code to perform custom data analysis directly within the application. The chat interface was designed with session-level history and context management, enabling multi-turn, stateful interactions. This project was selected as a finalist submission at the Mando AI hackathon."
   }
+  
+  
+  
+
+  
+  
 ]
 

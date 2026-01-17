@@ -675,6 +675,43 @@ label input {
   margin-right: 1ch;
 }
 
+/* MEDIA GALLERY STYLES */
+
+.media-item {
+  margin: calc(var(--line-height) * 2) 0;
+  border: var(--border-thickness) solid var(--text-color);
+  padding: var(--line-height) 1ch;
+}
+
+.media-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: var(--line-height);
+}
+
+.media-item figcaption {
+  margin-top: var(--line-height);
+}
+
+.media-item h3 {
+  margin-top: 0;
+  margin-bottom: calc(var(--line-height) / 2);
+  color: #be9432; /* Gold color */
+}
+
+.media-location,
+.media-date {
+  color: var(--text-color-alt);
+  font-size: 0.9rem;
+  margin-bottom: calc(var(--line-height) / 2);
+}
+
+.media-item p {
+  margin-bottom: var(--line-height);
+}
+
 /* RESPONSIVE ADJUSTMENTS */
 
 @media screen and (max-width: 480px) {
