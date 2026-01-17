@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Predictive Coding Models for Information Processing - Shobhith Vadlamudi</title>
+  <title>Closed-Loop Modeling of Heart–Brain Dynamics - Shobhith Vadlamudi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="src/reset.css" />
@@ -40,17 +40,18 @@
 <div id="project-content">
   <article class="project-detail">
     <header>
-      <h1>Predictive Coding Models for Information Processing</h1>
-      <p class="project-meta">Research Project • February 2024 - December 2024</p>
+      <h1>Closed-Loop Modeling of Heart–Brain Dynamics</h1>
+      <p class="project-meta">Master's Thesis • April 2025 – Present</p>
 
       <div class="project-tags">
         <span class="tag">Computational Neuroscience</span>
-<span class="tag">Machine Learning</span>
 <span class="tag">Dynamical Systems</span>
+<span class="tag">Multimodal Modeling</span>
+<span class="tag">Interoception</span>
       </div>
 
       <div class="project-links">
-        <a href="/public/reports/Math_of_Predictive_coding.pdf" target="_blank">
+        <a href="/public/reports/poster_sho.pdf" target="_blank">
         <i class="fa fa-file-pdf-o"></i> PDF
       </a>
       </div>
@@ -59,16 +60,16 @@
     
 
     <div class="project-description">
-      <p>This project explored the predictive coding paradigm as a computational framework for information processing in the brain. I conducted an extensive literature review covering theoretical foundations, neural interpretations, and modern machine learning formulations of predictive coding.</p>
-<p>To develop a concrete understanding of the framework, I implemented a predictive coding model from scratch and replicated its learning dynamics on the MNIST dataset. The implementation emphasized error-driven inference, hierarchical representations, and local learning rules, allowing direct comparison with standard backpropagation-based neural networks.</p>
-<p>Through this work, I gained practical insight into how predictive coding unifies perception, inference, and learning, and how biologically inspired principles can be translated into executable computational models.</p>
+      <p>This project investigates bidirectional heart–brain interactions as a coupled dynamical system, with the goal of understanding how interoceptive signals shape neural dynamics and cognition. I modeled cortical regions and cardiac mechanisms as coupled Hopf oscillators, grounded in subject-specific structural connectivity.</p>
+<p>I developed a generative Neural ODE framework that jointly predicts ECG and MEG signals from latent neural states, integrating mechanistic oscillator dynamics with learnable MLP-based observation models. Circuit-level dynamics are learned using Hebbian plasticity, with sequential inference of latent coupling parameters from multimodal neural data.</p>
+<p>A key contribution of this work is the introduction of a closed-loop inference mechanism, where ECG reconstruction error is used to compute corrective feedback via an MLP that adapts cardiac oscillator states during inference. Multimodal preprocessing and source reconstruction were performed on the CAM-CAN MEG–ECG dataset using sLORETA to map sensor-space signals to 68 cortical parcels.</p>
     </div>
 
     
     <section style="margin-top: 3rem;">
       <h3>Report / Poster</h3>
       <iframe
-        src="/public/reports/Math_of_Predictive_coding.pdf"
+        src="/public/reports/poster_sho.pdf"
         width="100%"
         height="600"
         style="border: 1px solid #ccc;"

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Predictive Coding Models for Information Processing - Shobhith Vadlamudi</title>
+  <title>Language-Based Hierarchical Agent for Reasoning - Shobhith Vadlamudi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="src/reset.css" />
@@ -40,17 +40,19 @@
 <div id="project-content">
   <article class="project-detail">
     <header>
-      <h1>Predictive Coding Models for Information Processing</h1>
-      <p class="project-meta">Research Project • February 2024 - December 2024</p>
+      <h1>Language-Based Hierarchical Agent for Reasoning</h1>
+      <p class="project-meta">Course Project • July 2024 – November 2024</p>
 
       <div class="project-tags">
-        <span class="tag">Computational Neuroscience</span>
-<span class="tag">Machine Learning</span>
-<span class="tag">Dynamical Systems</span>
+        <span class="tag">Reinforcement Learning</span>
+<span class="tag">Representation Learning</span>
+<span class="tag">Symbolic AI</span>
       </div>
 
       <div class="project-links">
-        <a href="/public/reports/Math_of_Predictive_coding.pdf" target="_blank">
+        <a href="https://github.com/Shobhith-V/DA7400_code_repo" target="_blank">
+        <i class="fa fa-github"></i> Code
+      </a> • <a href="/public/reports/endterm_report.pdf" target="_blank">
         <i class="fa fa-file-pdf-o"></i> PDF
       </a>
       </div>
@@ -59,16 +61,15 @@
     
 
     <div class="project-description">
-      <p>This project explored the predictive coding paradigm as a computational framework for information processing in the brain. I conducted an extensive literature review covering theoretical foundations, neural interpretations, and modern machine learning formulations of predictive coding.</p>
-<p>To develop a concrete understanding of the framework, I implemented a predictive coding model from scratch and replicated its learning dynamics on the MNIST dataset. The implementation emphasized error-driven inference, hierarchical representations, and local learning rules, allowing direct comparison with standard backpropagation-based neural networks.</p>
-<p>Through this work, I gained practical insight into how predictive coding unifies perception, inference, and learning, and how biologically inspired principles can be translated into executable computational models.</p>
+      <p>This project explored the use of language as a representational substrate for hierarchical reasoning in partially observable environments. I encoded image-based POMDP environments into structured language representations to support reasoning and action selection.</p>
+<p>I developed an autoencoder-like architecture that reconstructs images from text representations, enabling feature extraction for a downstream PPO agent. Through systematic analysis, I identified failure modes arising from limited scene context extraction, linking these shortcomings to language model capacity, autoencoder complexity, and the constraints of text-based representations.</p>
     </div>
 
     
     <section style="margin-top: 3rem;">
       <h3>Report / Poster</h3>
       <iframe
-        src="/public/reports/Math_of_Predictive_coding.pdf"
+        src="/public/reports/endterm_report.pdf"
         width="100%"
         height="600"
         style="border: 1px solid #ccc;"

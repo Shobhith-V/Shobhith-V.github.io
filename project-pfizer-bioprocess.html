@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>BioProcess R&D - Pfizer - Shobhith Vadlamudi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="stylesheet" href="src/reset.css" />
   <link rel="stylesheet" href="src/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
 <table class="header">
   <tr>
@@ -18,23 +20,20 @@
   </tr>
   <tr>
     <th>Updated</th>
-    <td class="width-min"><time style="white-space: pre;">2025-17-03</time></td>
+    <td class="width-min"><time>2026-01-17</time></td>
   </tr>
   <tr>
     <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 337, Saraswati Hostel, IIT Madras</td>
+    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
     <th class="width-min">Contact</th>
     <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4">
-      <cite><i class="fa fa-linkedin"></i></cite>
-      </a>
-      <a href="https://x.com/Shobhith_V"><cite><i class="fa fa-twitter"></i></cite></a>
-      <a href="mailto:ed21b069@smail.iitm.ac.in?subject=Hi!"><cite><i class="fa fa-envelope" aria-hidden="true"></i></cite></a>
-      <a href="https://github.com/Shobhith-V"><cite><i class="fa fa-github" aria-hidden="true"></i></cite></a>
+      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
+      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
+      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
+      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
     </td>
   </tr>
 </table>
-<label class="debug-toggle-label"><input type="checkbox" class="debug-toggle" /> Debug mode</label>
 
 <div id="nav-container" data-current-page="projects"></div>
 
@@ -42,52 +41,56 @@
   <article class="project-detail">
     <header>
       <h1>BioProcess R&D - Pfizer</h1>
-      <p class="project-meta">Internship • December 2024 - Present</p>
+      <p class="project-meta">Internship • December 2024 - August 2025</p>
+
       <div class="project-tags">
         <span class="tag">Machine Learning</span>
-<<<<<<< HEAD
-        <span class="tag">Bioprocess Engineering</span>
-        <span class="tag">Scientific Computing</span>
+<span class="tag">Deep Learning</span>
+<span class="tag">Bioprocess Engineering</span>
+<span class="tag">Scientific Computing</span>
+      </div>
+
+      <div class="project-links">
+        <a href="/public/reports/Mid_term_poster_Shobhith_new.pdf" target="_blank">
+        <i class="fa fa-file-pdf-o"></i> PDF
+      </a>
       </div>
     </header>
+
     
     <figure>
-      <img src="assets/images/bioprocess.jpg" alt="Bioprocess India 2024 conference" />
-      <figcaption>At the Bioprocess India 2024 conference</figcaption>
+      <img src="assets/images/bioprocess.jpg" alt="BioProcess R&D - Pfizer" loading="lazy" />
     </figure>
-    
-=======
-        <span class="tag">PINNs</span>
-        <span class="tag">Bioprocess Engineering</span>
-        <span class="tag">GUI Development</span>
-      </div>
-    </header>
-    
->>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
+  
+
     <div class="project-description">
-      <p>I am currently interning at Pfizer for a period of six months. I am working in the BRD downstream modelling team. I am working on two main projects:</p>
-      
-      <h3>GUI Development</h3>
-      <p>Developing an interactive GUI for laboratory scientists to run ion-exchange chromatography simulations using CADET.</p>
-      
-<<<<<<< HEAD
-      <h3>Computational Modeling</h3>
-      <p>Conducting research on modeling Ion Exchange (IEX) and Hydrophobic Interaction Chromatography (HIC) processes. Validating model predictions with experimental data.</p>
-=======
-      <h3>Physics-Informed Neural Networks (PINNs)</h3>
-      <p>Conducting research on modeling Ion Exchange (IEX) and Hydrophobic Interaction Chromatography (HIC) processes using PINNs. Validating model predictions with experimental data, achieving high fidelity in capturing key chromatographic behaviors.</p>
->>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
+      <p>I completed an eight-month internship at Pfizer as part of the Bioprocess R&D downstream modeling team. My work focused on developing computational tools and machine learning methods to accelerate and improve chromatography process development.</p>
+<p>I contributed to two primary projects:</p>
+<p>1. **GUI Development**: Designed and deployed an interactive application that enables laboratory scientists to configure, run, and analyze chromatography simulations. The system was built using Streamlit for the user interface, CADET as the simulation backend, and DataIku for deployment, significantly improving accessibility of model-driven experimentation.</p>
+<p>2. **Deep Learning-Based Parameter Estimation**: Designed and implemented a CNN-based active learning workflow for parameter fitting in Hydrophobic Interaction Chromatography (HIC) isotherm models. The approach reduced parameter fitting time while improving estimation accuracy by approximately 5%. The workflow was generalized to support multiple isotherm formulations and validated against experimental data from two production-ready molecules.</p>
     </div>
+
     
-    <nav style="margin-top: calc(var(--line-height) * 2);">
-      <a href="projects.html"><button><i class="fa fa-arrow-left"></i> Back to Projects</button></a>
+    <section style="margin-top: 3rem;">
+      <h3>Report / Poster</h3>
+      <iframe
+        src="/public/reports/Mid_term_poster_Shobhith_new.pdf"
+        width="100%"
+        height="600"
+        style="border: 1px solid #ccc;"
+      ></iframe>
+    </section>
+  
+
+    <nav style="margin-top: 3rem;">
+      <a href="projects.html">
+        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
+      </a>
     </nav>
   </article>
 </div>
 
-<div class="debug-grid"></div>
 <script src="src/index.js"></script>
 <script src="js/navigation.js"></script>
 </body>
 </html>
-
