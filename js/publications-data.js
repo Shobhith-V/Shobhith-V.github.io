@@ -6,7 +6,7 @@ const publications = [
     venue: "Linguistics Vanguard (under review)",
     year: 2025,
     type: "Journal Paper",
-    pdf: "public/reports/dyslexia_syntax.pdf"
+    pdf: "public/reports/paper_submitted.pdf"
   },
   {
     id: "predictive-coding-report",
