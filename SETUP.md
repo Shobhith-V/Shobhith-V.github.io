@@ -9,6 +9,7 @@
 ├── project-*.html          # Individual project detail pages
 ├── publications.html       # Publications & PDFs page
 ├── about.html              # About & CV page
+<<<<<<< HEAD
 ├── media.html              # Media & Travel page
 ├── data/
 │   ├── projects.json       # Project data (add new projects here)
@@ -19,12 +20,26 @@
 │   ├── projects.js         # Project listing & filtering
 │   ├── publications.js     # Publications & PDF viewer
 │   └── media.js            # Media gallery
+=======
+├── data/
+│   ├── projects.json       # Project data (add new projects here)
+│   └── publications.json   # Publication data (optional)
+├── js/
+│   ├── navigation.js       # Navigation component
+│   ├── projects.js         # Project listing & filtering
+│   ├── project-detail.js   # Project detail page loader (optional)
+│   └── publications.js     # Publications & PDF viewer
+>>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
 ├── src/
 │   ├── index.css           # Main stylesheet
 │   ├── reset.css           # CSS reset
 │   └── index.js            # Grid alignment utilities
 ├── assets/
+<<<<<<< HEAD
 │   ├── images/             # Project images and photos
+=======
+│   ├── images/             # Project images
+>>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
 │   └── docs/               # CV and other documents
 └── public/
     └── reports/            # PDF reports (place PDFs here)
@@ -115,6 +130,7 @@ The PDF will be viewable at:
 - `publications.html?pdf=public/reports/your-report-name.pdf`
 - Or linked from the project detail page
 
+<<<<<<< HEAD
 ## Adding Travel Photos
 
 ### Step 1: Add Your Images
@@ -139,6 +155,8 @@ Edit `data/media.json` and add a new entry:
 }
 ```
 
+=======
+>>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
 ## Styling Guidelines
 
 The website uses a minimalist, research-oriented design:
@@ -153,7 +171,10 @@ To modify styles, edit `src/index.css`. Key classes:
 - `.project-detail`: Project detail pages
 - `.tag`: Tag badges
 - `.pdf-viewer`: PDF iframe container
+<<<<<<< HEAD
 - `.media-item`: Media gallery items
+=======
+>>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
 
 ## Navigation
 
@@ -181,3 +202,15 @@ Then open `http://localhost:8000` in your browser.
 2. GitHub Pages will automatically serve the site
 3. Ensure all file paths are relative (they are by default)
 
+<<<<<<< HEAD
+=======
+## Future Improvements (Optional)
+
+- [ ] Add search functionality for projects
+- [ ] Implement markdown rendering for project descriptions
+- [ ] Add RSS feed for publications
+- [ ] Create automated project page generation script
+- [ ] Add analytics (if desired)
+- [ ] Implement dark mode toggle (currently uses system preference)
+
+>>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2

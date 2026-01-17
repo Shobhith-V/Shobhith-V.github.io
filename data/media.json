@@ -6,6 +6,7 @@
     "image": "assets/images/kuari.jpg",
     "location": "Uttarakhand, India",
     "date": "2024"
+<<<<<<< HEAD
   },
   {
     "id": "bioprocess-conference",
@@ -22,6 +23,8 @@
     "image": "assets/images/IMG_2602.jpg",
     "location": "Zurich, Switzerland",
     "date": "2024"
+=======
+>>>>>>> 33c10cda264e1aec23b40d1ae17595f5ce5281c2
   }
 ]
 
