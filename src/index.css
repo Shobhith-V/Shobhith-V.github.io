@@ -382,7 +382,7 @@ tbody tr:hover {
 
 .header {
   margin: var(--spacing-lg) auto var(--spacing-3xl);
-  max-width: 1200px;
+  max-width: 900px;
   width: calc(100% - 2 * var(--spacing-lg));
   background: var(--color-bg-secondary);
   border: var(--border-thickness) solid var(--color-border);
@@ -822,7 +822,7 @@ label input {
   list-style: none;
   padding: 0 var(--spacing-lg);
   margin: var(--spacing-2xl) auto;
-  max-width: 1200px;
+  max-width: 900px;
   border-bottom: var(--border-thickness) solid var(--color-border);
   padding-bottom: var(--spacing-md);
   box-sizing: border-box;
@@ -1349,8 +1349,8 @@ label input {
   align-items: flex-start;
   padding: var(--spacing-4xl) var(--spacing-lg);
   margin: 0 auto var(--spacing-4xl);
-  max-width: 1200px;
-  width: 100%;
+  max-width: 900px;
+  width: calc(100% - 2 * var(--spacing-lg));
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -1413,7 +1413,7 @@ label input {
 .video-section {
   margin: var(--spacing-4xl) auto;
   padding: var(--spacing-3xl) var(--spacing-lg);
-  max-width: 1200px;
+  max-width: 900px;
   width: calc(100% - 2 * var(--spacing-lg));
   background: var(--color-bg-secondary);
   border-radius: var(--border-radius-lg);
@@ -1429,7 +1429,7 @@ label input {
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   border-radius: var(--border-radius-lg);
@@ -1461,7 +1461,13 @@ label input {
    ============================================================================ */
 
 /* Main content wrapper - ensures all content is properly contained */
-body > table.header,
+body > table.header {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
 body > label.debug-toggle-label {
   max-width: 1200px;
   margin-left: auto;
@@ -1470,7 +1476,7 @@ body > label.debug-toggle-label {
 }
 
 body > div#nav-container {
-  max-width: 1200px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 var(--spacing-lg);
@@ -1645,6 +1651,7 @@ section h2::after {
     min-height: 60vh;
     padding: var(--spacing-2xl) var(--spacing-md);
     width: calc(100% - 2 * var(--spacing-md));
+    max-width: 900px;
   }
   
   section {
