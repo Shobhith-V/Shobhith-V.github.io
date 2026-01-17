@@ -111,21 +111,10 @@
   line-height: var(--line-height);
 }
 
-/* Light mode (optional, but keeping dark as primary) */
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg-primary: #ffffff;
-    --color-bg-secondary: #f8f8fa;
-    --color-bg-tertiary: #f0f0f2;
-    --color-bg-elevated: #e8e8ea;
-    
-    --color-text-primary: #0a0a0f;
-    --color-text-secondary: #404050;
-    --color-text-tertiary: #707080;
-    
-    --color-border: rgba(0, 0, 0, 0.1);
-    --color-border-strong: rgba(0, 0, 0, 0.2);
-  }
+/* Dark mode is forced - light mode override removed */
+/* Force dark color scheme for browser UI elements */
+:root {
+  color-scheme: dark;
 }
 
 /* ============================================================================
