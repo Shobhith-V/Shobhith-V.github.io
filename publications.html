@@ -2,9 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Shobhith Vadlamudi</title>
+  <title>Publications & Reports - Shobhith Vadlamudi</title>
   <link rel="stylesheet" href="src/reset.css" />
   <link rel="stylesheet" href="src/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,28 +36,29 @@
 </table>
 <label class="debug-toggle-label"><input type="checkbox" class="debug-toggle" /> Debug mode</label>
 
-<div id="nav-container" data-current-page="home"></div>
+<div id="nav-container" data-current-page="publications"></div>
 
-<section id="home-intro">
-  <h2>About</h2>
-  <p>I am Lalanth Shobhith Vadlamudi, a final-year Dual Degree student at IIT Madras pursuing a B.Tech in Engineering Design and an M.Tech in Data Science.</p>
+<section id="publications-section">
+  <h2>Publications & Reports</h2>
+  <p>Research papers, technical reports, and documentation. PDFs can be viewed inline or downloaded.</p>
   
-  <p>I work at the intersection of computational neuroscience, dynamical systems, and neurotechnology. My research explores coupled brain–body neural dynamics and closed-loop feedback for future brain–computer interfaces.</p>
+  <div id="publications-list"></div>
   
-  <p>Explore my <a href="projects.html">projects and research</a> to learn more about my work, or view my <a href="publications.html">publications and reports</a>.</p>
-</section>
-
-<section id="quick-links">
-  <h2>Quick Links</h2>
-  <nav>
-    <a href="projects.html"><button><i class="fa fa-flask" aria-hidden="true"></i> Projects & Research</button></a>
-    <a href="publications.html"><button><i class="fa fa-file-text" aria-hidden="true"></i> Publications</button></a>
-    <a href="about.html"><button><i class="fa fa-user" aria-hidden="true"></i> About & CV</button></a>
-  </nav>
+  <div id="pdf-viewer-section" style="display: none;">
+    <div class="pdf-viewer-container">
+      <div class="pdf-controls">
+        <a href="#" id="pdf-download-link" download><button><i class="fa fa-download"></i> Download PDF</button></a>
+        <a href="publications.html"><button><i class="fa fa-arrow-left"></i> Back to List</button></a>
+      </div>
+      <iframe id="pdf-viewer" class="pdf-viewer" src=""></iframe>
+    </div>
+  </div>
 </section>
 
 <div class="debug-grid"></div>
 <script src="src/index.js"></script>
 <script src="js/navigation.js"></script>
+<script src="js/publications.js"></script>
 </body>
 </html>
+
