@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>BioProcess R&D - Pfizer - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pfizer Bioprocess R&D — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>BioProcess R&D - Pfizer</h1>
-      <p class="project-meta">Internship • December 2024 - August 2025</p>
-
-      <div class="project-tags">
-        <span class="tag">Machine Learning</span>
-<span class="tag">Deep Learning</span>
-<span class="tag">Bioprocess Engineering</span>
-<span class="tag">Scientific Computing</span>
-      </div>
-
-      <div class="project-links">
-        <a href="/public/reports/Mid_term_poster_Shobhith_new.pdf" target="_blank">
-        <i class="fa fa-file-pdf-o"></i> PDF
-      </a>
-      </div>
-    </header>
-
-    
-    <figure>
-      <img src="assets/images/pf.jpg" alt="BioProcess R&D - Pfizer" loading="lazy" />
-    </figure>
-  
-
-    <div class="project-description">
-      <p>I completed an eight-month internship at Pfizer as part of the Bioprocess R&D downstream modeling team. My work focused on developing computational tools and machine learning methods to accelerate and improve chromatography process development.</p>
-<p>I contributed to two primary projects:</p>
-<p>1. **GUI Development**: Designed and deployed an interactive application that enables laboratory scientists to configure, run, and analyze chromatography simulations. The system was built using Streamlit for the user interface, CADET as the simulation backend, and DataIku for deployment, significantly improving accessibility of model-driven experimentation.</p>
-<p>2. **Deep Learning-Based Parameter Estimation**: Designed and implemented a CNN-based active learning workflow for parameter fitting in Hydrophobic Interaction Chromatography (HIC) isotherm models. The approach reduced parameter fitting time while improving estimation accuracy by approximately 5%. The workflow was generalized to support multiple isotherm formulations and validated against experimental data from two production-ready molecules.</p>
-    </div>
-
-    
-    <section style="margin-top: 3rem;">
-      <h3>Report / Poster</h3>
-      <iframe
-        src="/public/reports/Mid_term_poster_Shobhith_new.pdf"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ccc;"
-      ></iframe>
-    </section>
-  
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">Bioprocess Engineering · Industry Internship</div>
+  <h1 class="proj-title">Bioprocess R&amp;D at Pfizer —<br>Chromatography Modeling</h1>
+  <div class="proj-meta">December 2024 – August 2025 &nbsp;·&nbsp; Pfizer, Bioprocess R&amp;D Downstream Modeling Team</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Deep Learning</span>
+    <span class="proj-tag">Active Learning</span>
+    <span class="proj-tag">CNN</span>
+    <span class="proj-tag">CADET</span>
+    <span class="proj-tag">Chromatography</span>
+    <span class="proj-tag">Streamlit</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="/public/reports/Mid_term_poster_Shobhith_new.pdf" target="_blank">↓ Poster PDF</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/animations.js"></script>
+<div class="proj-body">
+  <div class="proj-highlights reveal">
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">~5%</div>
+      <div class="proj-highlight-label">Estimation Accuracy Gain</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">2</div>
+      <div class="proj-highlight-label">Production Molecules Validated</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">8mo</div>
+      <div class="proj-highlight-label">Internship Duration</div>
+    </div>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Overview</div>
+    <h2>ML-accelerated chromatography process development</h2>
+    <p>An eight-month internship at Pfizer's <strong>Bioprocess R&amp;D downstream modeling team</strong>, focused on building computational tools and machine learning methods to accelerate chromatography process development. Two primary projects: a simulation GUI and a CNN-based active learning workflow for parameter estimation.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Project 1: Simulation GUI</div>
+    <h2>Interactive chromatography simulation platform</h2>
+    <p>I designed and deployed an interactive application enabling laboratory scientists to <strong>configure, run, and analyze chromatography simulations</strong> without writing code — dramatically lowering the barrier to model-driven experimentation.</p>
+    <ul>
+      <li><strong>Streamlit</strong> for the user interface — accessible from any browser, no installation</li>
+      <li><strong>CADET</strong> as the simulation backend for mechanistic chromatography modeling</li>
+      <li><strong>DataIku</strong> for deployment and access management within Pfizer's infrastructure</li>
+      <li>Parameter sweep, result visualization, and export built into the interface</li>
+    </ul>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Project 2: Parameter Estimation</div>
+    <h2>CNN + active learning for HIC isotherm fitting</h2>
+    <p>I designed and implemented a <strong>CNN-based active learning workflow</strong> for parameter fitting in Hydrophobic Interaction Chromatography (HIC) isotherm models. The approach reduced parameter fitting time while improving estimation accuracy by approximately <strong>5%</strong>.</p>
+    <ul>
+      <li>CNN surrogate model trained on CADET-generated simulation data</li>
+      <li>Active learning loop selects most informative experiments to run next</li>
+      <li>Generalized to support multiple isotherm formulations (Langmuir, SMA, etc.)</li>
+      <li>Validated against experimental data from two production-ready molecules</li>
+    </ul>
+  </div>
+
+  <div class="proj-divider"></div>
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Documentation</div>
+    <h2>Midterm Poster</h2>
+    <div class="proj-pdf">
+      <div class="proj-pdf-actions">
+        <a class="proj-link" href="/public/reports/Mid_term_poster_Shobhith_new.pdf" download>↓ Download Poster</a>
+      </div>
+      <iframe src="/public/reports/Mid_term_poster_Shobhith_new.pdf" title="Pfizer Poster"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="project-mando-ai-document-assistant.html">← Mando AI</a>
+  <a href="project-team-abhiyaan-autonomy.html">Next: Team Abhiyaan →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

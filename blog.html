@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
+  <style>
+    .blog-hero { padding: 9rem 2.5rem 4rem; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .blog-grid { max-width: 1000px; margin: 0 auto; padding: 4rem 2.5rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .blog-card {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 2rem; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 0.85rem;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+    }
+    .blog-card:hover { border-color: rgba(52,211,153,0.4); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .blog-card-stripe {
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      transform: scaleX(0); transition: transform .3s; transform-origin: left;
+    }
+    .blog-card:hover .blog-card-stripe { transform: scaleX(1); }
+    .blog-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .blog-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .blog-card-tag {
+      font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--cyan2); border: 1px solid rgba(16,185,129,0.3); border-radius: 3px; padding: 0.18rem 0.45rem;
+    }
+    .blog-card-meta { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; display: flex; gap: 0.75rem; }
+    .blog-card h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+    .blog-card.featured h2 { font-size: 1.65rem; }
+    .blog-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; flex: 1; }
+    .blog-card-cta { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cyan); display: flex; align-items: center; gap: 0.4rem; margin-top: auto; }
+    .blog-featured-label {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--gold);
+      text-transform: uppercase; letter-spacing: 0.15em;
+      background: rgba(255,176,32,0.1); border: 1px solid rgba(255,176,32,0.25);
+      border-radius: 3px; padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 0.5rem;
+    }
+    .blog-featured-left { display: flex; flex-direction: column; gap: 0.85rem; }
+    .blog-featured-right {
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--bg2); border-radius: 6px; border: 1px solid var(--border);
+      padding: 1.5rem; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); line-height: 1.8;
+    }
+    .blog-featured-right .key { color: var(--cyan); }
+    @media (max-width: 720px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card.featured { grid-column: auto; display: flex; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#research">Research</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <div class="section-label" style="margin-bottom:1rem">Writing</div>
+  <h1 class="section-title" style="margin-bottom:1rem">Blog</h1>
+  <p style="color:var(--muted);font-size:1.05rem;max-width:560px;line-height:1.75">
+    Notes on computational neuroscience, AI, neurotechnology, and the experience of doing research at the edge of what's understood.
+  </p>
+</div>
+
+<div class="blog-grid" id="blog-grid">
+  <!-- rendered by JS -->
+</div>
+
+<script src="blog-posts.js"></script>
+<script>
+function fmt(iso) {
+
+  return new Date(iso).toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+}
+
+const grid = document.getElementById('blog-grid');
+
+BLOG_POSTS.forEach((post, i) => {
+  const featured = post.featured;
+  const card = document.createElement('a');
+  card.href = `blog/${post.slug}.html`;
+  card.className = `blog-card reveal${featured ? ' featured' : ''}`;
+  card.style.transitionDelay = `${i * 0.08}s`;
+
+  if (featured) {
+    card.innerHTML = `
+      <div class="blog-card-stripe"></div>
+      <div class="blog-featured-left">
+        <div class="blog-featured-label">Featured Post</div>
+        <div class="blog-card-tags">${post.tags.map(t=>`<span class="blog-card-tag">${t}</span>`).join('')}</div>
+        <h2>${post.title}</h2>
+        <p>${post.excerpt}</p>
+        <div class="blog-card-meta">
+          <span>${fmt(post.date)}</span>
+          <span>·</span>
+          <span>${post.readTime}</span>
+        </div>
+        <div class="blog-card-cta">Read post →</div>
+      </div>
+      <div class="blog-featured-right">
+        <div><span class="key">topic: </span>${post.tags[0]}</div>
+        <div><span class="key">date:  </span>${post.date}</div>
+        <div><span class="key">read:  </span>${post.readTime}</div>
+        <div style="margin-top:1rem;color:var(--white);font-size:0.85rem;line-height:1.6">"${post.excerpt.split('.')[0]}."</div>
+      </div>`;
+  } else {
+    card.innerHTML = `
+      <div class="blog-card-stripe"></div>
+      <div class="blog-card-tags">${post.tags.map(t=>`<span class="blog-card-tag">${t}</span>`).join('')}</div>
+      <h2>${post.title}</h2>
+      <p>${post.excerpt}</p>
+      <div class="blog-card-meta">
+        <span>${fmt(post.date)}</span><span>·</span><span>${post.readTime}</span>
+      </div>
+      <div class="blog-card-cta">Read post →</div>`;
+  }
+  grid.appendChild(card);
+});
+
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

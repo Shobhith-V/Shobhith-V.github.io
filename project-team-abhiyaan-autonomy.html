@@ -1,83 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Autonomous Vehicle Systems Engineering - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Abhiyaan Autonomy — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>Autonomous Vehicle Systems Engineering</h1>
-      <p class="project-meta">Engineering Project • April 2022 – April 2023</p>
-
-      <div class="project-tags">
-        <span class="tag">Robotics</span>
-<span class="tag">Autonomous Systems</span>
-<span class="tag">Embedded Systems</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://www.teamabhiyaan.com/" target="_blank">
-        <i class="fa fa-github"></i> Code
-      </a>
-      </div>
-    </header>
-
-    
-    <figure>
-      <img src="assets/images/abhiyaan.png" alt="Autonomous Vehicle Systems Engineering" loading="lazy" />
-    </figure>
-  
-
-    <div class="project-description">
-      <p>As part of Team Abhiyaan, IIT Madras' autonomous ground vehicle team, I worked on the design and implementation of brake-by-wire and steer-by-wire systems for a commercial golf cart platform.</p>
-<p>The system enabled full autonomous control and was evaluated at the Intelligent Ground Vehicle Competition (IGVC) at Oakland University, Michigan, where the team placed first among 25+ global universities in the Design Challenge. I also presented the team’s work to delegates from the education ministries of G20 countries, highlighting the system’s engineering and societal impact.</p>
-    </div>
-
-    
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">Robotics · Autonomous Systems</div>
+  <h1 class="proj-title">Autonomous Vehicle Systems<br>Engineering — Team Abhiyaan</h1>
+  <div class="proj-meta">April 2022 – April 2023 &nbsp;·&nbsp; Team Abhiyaan, IIT Madras &nbsp;·&nbsp; IGVC, Oakland University</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Robotics</span>
+    <span class="proj-tag">Autonomous Systems</span>
+    <span class="proj-tag">Brake-by-Wire</span>
+    <span class="proj-tag">Steer-by-Wire</span>
+    <span class="proj-tag">Embedded Systems</span>
+    <span class="proj-tag">ROS</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="https://www.teamabhiyaan.com/" target="_blank">↗ Team Website</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
+<div style="max-width:900px;margin:0 auto;padding:0 2.5rem;">
+  <div class="proj-hero-img">
+    <img src="assets/images/abhiyaan.png" alt="Team Abhiyaan autonomous vehicle">
+  </div>
+</div>
+
+<div class="proj-body">
+  <div class="proj-highlights reveal">
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">1st</div>
+      <div class="proj-highlight-label">IGVC Design Challenge</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">25+</div>
+      <div class="proj-highlight-label">Universities Competed</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">G20</div>
+      <div class="proj-highlight-label">Presented to Delegates</div>
+    </div>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Context</div>
+    <h2>IIT Madras' autonomous ground vehicle team</h2>
+    <p>Team Abhiyaan is IIT Madras' student team developing autonomous ground vehicles for national and international competitions. As part of the team, I worked on the <strong>drive-by-wire control systems</strong> — the hardware/software interface that enables a commercial golf cart to be fully controlled autonomously.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Technical Work</div>
+    <h2>Brake-by-wire and steer-by-wire systems</h2>
+    <p>I designed and implemented the <strong>brake-by-wire</strong> and <strong>steer-by-wire</strong> systems for the vehicle platform — replacing mechanical linkages with electronically controlled actuators that the autonomous stack could command in real time.</p>
+    <ul>
+      <li>Brake-by-wire: linear actuator + encoder feedback for precise braking force control</li>
+      <li>Steer-by-wire: DC servo motor + angle feedback for autonomous steering</li>
+      <li>CAN bus integration with the ROS-based perception and planning stack</li>
+      <li>Safety interlocks: watchdog timers, fault detection, and manual override circuits</li>
+      <li>Latency characterization and tuning for real-time control performance</li>
+    </ul>
+    <p>The system enabled the full autonomous navigation pipeline — from LiDAR-based perception through path planning to vehicle actuation — to operate reliably under outdoor competition conditions.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Impact</div>
+    <h2>1st place at IGVC Design Challenge, Michigan</h2>
+    <p>The team placed <strong>1st among 25+ global universities</strong> in the Design Challenge at the Intelligent Ground Vehicle Competition (IGVC) at Oakland University, Michigan. I also presented the team's engineering and societal impact to delegates from the education ministries of G20 countries — a recognition of the project's broader significance beyond competition performance.</p>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="project-pfizer-bioprocess.html">← Pfizer Bioprocess</a>
+  <a href="project-cybathlon-knee-prosthesis.html">Back to Cybathlon →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

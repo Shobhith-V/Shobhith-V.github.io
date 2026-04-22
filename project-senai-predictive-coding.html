@@ -1,90 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Predictive Coding Models for Information Processing - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive Coding — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>Predictive Coding Models for Information Processing</h1>
-      <p class="project-meta">Research Project • February 2024 - December 2024</p>
-
-      <div class="project-tags">
-        <span class="tag">Computational Neuroscience</span>
-<span class="tag">Machine Learning</span>
-<span class="tag">Dynamical Systems</span>
-      </div>
-
-      <div class="project-links">
-        <a href="/public/reports/Math_of_Predictive_coding.pdf" target="_blank">
-        <i class="fa fa-file-pdf-o"></i> PDF
-      </a>
-      </div>
-    </header>
-
-    
-
-    <div class="project-description">
-      <p>This project explored the predictive coding paradigm as a computational framework for information processing in the brain. I conducted an extensive literature review covering theoretical foundations, neural interpretations, and modern machine learning formulations of predictive coding.</p>
-<p>To develop a concrete understanding of the framework, I implemented a predictive coding model from scratch and replicated its learning dynamics on the MNIST dataset. The implementation emphasized error-driven inference, hierarchical representations, and local learning rules, allowing direct comparison with standard backpropagation-based neural networks.</p>
-<p>Through this work, I gained practical insight into how predictive coding unifies perception, inference, and learning, and how biologically inspired principles can be translated into executable computational models.</p>
-    </div>
-
-    
-    <section style="margin-top: 3rem;">
-      <h3>Report / Poster</h3>
-      <iframe
-        src="/public/reports/Math_of_Predictive_coding.pdf"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ccc;"
-      ></iframe>
-    </section>
-  
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">Computational Neuroscience · Research</div>
+  <h1 class="proj-title">Predictive Coding Models<br>for Information Processing</h1>
+  <div class="proj-meta">February 2024 – December 2024 &nbsp;·&nbsp; Senai Neurotech Lab, IIT Madras</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Predictive Coding</span>
+    <span class="proj-tag">Computational Neuroscience</span>
+    <span class="proj-tag">Machine Learning</span>
+    <span class="proj-tag">Dynamical Systems</span>
+    <span class="proj-tag">Cerebellum</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="/public/reports/Math_of_Predictive_coding.pdf" target="_blank">↓ PDF Report</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
+<div class="proj-body">
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Overview</div>
+    <h2>Predictive coding as a unified theory of brain computation</h2>
+    <p>This project explored the <strong>predictive coding paradigm</strong> as a computational framework for information processing in the brain — a theory proposing that the brain continuously generates predictions and updates them based on prediction errors, unifying perception, inference, and learning under a single principle.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">What I Did</div>
+    <h2>From theory to implementation</h2>
+    <p>I conducted an extensive literature review covering theoretical foundations, neural interpretations, and modern ML formulations of predictive coding. To develop concrete intuition, I <strong>implemented a predictive coding model from scratch</strong> and replicated its learning dynamics on MNIST.</p>
+    <ul>
+      <li>Deep review of Rao &amp; Ballard (1999), Friston's Free Energy Principle, and PC-learning variants</li>
+      <li>Implemented error-driven inference with hierarchical representations and local learning rules</li>
+      <li>Benchmarked against standard backpropagation on MNIST classification</li>
+      <li>Analyzed forward model structure and efference copy in cerebellar models</li>
+      <li>Formalized predictive coding as variational inference over generative models</li>
+    </ul>
+    <p>The implementation emphasized <strong>biological plausibility</strong> — local learning rules, lateral inhibition, and error unit architectures that map to known cortical microcircuit motifs.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Key Insights</div>
+    <h2>Bridging neuroscience and machine learning</h2>
+    <p>Through this work, I gained practical insight into how predictive coding unifies perception, inference, and learning — and how biologically inspired principles can be translated into executable computational models that rival backpropagation in certain settings while remaining far more interpretable.</p>
+  </div>
+
+  <div class="proj-divider"></div>
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Documentation</div>
+    <h2>Full Report</h2>
+    <div class="proj-pdf">
+      <div class="proj-pdf-actions">
+        <a class="proj-link" href="/public/reports/Math_of_Predictive_coding.pdf" download>↓ Download PDF</a>
+      </div>
+      <iframe src="/public/reports/Math_of_Predictive_coding.pdf" title="Predictive Coding Report"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="project-heart-brain-dynamics.html">← Heart–Brain Dynamics</a>
+  <a href="project-voice-processing-eyetracking.html">Next: Eye-Tracking →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

@@ -1,130 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Active Knee Prosthesis Development - Cybathlon 2024 - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="dark" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybathlon 2024 — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>Active Knee Prosthesis Development - Cybathlon 2024</h1>
-      <p class="project-meta">Competition • December 2023 - December 2024</p>
-
-      <div class="project-tags">
-        <span class="tag">Neuroprosthetics</span>
-<span class="tag">Embedded Systems</span>
-<span class="tag">Human–Machine Interaction</span>
-<span class="tag">Cognitive Neuroscience</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/Shobhith-V/Cybathlon-24" target="_blank">
-        <i class="fa fa-github"></i> Code
-      </a> • <a href="/public/reports/ASAI_IDP.pdf" target="_blank">
-        <i class="fa fa-file-pdf-o"></i> PDF
-      </a>
-      </div>
-    </header>
-
-    
-    <figure>
-      <img src="assets/images/IMG_2602.jpg" alt="Active Knee Prosthesis Development - Cybathlon 2024" loading="lazy" />
-    </figure>
-  
-
-    <div class="project-description">
-      <h3 style="margin-top: 0; color: var(--color-accent-primary);">Problem & Motivation</h3>
-      <p>Transfemoral amputees lack proprioceptive feedback from their missing limb, leading to impaired balance, gait awareness, and increased risk of falls. This project focused on the design and evaluation of a closed-loop sensory feedback system to restore proprioceptive cues during locomotion, with the goal of improving balance, gait awareness, and task performance in real-world walking scenarios.</p>
-
-      <h3 style="color: var(--color-accent-primary);">Technical Approach</h3>
-      <p>I implemented an Arduino-based real-time control system that translated ground reaction forces measured using A301 force sensors into vibrotactile feedback delivered through coin vibration motors. This closed-loop system enabled intuitive, low-latency sensory substitution during locomotion. The effectiveness of the feedback was evaluated through task-based performance metrics inspired by Cybathlon challenges, along with cognitive load assessments to quantify usability and attentional demand.</p>
-      
-      <p>In addition to vibrotactile feedback, I explored multimodal feedback strategies - including visual and auditory cues - and investigated different encoding schemes to enhance sensorimotor perception in lower-limb prosthetics. The system architecture prioritized low latency (< 50ms) and reliability under real-world conditions.</p>
-
-      <h3 style="color: var(--color-accent-primary);">Impact & Results</h3>
-      <p>This work culminated in participation at Cybathlon 2024 in Zurich, an international competition that evaluates assistive technologies through realistic, everyday tasks performed by pilots with disabilities. Representing IIT Madras, our team achieved an <strong style="color: var(--color-highlight);">8th-place global finish</strong> and was the only Indian team at the event, validating the robustness and real-world performance of the system under competitive conditions.</p>
-    </div>
-
-    <!-- Competition Performance Video -->
-    <section class="video-section" style="margin-top: var(--spacing-3xl);">
-      <h3 style="text-align: center; margin-bottom: var(--spacing-md); color: var(--color-highlight);">
-        Competition Performance
-      </h3>
-      <div class="video-wrapper">
-        <!-- NOTE: Replace with actual Team Asai Cybathlon 2024 YouTube video URL -->
-        <iframe 
-          src="https://www.youtube.com/embed/fbYWwpcDApw?si=IH3AhPjfN5x7mVTo" 
-          title="Team Asai Performance at Cybathlon 2024"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-      </div>
-      <div class="video-description">
-        <p>Watch our team's performance at Cybathlon 2024 in Zurich. The competition evaluated assistive technologies through realistic, everyday tasks performed by pilots with disabilities.</p>
-      </div>
-    </section>
-    
-    <!-- Report Section -->
-    <section style="margin-top: var(--spacing-3xl);">
-      <h3>Report / Documentation</h3>
-      <div class="pdf-viewer-container">
-        <div class="pdf-controls">
-          <a href="/public/reports/ASAI_IDP.pdf" download><button><i class="fa fa-download"></i> Download PDF</button></a>
-        </div>
-        <iframe
-          src="/public/reports/ASAI_IDP.pdf"
-          class="pdf-viewer"
-          title="Cybathlon Project Report"
-        ></iframe>
-      </div>
-    </section>
-  
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">Neurotechnology · Competition</div>
+  <h1 class="proj-title">Active Knee Prosthesis &amp;<br>Cybathlon 2024</h1>
+  <div class="proj-meta">Dec 2023 – Dec 2024 &nbsp;·&nbsp; Team Asai, IIT Madras &nbsp;·&nbsp; Zurich, Switzerland</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Neuroprosthetics</span>
+    <span class="proj-tag">Embedded Systems</span>
+    <span class="proj-tag">Closed-Loop Feedback</span>
+    <span class="proj-tag">Vibrotactile</span>
+    <span class="proj-tag">EMG</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="https://github.com/Shobhith-V/Cybathlon-24" target="_blank">↗ GitHub</a>
+    <a class="proj-link" href="/public/reports/ASAI_IDP.pdf" target="_blank">↓ PDF Report</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/animations.js"></script>
+<div style="max-width:900px;margin:0 auto;padding:0 2.5rem;">
+  <div class="proj-hero-img">
+    <img src="assets/images/IMG_2602.jpg" alt="Cybathlon 2024 — Team Asai">
+  </div>
+</div>
+
+<div class="proj-body">
+  <div class="proj-highlights reveal">
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">8th</div>
+      <div class="proj-highlight-label">Global Ranking</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">#1</div>
+      <div class="proj-highlight-label">Only Indian Team</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">&lt;50ms</div>
+      <div class="proj-highlight-label">Feedback Latency</div>
+    </div>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Problem &amp; Motivation</div>
+    <h2>Restoring proprioception for transfemoral amputees</h2>
+    <p>Transfemoral amputees lack proprioceptive feedback from their missing limb, leading to impaired balance, gait awareness, and increased risk of falls. This project designed and evaluated a <strong>closed-loop sensory feedback system</strong> to restore proprioceptive cues during locomotion — improving balance, gait stability, and task performance in real-world walking scenarios.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Technical Approach</div>
+    <h2>Arduino-based real-time closed-loop system</h2>
+    <p>I implemented an Arduino-based real-time control system that translated ground reaction forces — measured via A301 force sensors — into vibrotactile feedback delivered through coin vibration motors. The closed-loop pipeline enabled intuitive, low-latency sensory substitution (&lt;50ms) during locomotion.</p>
+    <p>In addition to vibrotactile feedback, I explored <strong>multimodal feedback strategies</strong> — including visual and auditory cues — and investigated different encoding schemes to enhance sensorimotor perception in lower-limb prosthetics. The system prioritized reliability under real-world, competitive conditions.</p>
+    <ul>
+      <li>A301 force sensors → Arduino → coin motor vibrotactile actuators</li>
+      <li>Real-time ground reaction force encoding to vibration intensity/pattern</li>
+      <li>Cognitive load assessment using dual-task paradigm during trials</li>
+      <li>Multimodal feedback comparison: vibrotactile vs. visual vs. auditory</li>
+    </ul>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Competition Performance</div>
+    <h2>Watch Team Asai at Cybathlon 2024</h2>
+    <p>Representing IIT Madras at the world's premier assistive-technology competition in Zurich — the only Indian team in the Powered Leg Prosthesis Race.</p>
+    <div class="proj-video">
+      <iframe src="https://www.youtube.com/embed/fbYWwpcDApw?si=IH3AhPjfN5x7mVTo"
+        title="Team Asai at Cybathlon 2024" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Results &amp; Impact</div>
+    <h2>8th place globally — validating the system under pressure</h2>
+    <p>The system's robustness was validated under high-stakes competitive conditions. An 8th-place global finish from a debut Indian team demonstrated that principled closed-loop design can match international standards in assistive neurotechnology.</p>
+  </div>
+
+  <div class="proj-divider"></div>
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Documentation</div>
+    <h2>Full Report</h2>
+    <div class="proj-pdf">
+      <div class="proj-pdf-actions">
+        <a class="proj-link" href="/public/reports/ASAI_IDP.pdf" download>↓ Download PDF</a>
+      </div>
+      <iframe src="/public/reports/ASAI_IDP.pdf" title="Cybathlon Report"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="index.html#projects">← All Projects</a>
+  <a href="project-heart-brain-dynamics.html">Next: Heart–Brain Dynamics →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

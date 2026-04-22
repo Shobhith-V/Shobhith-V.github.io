@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Prosthetic Feedback — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="../blog-post.css">
+</head>
+<body>
+<div id="reading-progress"></div>
+
+<nav class="blog-nav">
+  <a class="blog-nav-logo" href="../index.html">SV_</a>
+  <div class="blog-nav-links">
+    <a href="../blog.html">All Posts</a>
+    <a href="../index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
+
+<div class="post-hero reveal">
+  <div class="post-tags">
+    <span class="post-tag">Neurotechnology</span>
+    <span class="post-tag">Cybathlon</span>
+    <span class="post-tag">Engineering</span>
+  </div>
+  <h1 class="post-title">What I Learned Building a Feedback System for a Prosthetic Limb</h1>
+  <div class="post-meta">
+    <span>February 5, 2025</span>
+    <span>·</span>
+    <span>8 min read</span>
+    <span>·</span>
+    <span>Shobhith Vadlamudi</span>
+  </div>
+  <p class="post-excerpt">We competed at Cybathlon 2024 in Zurich — the only Indian team. I built the closed-loop vibrotactile feedback system. Here's what the textbooks don't tell you about building hardware that has to work under pressure, on a person, in a competition.</p>
+</div>
+
+<div class="post-body">
+
+  <p>In December 2024, Team Asai from IIT Madras stood in Zurich and competed against prosthetics teams from ETH Zurich, MIT, and institutions across Europe and North America. We finished 8th globally. We were the only Indian team in the event's history to have competed in the Powered Leg Prosthesis Race.</p>
+
+  <p>I built the sensory feedback system — the part that tells the pilot where their prosthetic limb is in space. Here is what I learned that I couldn't have learned from a paper.</p>
+
+  <h2>What the problem actually is</h2>
+
+  <p>Transfemoral amputees have no proprioception from the missing limb. Proprioception is the body's sense of its own position — the signals from muscle spindles and joint receptors that tell you, without looking, where your arm is or how bent your knee is. Without it, navigating uneven terrain becomes a cognitive task rather than an automatic one.</p>
+
+  <p>This matters enormously in competition. The Cybathlon obstacle course includes ramps, stairs, stepping stones, and narrow passages. Every one of these requires knowing where the prosthetic foot is relative to the body without looking down. When you have to consciously look at your foot to know where it is, you slow down, you lose balance, and you make errors.</p>
+
+  <p>The solution I implemented: <strong>vibrotactile sensory substitution</strong>. Force sensors on the sole of the prosthetic foot measure ground reaction forces. An Arduino reads those forces in real time and drives vibration motors on the pilot's thigh. Ground contact = vibration. More force = stronger vibration. The brain learns to interpret the vibratory signal as a proxy for foot pressure.</p>
+
+  <div class="callout">
+    <p><strong>The key insight:</strong> You're not trying to perfectly reproduce proprioception. You're trying to give the pilot just enough information to close the sensorimotor loop — to offload the "where is my foot" question from conscious cognition to automatic motor control.</p>
+  </div>
+
+  <h2>The gap between theory and hardware</h2>
+
+  <p>The theory is clean. The hardware is not. Here are the specific things that surprised me.</p>
+
+  <p><strong>Latency is everything.</strong> For the feedback to feel coupled to the limb, the delay between ground contact and vibration onset needs to be under about 50 milliseconds. Above that, the pilot perceives a distinct lag, and the brain stops treating the signal as proprioceptive information — it becomes an external cue instead of an embodied one. We measured our end-to-end latency compulsively. The final system ran at around 35ms.</p>
+
+  <p><strong>The motor noise problem.</strong> The powered knee prosthesis itself generates vibration. So does walking. Vibrotactile feedback delivered to the thigh — right next to the prosthetic attachment socket — is physically close to all that mechanical noise. We had to tune the frequency and amplitude of our feedback motors to be perceptually distinct from the background noise, which required testing across different walking speeds and terrain types.</p>
+
+  <p><strong>Skin adaptation is fast.</strong> Sustained vibration at a constant frequency causes the mechanoreceptors in skin to adapt — the signal strength perceived by the brain decreases over time even as the physical stimulus remains constant. We mitigated this by encoding force information in vibration <em>pattern</em> (pulse width, frequency modulation) rather than just amplitude.</p>
+
+  <p><strong>The pilot is the system.</strong> This is the thing that textbook robotics courses don't prepare you for. Every parameter choice — vibration frequency, encoding scheme, motor placement, threshold for "contact" — needed to be validated not in simulation or on a healthy subject, but on the actual pilot, with the actual prosthesis, on the actual terrain. The system that works best is the one the pilot can best integrate, and that varies between individuals and takes weeks of training to optimize.</p>
+
+  <div class="post-divider"><span>§</span></div>
+
+  <h2>What I'd do differently</h2>
+
+  <p>More sensors. We used three force sensor locations on the sole — heel, ball, and toe. This gave us useful information about foot strike and push-off phase, but missed mediolateral loading. For balance on stepping stones, that lateral information would have been valuable.</p>
+
+  <p>Earlier pilot training. We started hardware-in-the-loop training with the pilot about three months before competition. That felt like a lot at the time. In retrospect, six months would have been better. Sensorimotor adaptation takes time, and competition performance at Cybathlon is limited by how automatized the pilot's use of feedback has become — not by the quality of the feedback itself.</p>
+
+  <p>Better fault tolerance. Competition environments are adversarial to electronics in ways you don't anticipate: different fluorescent lighting frequencies can interfere with photodiode-based sensors, metal in competition infrastructure can create unexpected EMI, and high-stakes situations cause people to do things with the equipment that they wouldn't do in the lab. We had one sensor dropout during our warm-up run. We were lucky it wasn't during the timed trial.</p>
+
+  <div class="pull-quote">
+    "The real test of a human-machine interface isn't whether it works in the lab. It's whether a person under pressure, tired, a little scared, with thousands of people watching — can use it without thinking about it."
+  </div>
+
+  <h2>On the broader meaning of the work</h2>
+
+  <p>The 8th place finish was meaningful, but what I think about more often is the day our pilot successfully walked across the stepping-stone course for the first time with feedback enabled — something he'd been unable to do reliably without looking at his feet. He looked at us and said he felt the ground under his foot. He knew he didn't have a foot. But the signal was close enough to real that the brain mapped it onto the missing limb.</p>
+
+  <p>That's what sensory substitution is: not reproduction, but remapping. The brain is plastic enough to learn new channels, if the information is reliable and the training is sustained. We barely scratched the surface of what's possible.</p>
+
+  <p>The next frontier isn't better vibration motors. It's implanted electrodes delivering graded stimulation to the peripheral nerve — direct sensory substitution that bypasses the skin entirely and talks to the nerve directly. The engineering is much harder, but the potential for rich, high-bandwidth proprioceptive information is real. That's what I want to work on next.</p>
+
+</div>
+
+<div class="post-footer">
+  <a href="predictive-coding-what-it-got-right.html">← Predictive Coding</a>
+  <a href="../blog.html">All Posts →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const bar = document.getElementById('reading-progress');
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  bar.style.width = Math.min(el.scrollTop / (el.scrollHeight - el.clientHeight) * 100, 100) + '%';
+});
+</script>
+</body>
+</html>

@@ -1,93 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Closed-Loop Modeling of Heart–Brain Dynamics - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="dark" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart–Brain Dynamics — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>Closed-Loop Modeling of Heart–Brain Dynamics</h1>
-      <p class="project-meta">Master's Thesis • April 2025 – Present</p>
-
-      <div class="project-tags">
-        <span class="tag">Computational Neuroscience</span>
-<span class="tag">Dynamical Systems</span>
-<span class="tag">Multimodal Modeling</span>
-<span class="tag">Interoception</span>
-      </div>
-
-      <div class="project-links">
-        <a href="/public/reports/poster_sho.pdf" target="_blank">
-        <i class="fa fa-file-pdf-o"></i> PDF
-      </a>
-      </div>
-    </header>
-
-    
-
-    <div class="project-description">
-      <p>This project investigates bidirectional heart–brain interactions as a coupled dynamical system, with the goal of understanding how interoceptive signals shape neural dynamics and cognition. I modeled cortical regions and cardiac mechanisms as coupled Hopf oscillators, grounded in subject-specific structural connectivity.</p>
-<p>I developed a generative Neural ODE framework that jointly predicts ECG and MEG signals from latent neural states, integrating mechanistic oscillator dynamics with learnable MLP-based observation models. Circuit-level dynamics are learned using Hebbian plasticity, with sequential inference of latent coupling parameters from multimodal neural data.</p>
-<p>A key contribution of this work is the introduction of a closed-loop inference mechanism, where ECG reconstruction error is used to compute corrective feedback via an MLP that adapts cardiac oscillator states during inference. Multimodal preprocessing and source reconstruction were performed on the CAM-CAN MEG–ECG dataset using sLORETA to map sensor-space signals to 68 cortical parcels.</p>
-    </div>
-
-    
-    <section style="margin-top: 3rem;">
-      <h3>Report / Poster</h3>
-      <iframe
-        src="/public/reports/poster_sho.pdf"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ccc;"
-      ></iframe>
-    </section>
-  
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">Computational Neuroscience · Master's Thesis</div>
+  <h1 class="proj-title">Closed-Loop Modeling of<br>Heart–Brain Dynamics</h1>
+  <div class="proj-meta">April 2025 – Present &nbsp;·&nbsp; IIT Madras &nbsp;·&nbsp; Data Science M.Tech Thesis</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Neural ODE</span>
+    <span class="proj-tag">Dynamical Systems</span>
+    <span class="proj-tag">Interoception</span>
+    <span class="proj-tag">MEG/ECG</span>
+    <span class="proj-tag">Hopf Oscillators</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="/public/reports/poster_sho.pdf" target="_blank">↓ Poster PDF</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/animations.js"></script>
+<div class="proj-body">
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Overview</div>
+    <h2>Brain and heart as a coupled dynamical system</h2>
+    <p>This project investigates <strong>bidirectional heart–brain interactions</strong> as a coupled dynamical system, with the goal of understanding how interoceptive signals shape neural dynamics and cognition. I modeled cortical regions and cardiac mechanisms as coupled <strong>Hopf oscillators</strong>, grounded in subject-specific structural connectivity from the CAM-CAN dataset.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Technical Approach</div>
+    <h2>Generative Neural ODE framework</h2>
+    <p>I developed a generative Neural ODE framework that jointly predicts ECG and MEG signals from latent neural states, integrating mechanistic oscillator dynamics with learnable MLP-based observation models. Circuit-level dynamics are learned using <strong>Hebbian plasticity</strong>, with sequential inference of latent coupling parameters from multimodal neural data.</p>
+    <ul>
+      <li>Cortical + cardiac regions modeled as coupled Hopf oscillators</li>
+      <li>Neural ODE jointly predicts ECG + MEG from shared latent state</li>
+      <li>Hebbian plasticity for circuit-level coupling weight learning</li>
+      <li>sLORETA source reconstruction mapping MEG → 68 cortical parcels</li>
+      <li>Closed-loop inference: ECG error → corrective MLP feedback</li>
+    </ul>
+    <p>A key contribution is the <strong>closed-loop inference mechanism</strong>: ECG reconstruction error drives a corrective MLP that adapts cardiac oscillator states during inference — making the model self-correcting in real time.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Dataset &amp; Methods</div>
+    <h2>CAM-CAN MEG–ECG, sLORETA source reconstruction</h2>
+    <p>Multimodal preprocessing and source reconstruction were performed on the <strong>CAM-CAN MEG–ECG dataset</strong> using sLORETA to map sensor-space signals to 68 cortical parcels following the Desikan-Killiany atlas, enabling principled anatomical grounding for the dynamical model.</p>
+  </div>
+
+  <div class="proj-divider"></div>
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Documentation</div>
+    <h2>Research Poster</h2>
+    <div class="proj-pdf">
+      <div class="proj-pdf-actions">
+        <a class="proj-link" href="/public/reports/poster_sho.pdf" download>↓ Download Poster</a>
+      </div>
+      <iframe src="/public/reports/poster_sho.pdf" title="Heart-Brain Dynamics Poster"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="project-cybathlon-knee-prosthesis.html">← Cybathlon 2024</a>
+  <a href="project-senai-predictive-coding.html">Next: Predictive Coding →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

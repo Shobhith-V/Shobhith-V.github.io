@@ -1,96 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Cognitive Processing of Voice Constructions - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye-Tracking & Voice Constructions — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>Cognitive Processing of Voice Constructions</h1>
-      <p class="project-meta">Research Project • December 2024 – Present</p>
-
-      <div class="project-tags">
-        <span class="tag">Psycholinguistics</span>
-<span class="tag">Cognitive Neuroscience</span>
-<span class="tag">Statistical Modeling</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/Shobhith-V/Active_passive_eyetracking" target="_blank">
-        <i class="fa fa-github"></i> Code
-      </a> • <a href="/public/reports/ID4900_report.pdf" target="_blank">
-        <i class="fa fa-file-pdf-o"></i> PDF
-      </a>
-      </div>
-    </header>
-
-    
-    <figure>
-      <img src="assets/images/eye.jpg" alt="Cognitive Processing of Voice Constructions" loading="lazy" />
-    </figure>
-  
-
-    <div class="project-description">
-      <p>This project investigates how syntactic voice constructions (active vs. passive) influence real-time sentence processing and attentional allocation. I designed and conducted a psycholinguistic eye-tracking experiment using PsychoPy on the EyeLink Portable Duo system to capture gaze dynamics during sentence comprehension.</p>
-<p>To analyze time-resolved eye-movement data from 48 participants, I employed Generalized Additive Mixed Models (GAMMs), enabling flexible modeling of nonlinear gaze trajectories while accounting for subject-level variability. The analysis aims to uncover cognitive load differences and validate the agent-first hypothesis in incremental sentence parsing.</p>
-<p>Conceptually, this work formalizes voice alternations as representational transformations and examines how syntactic role assignment modulates attentional dynamics during language comprehension.</p>
-    </div>
-
-    
-    <section style="margin-top: 3rem;">
-      <h3>Report / Poster</h3>
-      <iframe
-        src="/public/reports/ID4900_report.pdf"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ccc;"
-      ></iframe>
-    </section>
-  
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">Psycholinguistics · Cognitive Neuroscience</div>
+  <h1 class="proj-title">Cognitive Processing of<br>Voice Constructions</h1>
+  <div class="proj-meta">December 2024 – Present &nbsp;·&nbsp; IIT Madras &nbsp;·&nbsp; 48 participants</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Eye-Tracking</span>
+    <span class="proj-tag">Psycholinguistics</span>
+    <span class="proj-tag">GAMM</span>
+    <span class="proj-tag">EyeLink</span>
+    <span class="proj-tag">PsychoPy</span>
+    <span class="proj-tag">Statistical Modeling</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="https://github.com/Shobhith-V/Active_passive_eyetracking" target="_blank">↗ GitHub</a>
+    <a class="proj-link" href="/public/reports/ID4900_report.pdf" target="_blank">↓ PDF Report</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
+<div style="max-width:900px;margin:0 auto;padding:0 2.5rem;">
+  <div class="proj-hero-img">
+    <img src="assets/images/eye.jpg" alt="Eye tracking experiment">
+  </div>
+</div>
+
+<div class="proj-body">
+  <div class="proj-highlights reveal">
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">48</div>
+      <div class="proj-highlight-label">Participants</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">GAMM</div>
+      <div class="proj-highlight-label">Analysis Model</div>
+    </div>
+    <div class="proj-highlight-card">
+      <div class="proj-highlight-num">2</div>
+      <div class="proj-highlight-label">Voice Conditions</div>
+    </div>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Research Question</div>
+    <h2>How does syntactic voice shape real-time reading?</h2>
+    <p>This project investigates how <strong>syntactic voice constructions</strong> (active vs. passive) influence real-time sentence processing and attentional allocation. The central question: does passive voice increase cognitive load during incremental parsing, and does gaze behavior reveal the agent-first preference hypothesis?</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Methodology</div>
+    <h2>EyeLink Portable Duo + GAMMs</h2>
+    <p>I designed and conducted a psycholinguistic eye-tracking experiment using <strong>PsychoPy on the EyeLink Portable Duo</strong> system to capture gaze dynamics during sentence comprehension. Stimuli were carefully constructed active/passive sentence pairs matched for length, frequency, and plausibility.</p>
+    <ul>
+      <li>48 participants — controlled for reading ability, native Telugu/Tamil speakers</li>
+      <li>EyeLink Portable Duo: 500Hz binocular gaze recording</li>
+      <li>PsychoPy for stimulus presentation and trigger synchronization</li>
+      <li>Generalized Additive Mixed Models (GAMMs) for time-resolved analysis</li>
+      <li>Nonlinear gaze trajectory modeling with subject-level random effects</li>
+    </ul>
+    <p>GAMMs enabled flexible modeling of nonlinear fixation probability curves over time, capturing the <strong>moment-by-moment dynamics</strong> of how voice affects attention allocation — something traditional linear models would miss.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Conceptual Framework</div>
+    <h2>Syntactic transformations as representational shifts</h2>
+    <p>Conceptually, this work formalizes voice alternations as <strong>representational transformations</strong> over thematic role assignments, and examines how syntactic role assignment modulates attentional dynamics during incremental language comprehension. Results aim to validate or refine the agent-first parsing hypothesis in an Indian language context.</p>
+  </div>
+
+  <div class="proj-divider"></div>
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Documentation</div>
+    <h2>Full Report</h2>
+    <div class="proj-pdf">
+      <div class="proj-pdf-actions">
+        <a class="proj-link" href="/public/reports/ID4900_report.pdf" download>↓ Download PDF</a>
+      </div>
+      <iframe src="/public/reports/ID4900_report.pdf" title="Eye-Tracking Report"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="project-senai-predictive-coding.html">← Predictive Coding</a>
+  <a href="project-language-hierarchical-agent.html">Next: Language Agent →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

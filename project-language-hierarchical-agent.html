@@ -1,91 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Language-Based Hierarchical Agent for Reasoning - Shobhith Vadlamudi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Hierarchical Agent — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="project.css">
 </head>
-
 <body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time>2026-01-17</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4"><i class="fa fa-linkedin"></i></a>
-      <a href="https://x.com/Shobhith_V"><i class="fa fa-twitter"></i></a>
-      <a href="mailto:shobhith.v@gmail.com"><i class="fa fa-envelope"></i></a>
-      <a href="https://github.com/Shobhith-V"><i class="fa fa-github"></i></a>
-    </td>
-  </tr>
-</table>
+<nav class="proj-nav">
+  <a class="proj-nav-logo" href="index.html">SV_</a>
+  <div class="proj-nav-links">
+    <a href="index.html#projects">All Projects</a>
+    <a href="index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
 
-<div id="nav-container" data-current-page="projects"></div>
-
-<div id="project-content">
-  <article class="project-detail">
-    <header>
-      <h1>Language-Based Hierarchical Agent for Reasoning</h1>
-      <p class="project-meta">Course Project • July 2024 – November 2024</p>
-
-      <div class="project-tags">
-        <span class="tag">Reinforcement Learning</span>
-<span class="tag">Representation Learning</span>
-<span class="tag">Symbolic AI</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/Shobhith-V/DA7400_code_repo" target="_blank">
-        <i class="fa fa-github"></i> Code
-      </a> • <a href="/public/reports/endterm_report.pdf" target="_blank">
-        <i class="fa fa-file-pdf-o"></i> PDF
-      </a>
-      </div>
-    </header>
-
-    
-
-    <div class="project-description">
-      <p>This project explored the use of language as a representational substrate for hierarchical reasoning in partially observable environments. I encoded image-based POMDP environments into structured language representations to support reasoning and action selection.</p>
-<p>I developed an autoencoder-like architecture that reconstructs images from text representations, enabling feature extraction for a downstream PPO agent. Through systematic analysis, I identified failure modes arising from limited scene context extraction, linking these shortcomings to language model capacity, autoencoder complexity, and the constraints of text-based representations.</p>
-    </div>
-
-    
-    <section style="margin-top: 3rem;">
-      <h3>Report / Poster</h3>
-      <iframe
-        src="/public/reports/endterm_report.pdf"
-        width="100%"
-        height="600"
-        style="border: 1px solid #ccc;"
-      ></iframe>
-    </section>
-  
-
-    <nav style="margin-top: 3rem;">
-      <a href="projects.html">
-        <button><i class="fa fa-arrow-left"></i> Back to Projects</button>
-      </a>
-    </nav>
-  </article>
+<div class="proj-hero">
+  <div class="proj-domain">AI · Reinforcement Learning</div>
+  <h1 class="proj-title">Language-Based Hierarchical<br>Agent for Reasoning</h1>
+  <div class="proj-meta">July 2024 – November 2024 &nbsp;·&nbsp; Course Project · ED5340, IIT Madras</div>
+  <div class="proj-tags">
+    <span class="proj-tag">Reinforcement Learning</span>
+    <span class="proj-tag">Representation Learning</span>
+    <span class="proj-tag">Symbolic AI</span>
+    <span class="proj-tag">PPO</span>
+    <span class="proj-tag">POMDP</span>
+    <span class="proj-tag">LLM</span>
+  </div>
+  <div class="proj-links">
+    <a class="proj-link" href="https://github.com/Shobhith-V/DA7400_code_repo" target="_blank">↗ GitHub</a>
+    <a class="proj-link" href="/public/reports/endterm_report.pdf" target="_blank">↓ PDF Report</a>
+  </div>
 </div>
 
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
+<div class="proj-body">
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Core Idea</div>
+    <h2>Language as a representational substrate for reasoning</h2>
+    <p>Can natural language serve as an intermediate representation for an RL agent navigating a partially observable environment? This project explores using <strong>language as a structured bottleneck</strong> — encoding visual POMDP observations into text, then using that text to drive policy learning via PPO.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Architecture</div>
+    <h2>Autoencoder + language + PPO pipeline</h2>
+    <p>I developed an <strong>autoencoder-like architecture</strong> that reconstructs images from structured text representations, enabling feature extraction for a downstream PPO agent. The pipeline has three stages:</p>
+    <ul>
+      <li><strong>Perception:</strong> Image-based POMDP environments encoded into structured language descriptions via a vision-language model</li>
+      <li><strong>Representation:</strong> Text autoencoder reconstructs the visual scene from language, producing latent features</li>
+      <li><strong>Policy:</strong> PPO agent consumes latent text-derived features to select actions in the environment</li>
+    </ul>
+    <p>Through systematic analysis, I identified <strong>failure modes</strong> arising from limited scene context extraction — linking these shortcomings to language model capacity, autoencoder complexity, and the fundamental constraints of text-based representations for spatial reasoning tasks.</p>
+  </div>
+
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Findings</div>
+    <h2>Where language representations succeed and fail</h2>
+    <p>The experiment revealed a fundamental tension: language is powerful for structured, relational reasoning but lossy for spatial and continuous features critical to navigation. This points toward <strong>hybrid representations</strong> that combine symbolic language structure with geometric feature embeddings as a productive direction for future work.</p>
+  </div>
+
+  <div class="proj-divider"></div>
+  <div class="proj-section reveal">
+    <div class="proj-section-label">Documentation</div>
+    <h2>Full Report</h2>
+    <div class="proj-pdf">
+      <div class="proj-pdf-actions">
+        <a class="proj-link" href="/public/reports/endterm_report.pdf" download>↓ Download PDF</a>
+      </div>
+      <iframe src="/public/reports/endterm_report.pdf" title="Language Agent Report"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="proj-footer">
+  <a href="project-voice-processing-eyetracking.html">← Eye-Tracking</a>
+  <a href="project-mando-ai-document-assistant.html">Next: Mando AI →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>

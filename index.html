@@ -1,141 +1,1108 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="color-scheme" content="dark" />
-  <title>Shobhith Vadlamudi</title>
-  <link rel="stylesheet" href="src/reset.css" />
-  <link rel="stylesheet" href="src/index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-<table class="header">
-  <tr>
-    <td colspan="2" rowspan="2" class="width-auto">
-      <h1 class="title">Shobhith Vadlamudi</h1>
-      <span class="subtitle">(he/him)</span>
-    </td>
-  </tr>
-  <tr>
-    <th>Updated</th>
-    <td class="width-min"><time style="white-space: pre;">2026-17-01</time></td>
-  </tr>
-  <tr>
-    <th class="width-min">Address</th>
-    <td class="width-auto">Room no. 437, Saraswati Hostel, IIT Madras</td>
-    <th class="width-min">Contact</th>
-    <td class="width-auto">
-      <a href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4">
-      <cite><i class="fa fa-linkedin"></i></cite>
-      </a>
-      <a href="https://x.com/Shobhith_V"><cite><i class="fa fa-twitter"></i></cite></a>
-      <a href="mailto:shobhith.v@gmail.com?subject=Hi!"><cite><i class="fa fa-envelope" aria-hidden="true"></i></cite></a>
-      <a href="https://github.com/Shobhith-V"><cite><i class="fa fa-github" aria-hidden="true"></i></cite></a>
-    </td>
-  </tr>
-</table>
+<!DOCTYPE html><html lang="en" style="--cyan: #34d399;"><head>
 
-<div id="nav-container" data-current-page="home"></div>
 
-<!-- Hero Section -->
-<section class="hero-section reveal">
-  <div class="hero-bg"></div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shobhith Vadlamudi — Neurotech Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --bg:      #050510;
+      --bg2:     #0c0c1e;
+      --bg3:     #111128;
+      --cyan:    #00d9ff;
+      --cyan2:   #0099cc;
+      --gold:    #ffb020;
+      --violet:  #7c3aed;
+      --white:   #f0f0fa;
+      --muted:   #8888aa;
+      --border:  rgba(255,255,255,0.07);
+      --mono:    'JetBrains Mono', monospace;
+      --sans:    'Space Grotesk', sans-serif;
+      --glow:    0 0 30px rgba(0,217,255,0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(0,217,255,0.25); }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--cyan2); border-radius: 2px; }
+
+    /* ── CURSOR ─────────────────────────────────────────────────── */
+    #cursor {
+      position: fixed; width: 10px; height: 10px;
+      border-radius: 50%; background: var(--cyan);
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: width .2s, height .2s, opacity .2s;
+      mix-blend-mode: screen;
+    }
+    #cursor-ring {
+      position: fixed; width: 36px; height: 36px;
+      border-radius: 50%; border: 1px solid rgba(0,217,255,0.5);
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: transform .12s cubic-bezier(0.23,1,0.32,1), width .3s, height .3s, border-color .3s;
+    }
+    body:has(a:hover) #cursor { width: 16px; height: 16px; }
+    body:has(a:hover) #cursor-ring { width: 50px; height: 50px; border-color: rgba(0,217,255,0.8); }
+
+    /* ── NAV ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      transition: background .4s, backdrop-filter .4s, border-bottom .4s;
+    }
+    nav.scrolled {
+      background: rgba(5,5,16,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 1.1rem; font-weight: 700;
+      color: var(--cyan); letter-spacing: 0.05em; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); text-decoration: none;
+      transition: color .25s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px;
+      background: var(--cyan); transform: scaleX(0); transition: transform .25s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ── HERO ───────────────────────────────────────────────────── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: flex-start;
+      padding: 0 3rem; overflow: hidden;
+    }
+    #neural-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; }
+    .hero-label {
+      font-family: var(--mono); font-size: 0.75rem; color: var(--cyan);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-label::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--cyan);
+    }
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; line-height: 1.0;
+      letter-spacing: -0.03em; margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 60%, var(--violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-name:hover { cursor: default; animation: glitch .4s steps(2) infinite; }
+    @keyframes glitch {
+      0%   { text-shadow: 2px 0 var(--cyan), -2px 0 var(--violet); }
+      25%  { text-shadow: -2px 0 var(--cyan), 2px 0 var(--gold); }
+      50%  { text-shadow: 2px 2px var(--violet), -2px -1px var(--cyan); }
+      100% { text-shadow: none; }
+    }
+    .hero-typewriter {
+      font-family: var(--mono); font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--cyan); margin-bottom: 1.5rem; min-height: 2em;
+    }
+    .hero-typewriter .cursor-blink { animation: blink .7s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-bio {
+      font-size: 1.1rem; color: var(--muted); line-height: 1.8;
+      max-width: 600px; margin-bottom: 2.5rem;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.12em; padding: 0.85rem 2rem; text-decoration: none;
+      border-radius: 3px; transition: all .3s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--cyan); color: var(--bg);
+      box-shadow: 0 0 24px rgba(0,217,255,0.35);
+    }
+    .btn-primary:hover { background: #33e4ff; box-shadow: 0 0 40px rgba(0,217,255,0.55); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--cyan);
+      border: 1px solid rgba(0,217,255,0.4);
+    }
+    .btn-outline:hover { border-color: var(--cyan); background: rgba(0,217,255,0.08); transform: translateY(-2px); }
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: var(--muted); font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+    }
+    .scroll-arrow { width: 20px; height: 30px; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; position: relative; }
+    .scroll-arrow::after {
+      content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+      width: 4px; height: 4px; border-radius: 50%; background: var(--cyan);
+      animation: scrollDot 1.5s ease infinite;
+    }
+    @keyframes scrollDot { 0%,100% { top: 6px; opacity: 1; } 80% { top: 16px; opacity: 0; } }
+
+    /* ── SECTIONS ───────────────────────────────────────────────── */
+    section { padding: 7rem 3rem; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--cyan);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--cyan); }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      letter-spacing: -0.03em; margin-bottom: 3.5rem; line-height: 1.1;
+    }
+    .section-title span { color: var(--cyan); }
+
+    /* ── REVEAL ─────────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .1s; }
+    .reveal-d2 { transition-delay: .2s; }
+    .reveal-d3 { transition-delay: .3s; }
+    .reveal-d4 { transition-delay: .4s; }
+
+    /* ── ABOUT ──────────────────────────────────────────────────── */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: center; }
+    .about-text p { color: var(--muted); line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.05rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .stat-card {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 6px;
+      padding: 1.25rem; position: relative; overflow: hidden;
+    }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+    }
+    .stat-num { font-size: 2rem; font-weight: 700; color: var(--cyan); font-family: var(--mono); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.25rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; }
+    .about-photo-wrap {
+      position: relative; border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .about-photo-wrap::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(135deg, rgba(0,217,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .about-photo-wrap img { width: 100%; height: 420px; object-fit: cover; display: block; filter: grayscale(20%); }
+    .about-photo-label {
+      position: absolute; bottom: 1rem; left: 1rem; right: 1rem; z-index: 2;
+      font-family: var(--mono); font-size: 0.65rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── RESEARCH ───────────────────────────────────────────────── */
+    #research { background: var(--bg); }
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .research-card {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+      padding: 2rem; position: relative; overflow: hidden; transition: border-color .3s, transform .3s, box-shadow .3s;
+      cursor: default;
+    }
+    .research-card:hover { border-color: rgba(0,217,255,0.4); transform: translateY(-4px); box-shadow: var(--glow); }
+    .research-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      transform: scaleX(0); transition: transform .3s; transform-origin: left;
+    }
+    .research-card:hover::after { transform: scaleX(1); }
+    .research-icon { font-size: 2rem; margin-bottom: 1.25rem; display: block; }
+    .research-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .research-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .research-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+    .rtag {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--cyan2);
+      border: 1px solid rgba(0,153,204,0.3); border-radius: 3px;
+      padding: 0.2rem 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* ── PROJECTS ───────────────────────────────────────────────── */
+    #projects { background: var(--bg2); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; transition: all .3s; cursor: pointer; position: relative;
+      transform-style: preserve-3d;
+    }
+    .project-card:hover { border-color: rgba(0,217,255,0.35); box-shadow: var(--glow); }
+    .project-card-img {
+      height: 180px; overflow: hidden; position: relative; background: var(--bg);
+    }
+    .project-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, filter .3s; filter: grayscale(30%) brightness(0.85); }
+    .project-card:hover .project-card-img img { transform: scale(1.05); filter: grayscale(0%) brightness(1); }
+    .project-card-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em;
+    }
+    .project-card-body { padding: 1.5rem; }
+    .project-meta { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; line-height: 1.35; }
+    .project-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .ptag {
+      font-family: var(--mono); font-size: 0.6rem; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 3px;
+      padding: 0.15rem 0.4rem; text-transform: uppercase; letter-spacing: 0.06em;
+      transition: color .2s, border-color .2s;
+    }
+    .project-card:hover .ptag { color: var(--cyan); border-color: rgba(0,217,255,0.25); }
+    .project-stripe {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      transform: scaleX(0); transition: transform .3s; transform-origin: left;
+    }
+    .project-card:hover .project-stripe { transform: scaleX(1); }
+
+    /* ── CYBATHLON ──────────────────────────────────────────────── */
+    #cybathlon { background: var(--bg); position: relative; overflow: hidden; }
+    #cybathlon::before {
+      content: 'CYBATHLON'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-size: 12rem; font-weight: 900; color: rgba(0,217,255,0.025);
+      font-family: var(--mono); white-space: nowrap; pointer-events: none; letter-spacing: -0.05em;
+    }
+    .cybathlon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .cybathlon-video { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--glow); aspect-ratio: 16/9; position: relative; }
+    .cybathlon-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    .cybathlon-info { }
+    .cybathlon-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,176,32,0.1); border: 1px solid rgba(255,176,32,0.3);
+      color: var(--gold); font-family: var(--mono); font-size: 0.7rem;
+      text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.85rem;
+      border-radius: 3px; margin-bottom: 1.5rem;
+    }
+    .cybathlon-info h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .cybathlon-info p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+    .cybathlon-stat { display: flex; gap: 2rem; margin-top: 2rem; }
+    .cstat { }
+    .cstat-num { font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: var(--mono); }
+    .cstat-label { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* ── PUBLICATIONS ───────────────────────────────────────────── */
+    #publications { background: var(--bg2); }
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub-item {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.75rem 2rem; transition: border-color .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+    }
+    .pub-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(180deg, var(--cyan), var(--violet));
+      transform: scaleY(0); transition: transform .3s; transform-origin: top;
+    }
+    .pub-item:hover { border-color: rgba(0,217,255,0.3); box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .pub-item:hover::before { transform: scaleY(1); }
+    .pub-type { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 0.5rem; }
+    .pub-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
+    .pub-item .authors { font-size: 0.875rem; color: var(--muted); font-style: italic; margin-bottom: 0.25rem; }
+    .pub-item .venue { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); }
+
+    /* ── CONTACT ────────────────────────────────────────────────── */
+    #contact { background: var(--bg); text-align: center; }
+    #contact .section-inner { max-width: 680px; }
+    .contact-subtitle { color: var(--muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 3rem; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .social-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); text-decoration: none;
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 0.7rem 1.4rem; transition: all .3s;
+    }
+    .social-link:hover { color: var(--cyan); border-color: rgba(0,217,255,0.4); background: rgba(0,217,255,0.05); transform: translateY(-2px); }
+    .social-icon { font-size: 1rem; }
+    .contact-email {
+      font-family: var(--mono); font-size: 1.1rem; color: var(--cyan);
+      text-decoration: none; border-bottom: 1px solid rgba(0,217,255,0.3);
+      padding-bottom: 2px; transition: border-color .3s;
+    }
+    .contact-email:hover { border-color: var(--cyan); }
+    footer {
+      text-align: center; padding: 2rem; border-top: 1px solid var(--border);
+      font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em;
+    }
+
+    /* ── BLOG PREVIEW CARDS ─────────────────────────────────────────────── */
+.blog-prev-card {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+  padding: 1.75rem; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+  position: relative; overflow: hidden;
+}
+.blog-prev-card:hover { border-color: rgba(52,211,153,0.4); transform: translateY(-3px); box-shadow: var(--glow); }
+.blog-prev-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  transform: scaleX(0); transition: transform .3s; transform-origin: left;
+}
+.blog-prev-card:hover::before { transform: scaleX(1); }
+.blog-prev-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+.blog-prev-tag {
+  font-family: var(--mono); font-size:.6rem; text-transform:uppercase; letter-spacing:.08em;
+  color: var(--cyan2); border: 1px solid rgba(52,211,153,0.25); border-radius:3px; padding:.15rem .4rem;
+}
+.blog-prev-card h3 { font-size:1rem; font-weight:600; line-height:1.3; letter-spacing:-.01em; }
+.blog-prev-card p { font-size:.88rem; color:var(--muted); line-height:1.65; flex:1; }
+.blog-prev-meta { font-family:var(--mono); font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+.blog-prev-cta { font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--cyan); margin-top:auto; }
+
+/* ── TWEAKS PANEL ───────────────────────────────────────────── */
+    #tweaks-panel {
+      display: none; position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 5000;
+      background: rgba(12,12,30,0.95); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.25rem; width: 240px;
+      backdrop-filter: blur(16px); box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+    #tweaks-panel.visible { display: block; }
+    #tweaks-panel h4 { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 1rem; }
+    .tweak-row { margin-bottom: 1rem; }
+    .tweak-row label { display: block; font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem; }
+    .tweak-row select, .tweak-row input[type=range] { width: 100%; background: var(--bg3); border: 1px solid var(--border); color: var(--white); border-radius: 4px; padding: 0.35rem 0.5rem; font-size: 0.75rem; font-family: var(--mono); }
+    .tweak-row input[type=range] { padding: 0; accent-color: var(--cyan); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      section { padding: 5rem 1.5rem; }
+      #hero { padding: 0 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo-wrap { max-width: 380px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .cybathlon-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: clamp(2.5rem,10vw,4rem); }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<link id="gfont-Fira-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Ubuntu" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Caveat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Abril-Fatface" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Bitter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;500;600;700&amp;display=swap"></head>
+<body style="font-family: monospace; cursor: crosshair;" data-cc-id="cc-1">
+
+<!-- Custom cursor -->
+<div id="cursor" style="left: 1237px; top: 4px;"></div>
+<div id="cursor-ring" style="left: 1237px; top: 4px;"></div>
+
+<!-- Tweaks panel -->
+<div id="tweaks-panel" class="visible">
+  <h4>Tweaks</h4>
+  <div class="tweak-row">
+    <label>Accent Color</label>
+    <select id="tweak-color">
+      <option value="cyan">Electric Cyan</option>
+      <option value="violet">Deep Violet</option>
+      <option value="mint">Bioluminescent Mint</option>
+      <option value="ember">Ember Orange</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label>Particle Density</label>
+    <input type="range" id="tweak-particles" min="30" max="140" value="70">
+  </div>
+  <div class="tweak-row">
+    <label>Animation Speed</label>
+    <select id="tweak-speed">
+      <option value="slow">Slow</option>
+      <option value="normal" selected="">Normal</option>
+      <option value="fast">Fast</option>
+    </select>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav id="main-nav" class="">
+  <a class="nav-logo" href="#hero">SV_</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#cybathlon">Cybathlon</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <canvas id="neural-canvas" width="1430" height="889"></canvas>
   <div class="hero-content">
-    <h1 class="hero-title">Shobhith Vadlamudi</h1>
-    <p class="hero-subtitle">
-      Computational Neuroscience • Neurotechnology • AI Research
-    </p>
-    <p class="hero-description">
-      I work at the intersection of computational neuroscience, dynamical systems, and neurotechnology. 
-      My research explores coupled brain–body neural dynamics and closed-loop feedback for future 
-      brain–computer interfaces.
+    <div class="hero-label">Computational Neuroscience · IIT Madras</div>
+    <h1 class="hero-name">Shobhith<br>Vadlamudi</h1>
+    <div class="hero-typewriter"><span id="typewriter-text">Computational Neuroscien</span><span class="cursor-blink">_</span></div>
+    <p class="hero-bio">
+      I work at the intersection of dynamical systems, neural computation, and neurotechnology.
+      Building closed-loop interfaces between brains and machines — one signal at a time.
     </p>
     <div class="hero-cta">
-      <a href="projects.html"><button><i class="fa fa-flask" aria-hidden="true"></i> View Research</button></a>
-      <a href="publications.html"><button><i class="fa fa-file-text" aria-hidden="true"></i> Publications</button></a>
-      <a href="about.html"><button><i class="fa fa-user" aria-hidden="true"></i> About & CV</button></a>
+      <a href="#projects" class="btn btn-primary">View Research</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-arrow"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">01 — Who I Am</div>
+    <div class="about-grid">
+      <div class="about-text reveal in">
+        <h2 class="section-title">Engineer.<br><span>Researcher.</span><br>Builder.</h2>
+        <p>I'm Lalanth Shobhith Vadlamudi, a final-year Dual Degree student at IIT Madras — B.Tech in Engineering Design and M.Tech in Data Science (graduating May 2026).</p>
+        <p>My research is driven by a deep curiosity about how biological systems process information and adapt in real time. I study the bidirectional interactions between brain and body, and how we can leverage these principles to build better neurotechnologies.</p>
+        <p>From modeling heart–brain dynamics with Neural ODEs, to deploying vibrotactile feedback systems at Cybathlon 2024 in Zurich, I pursue research that bridges theory and hardware.</p>
+        <div class="about-stats">
+          <div class="stat-card reveal reveal-d1 in">
+            <div class="stat-num">8<span style="color:var(--muted);font-size:1.2rem">th</span></div>
+            <div class="stat-label">Global Rank · Cybathlon 2024</div>
+          </div>
+          <div class="stat-card reveal reveal-d2 in">
+            <div class="stat-num">9+</div>
+            <div class="stat-label">Research Projects</div>
+          </div>
+          <div class="stat-card reveal reveal-d3 in">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Years at IIT Madras</div>
+          </div>
+          <div class="stat-card reveal reveal-d4 in">
+            <div class="stat-num">2026</div>
+            <div class="stat-label">Graduating</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-photo-wrap reveal reveal-d2 in">
+        <img src="assets/images/IMG_2602.jpg" alt="Shobhith Vadlamudi">
+        <div class="about-photo-label">Shobhith Vadlamudi · IIT Madras</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- About Section -->
-<section id="home-intro" class="reveal reveal-delay-1">
-  <h2>About</h2>
-  <p>I am Lalanth Shobhith Vadlamudi, a final-year Dual Degree student at IIT Madras pursuing a B.Tech in Engineering Design and an M.Tech in Data Science.</p>
-  
-  <p>My research focuses on understanding how the brain and body interact as a coupled dynamical system, with applications in neuroprosthetics, brain-computer interfaces, and computational models of cognition. I combine theoretical frameworks from dynamical systems theory with empirical neuroscience and modern machine learning to build principled models of neural computation.</p>
-  
-  <p>I've had the opportunity to work on diverse projects - from developing closed-loop sensory feedback systems for lower-limb prosthetics (Cybathlon 2024) to modeling heart-brain dynamics using Neural ODEs, and applying deep learning to bioprocess optimization at Pfizer. Each project deepens my understanding of how biological systems process information and adapt in real-time.</p>
+<!-- Research -->
+<section id="research">
+  <div class="section-inner">
+    <div class="section-label">02 — Domains</div>
+    <h2 class="section-title reveal in">Research <span>Interests</span></h2>
+    <div class="research-grid">
+      <div class="research-card reveal in">
+        <span class="research-icon" style="filter: drop-shadow(0 0 8px var(--cyan))">⬡</span>
+        <h3>Computational Neuroscience</h3>
+        <p>Predictive coding models, hierarchical information processing, coupled oscillator dynamics, interoception and brain–body interactions using dynamical systems theory.</p>
+        <div class="research-tags">
+          <span class="rtag">Neural ODEs</span><span class="rtag">Predictive Coding</span><span class="rtag">Oscillators</span>
+        </div>
+      </div>
+      <div class="research-card reveal reveal-d1 in">
+        <span class="research-icon" style="filter: drop-shadow(0 0 8px var(--violet))">◈</span>
+        <h3>Neurotechnology &amp; BCI</h3>
+        <p>Closed-loop sensory feedback systems, brain-computer interfaces, real-time EEG/EMG signal processing, embedded systems for neural interfaces and neuroprosthetics.</p>
+        <div class="research-tags">
+          <span class="rtag">BCI</span><span class="rtag">EMG</span><span class="rtag">Vibrotactile</span>
+        </div>
+      </div>
+      <div class="research-card reveal reveal-d2 in">
+        <span class="research-icon" style="filter: drop-shadow(0 0 8px var(--gold))">◉</span>
+        <h3>Machine Learning &amp; AI</h3>
+        <p>Physics-Informed Neural Networks, Neural ODEs, representation learning, multimodal modeling, and explainable AI for scientific computing and bioprocess optimization.</p>
+        <div class="research-tags">
+          <span class="rtag">PINNs</span><span class="rtag">Gaussian Processes</span><span class="rtag">LLMs</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Featured Achievement: Cybathlon -->
-<section class="video-section reveal reveal-delay-2">
-  <h2>Featured Achievement</h2>
-  <h3 style="text-align: center; margin-bottom: var(--spacing-md); color: var(--color-highlight);">
-    Team Asai at Cybathlon 2024
-  </h3>
-  <div class="video-wrapper">
-    <!-- NOTE: Replace 'YOUR_VIDEO_ID_HERE' with the actual YouTube video ID for Team Asai's Cybathlon 2024 performance -->
-    <!-- Format: https://www.youtube.com/embed/VIDEO_ID -->
-    <iframe 
-      src="https://www.youtube.com/embed/fbYWwpcDApw?si=IH3AhPjfN5x7mVTo" 
-      title="Team Asai Performance at Cybathlon 2024"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen
-      loading="lazy">
-    </iframe>
+<!-- Projects -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">03 — Work</div>
+    <h2 class="section-title reveal">Selected <span>Projects</span></h2>
+    <div class="projects-grid" id="projects-grid">
+      <!-- JS-rendered -->
+    
+  <div class="project-card reveal " onclick="location.href='project-cybathlon-knee-prosthesis.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <img src="assets/images/abhiyaan.png" alt="Cybathlon Knee Prosthesis" loading="lazy">
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Neurotechnology · 2024</div>
+      <h3>Cybathlon Knee Prosthesis</h3>
+      <p>Closed-loop vibrotactile feedback for transfemoral amputees at Cybathlon 2024. Signal processing + real-time proprioceptive cues.</p>
+      <div class="project-tags"><span class="ptag">EMG</span><span class="ptag">BCI</span><span class="ptag">Embedded</span></div>
+    </div>
   </div>
-  <div class="video-description">
-    <p>
-      Representing IIT Madras at Cybathlon 2024 in Zurich, our team achieved <strong>8th place globally</strong> 
-      in the Powered Leg Prosthesis Race - the only Indian team at the event. I developed the signal processing 
-      and closed-loop sensory feedback system that enabled real-time proprioceptive cues through vibrotactile 
-      feedback, improving balance and gait awareness for transfemoral amputees.
+  <div class="project-card reveal reveal-d1" onclick="location.href='project-heart-brain-dynamics.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <div class="project-card-img-placeholder">COMPUTATIONAL NEUROSCIENCE</div>
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Computational Neuroscience · 2024</div>
+      <h3>Heart–Brain Neural Dynamics</h3>
+      <p>Modeling coupled heart-brain dynamics using Neural ODEs — understanding interoceptive signals as a dynamical system.</p>
+      <div class="project-tags"><span class="ptag">Neural ODE</span><span class="ptag">Interoception</span><span class="ptag">Python</span></div>
+    </div>
+  </div>
+  <div class="project-card reveal reveal-d2" onclick="location.href='project-voice-processing-eyetracking.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <img src="assets/images/eye.jpg" alt="Voice &amp; Eye-Tracking Language" loading="lazy">
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Cognitive Neuroscience · 2023</div>
+      <h3>Voice &amp; Eye-Tracking Language</h3>
+      <p>Eye-tracking paradigm for linguistic processing experiments — EYELINK integration, fixation analysis, and reading models.</p>
+      <div class="project-tags"><span class="ptag">EYELINK</span><span class="ptag">Python</span><span class="ptag">Linguistics</span></div>
+    </div>
+  </div>
+  <div class="project-card reveal " onclick="location.href='project-language-hierarchical-agent.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <div class="project-card-img-placeholder">AI</div>
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">AI · 2024</div>
+      <h3>Hierarchical Language Agent</h3>
+      <p>LLM fine-tuned on lab notes to perform projectile simulations — bridging scientific language and physics computation.</p>
+      <div class="project-tags"><span class="ptag">LLM</span><span class="ptag">Fine-tuning</span><span class="ptag">Physics</span></div>
+    </div>
+  </div>
+  <div class="project-card reveal reveal-d1" onclick="location.href='project-mando-ai-document-assistant.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <div class="project-card-img-placeholder">APPLIED AI</div>
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Applied AI · 2023</div>
+      <h3>Mando AI Document Assistant</h3>
+      <p>AI document intelligence system for the Mando hackathon — retrieval-augmented generation over technical manuals.</p>
+      <div class="project-tags"><span class="ptag">RAG</span><span class="ptag">LLM</span><span class="ptag">NLP</span></div>
+    </div>
+  </div>
+  <div class="project-card reveal reveal-d2" onclick="location.href='project-pfizer-bioprocess.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <img src="assets/images/kuari.jpg" alt="Pfizer Bioprocess Optimization" loading="lazy">
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Bioprocess Engineering · 2023</div>
+      <h3>Pfizer Bioprocess Optimization</h3>
+      <p>Deep learning models for chromatography process optimization — parameter estimation and bioprocess modeling at scale.</p>
+      <div class="project-tags"><span class="ptag">PINNs</span><span class="ptag">Optimization</span><span class="ptag">Industry</span></div>
+    </div>
+  </div>
+  <div class="project-card reveal " onclick="location.href='project-senai-predictive-coding.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <div class="project-card-img-placeholder">NEUROSCIENCE</div>
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Neuroscience · 2023</div>
+      <h3>Senai Predictive Coding</h3>
+      <p>Hierarchical predictive coding model of cerebellar function — forward models, efference copy, and sensory prediction.</p>
+      <div class="project-tags"><span class="ptag">Predictive Coding</span><span class="ptag">Cerebellum</span><span class="ptag">Dynamical Systems</span></div>
+    </div>
+  </div>
+  <div class="project-card reveal reveal-d1" onclick="location.href='project-team-abhiyaan-autonomy.html'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      <div class="project-card-img-placeholder">ROBOTICS</div>
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">Robotics · 2022</div>
+      <h3>Team Abhiyaan Autonomy</h3>
+      <p>Autonomous navigation systems for IIT Madras's autonomous vehicle team — perception, planning, and control stack.</p>
+      <div class="project-tags"><span class="ptag">Autonomy</span><span class="ptag">ROS</span><span class="ptag">Perception</span></div>
+    </div>
+  </div></div>
+  </div>
+</section>
+
+<!-- Cybathlon -->
+<section id="cybathlon">
+  <div class="section-inner">
+    <div class="section-label">04 — Featured Achievement</div>
+    <div class="cybathlon-grid">
+      <div class="cybathlon-video reveal">
+        <iframe src="https://www.youtube.com/embed/fbYWwpcDApw?si=IH3AhPjfN5x7mVTo" title="Team Asai at Cybathlon 2024" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="cybathlon-info reveal reveal-d2">
+        <div class="cybathlon-badge">🏆 Global Competition · Zurich 2024</div>
+        <h2>Team Asai at<br>Cybathlon 2024</h2>
+        <p>Representing IIT Madras at the world's premier bionic Olympics in Zurich — the only Indian team in the Powered Leg Prosthesis Race. I designed the signal processing pipeline and closed-loop vibrotactile feedback system for real-time proprioceptive cues.</p>
+        <p>The system enabled transfemoral amputees to sense limb position through vibrotactile stimulation, improving balance and gait stability under competition conditions.</p>
+        <div class="cybathlon-stat">
+          <div class="cstat">
+            <div class="cstat-num">8th</div>
+            <div class="cstat-label">Global Rank</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-num">1st</div>
+            <div class="cstat-label">Indian Team</div>
+          </div>
+          <div class="cstat">
+            <div class="cstat-num">6</div>
+            <div class="cstat-label">Obstacle Tasks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label">05 — Writing</div>
+    <h2 class="section-title reveal">Publications &amp; <span>Reports</span></h2>
+    <div class="pub-list">
+      <div class="pub-item reveal">
+        <div class="pub-type">Conference Paper · 2024</div>
+        <h3>Closed-Loop Vibrotactile Feedback for Transfemoral Prostheses: A Cybathlon 2024 Case Study</h3>
+        <div class="authors">Shobhith Vadlamudi, Team Asai, IIT Madras</div>
+        <div class="venue">Proceedings — Cybathlon 2024, Zurich</div>
+      </div>
+      <div class="pub-item reveal reveal-d1">
+        <div class="pub-type">Technical Report · 2024</div>
+        <h3>Modeling Heart-Brain Coupled Dynamics Using Neural Ordinary Differential Equations</h3>
+        <div class="authors">Shobhith Vadlamudi</div>
+        <div class="venue">IIT Madras Dual Degree Project — Data Science</div>
+      </div>
+      <div class="pub-item reveal reveal-d2">
+        <div class="pub-type">Technical Report · 2023</div>
+        <h3>Predictive Coding in the Cerebellum: A Hierarchical Agent Framework</h3>
+        <div class="authors">Shobhith Vadlamudi, Senai Neurotech Lab</div>
+        <div class="venue">Senai Neurotech Lab · IIT Madras</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Preview -->
+<section id="blog">
+  <div class="section-inner">
+    <div class="section-label">06 — Writing</div>
+    <h2 class="section-title reveal">From the <span>Blog</span></h2>
+    <div id="blog-preview-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem;"></div>
+    <div class="reveal" style="margin-top:2.5rem;text-align:center;">
+      <a href="blog.html" class="btn btn-outline" style="display:inline-block">View All Posts →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label" style="justify-content:center">07 — Say Hello</div>
+    <h2 class="section-title reveal">Let's <span>Connect</span></h2>
+    <p class="contact-subtitle reveal reveal-d1">
+      I'm always open to interesting conversations about neuroscience, AI, and building things that matter.
+      Reach out — I read every message.
     </p>
-    <p style="margin-top: var(--spacing-md);">
-      <a href="project-cybathlon-knee-prosthesis.html" style="color: var(--color-accent-primary);">
-        Learn more about this project →
+    <div class="social-links reveal reveal-d2">
+      <a class="social-link" href="https://linkedin.com/in/shobhith-vadlamudi-11a5141b4" target="_blank">
+        <span class="social-icon">in</span> LinkedIn
       </a>
-    </p>
+      <a class="social-link" href="https://github.com/Shobhith-V" target="_blank">
+        <span class="social-icon">gh</span> GitHub
+      </a>
+      <a class="social-link" href="https://x.com/Shobhith_V" target="_blank">
+        <span class="social-icon">𝕏</span> Twitter
+      </a>
+      <a class="social-link" href="assets/docs/cv.pdf" target="_blank">
+        <span class="social-icon">↓</span> CV / Résumé
+      </a>
+    </div>
+    <a class="contact-email reveal reveal-d3" href="mailto:shobhith.v@gmail.com?subject=Hi Shobhith!">
+      shobhith.v@gmail.com
+    </a>
   </div>
 </section>
 
-<!-- Research Highlights -->
-<section id="research-highlights" class="reveal reveal-delay-3">
-  <h2>Research Highlights</h2>
-  <p>My work spans multiple domains, unified by a focus on dynamical systems, information processing, and closed-loop interactions:</p>
-  
-  <div style="margin-top: var(--spacing-xl);">
-    <h3 style="color: var(--color-accent-primary); margin-bottom: var(--spacing-sm);">
-      <i class="fa fa-brain" style="margin-right: var(--spacing-sm);"></i>
-      Computational Neuroscience
-    </h3>
-    <p>Investigating predictive coding models, heart–brain dynamics, and hierarchical information processing in neural circuits.</p>
-    
-    <h3 style="color: var(--color-accent-primary); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">
-      <i class="fa fa-microchip" style="margin-right: var(--spacing-sm);"></i>
-      Neurotechnology
-    </h3>
-    <p>Designing closed-loop sensory feedback systems for neuroprosthetics and brain-computer interfaces.</p>
-    
-    <h3 style="color: var(--color-accent-primary); margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">
-      <i class="fa fa-line-chart" style="margin-right: var(--spacing-sm);"></i>
-      Machine Learning & AI
-    </h3>
-    <p>Applying Neural ODEs, physics-informed models, and deep learning to solve complex problems in bioprocess engineering and cognitive modeling.</p>
-  </div>
-  
-  <p style="margin-top: var(--spacing-xl);">
-    Explore my <a href="projects.html">projects and research</a> to learn more about my work, 
-    or view my <a href="publications.html">publications and reports</a>.
-  </p>
-</section>
+<footer>
+  <span style="color:var(--cyan)">SV_</span> &nbsp;·&nbsp; Shobhith Vadlamudi &nbsp;·&nbsp; IIT Madras &nbsp;·&nbsp; 2026
+  &nbsp;·&nbsp; Built with intentionality
+</footer>
 
-<div class="debug-grid"></div>
-<script src="src/index.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/animations.js"></script>
-</body>
-</html>
+<script>
+/* ── PROJECTS DATA ─────────────────────────────────────────────────────── */
+const PROJECTS = [
+  { title: "Cybathlon Knee Prosthesis", meta: "Neurotechnology · 2024", summary: "Closed-loop vibrotactile feedback for transfemoral amputees at Cybathlon 2024. Signal processing + real-time proprioceptive cues.", img: "assets/images/abhiyaan.png", tags: ["EMG", "BCI", "Embedded"], href: "project-cybathlon-knee-prosthesis.html" },
+  { title: "Heart–Brain Neural Dynamics", meta: "Computational Neuroscience · 2024", summary: "Modeling coupled heart-brain dynamics using Neural ODEs — understanding interoceptive signals as a dynamical system.", img: null, tags: ["Neural ODE", "Interoception", "Python"], href: "project-heart-brain-dynamics.html" },
+  { title: "Voice & Eye-Tracking Language", meta: "Cognitive Neuroscience · 2023", summary: "Eye-tracking paradigm for linguistic processing experiments — EYELINK integration, fixation analysis, and reading models.", img: "assets/images/eye.jpg", tags: ["EYELINK", "Python", "Linguistics"], href: "project-voice-processing-eyetracking.html" },
+  { title: "Hierarchical Language Agent", meta: "AI · 2024", summary: "LLM fine-tuned on lab notes to perform projectile simulations — bridging scientific language and physics computation.", img: null, tags: ["LLM", "Fine-tuning", "Physics"], href: "project-language-hierarchical-agent.html" },
+  { title: "Mando AI Document Assistant", meta: "Applied AI · 2023", summary: "AI document intelligence system for the Mando hackathon — retrieval-augmented generation over technical manuals.", img: null, tags: ["RAG", "LLM", "NLP"], href: "project-mando-ai-document-assistant.html" },
+  { title: "Pfizer Bioprocess Optimization", meta: "Bioprocess Engineering · 2023", summary: "Deep learning models for chromatography process optimization — parameter estimation and bioprocess modeling at scale.", img: "assets/images/kuari.jpg", tags: ["PINNs", "Optimization", "Industry"], href: "project-pfizer-bioprocess.html" },
+  { title: "Senai Predictive Coding", meta: "Neuroscience · 2023", summary: "Hierarchical predictive coding model of cerebellar function — forward models, efference copy, and sensory prediction.", img: null, tags: ["Predictive Coding", "Cerebellum", "Dynamical Systems"], href: "project-senai-predictive-coding.html" },
+  { title: "Team Abhiyaan Autonomy", meta: "Robotics · 2022", summary: "Autonomous navigation systems for IIT Madras's autonomous vehicle team — perception, planning, and control stack.", img: null, tags: ["Autonomy", "ROS", "Perception"], href: "project-team-abhiyaan-autonomy.html" },
+];
+
+const grid = document.getElementById('projects-grid');
+PROJECTS.forEach((p, i) => {
+  const delay = i % 3 === 0 ? '' : i % 3 === 1 ? 'reveal-d1' : 'reveal-d2';
+  grid.innerHTML += `
+  <div class="project-card reveal ${delay}" onclick="location.href='${p.href}'">
+    <div class="project-stripe"></div>
+    <div class="project-card-img">
+      ${p.img ? `<img src="${p.img}" alt="${p.title}" loading="lazy">` : `<div class="project-card-img-placeholder">${p.meta.split('·')[0].trim().toUpperCase()}</div>`}
+    </div>
+    <div class="project-card-body">
+      <div class="project-meta">${p.meta}</div>
+      <h3>${p.title}</h3>
+      <p>${p.summary}</p>
+      <div class="project-tags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div>
+    </div>
+  </div>`;
+});
+
+/* ── NEURAL CANVAS (upgraded) ─────────────────────────────────────────── */
+const canvas = document.getElementById('neural-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [], particleCount = 68, animSpeedMult = 1;
+let accentColor = [52, 211, 153]; // mint default matches saved tweak
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', () => { resize(); initParticles(); });
+
+const ATTRACT_R = 200, REPEL_R = 62, ATTRACT_F = 0.016, REPEL_F = 2.2;
+const CONNECT_R = 135, CURSOR_R = 185;
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.r = Math.random() * 2.2 + 0.8;
+    this.base_opacity = Math.random() * 0.45 + 0.2;
+    this.opacity = this.base_opacity;
+    this.trail = [];
+  }
+  update() {
+    const dx = mouseX - this.x, dy = mouseY - this.y;
+    const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+    // Orbital physics: attract far, repel close
+    if (dist < ATTRACT_R) {
+      if (dist < REPEL_R) {
+        const f = REPEL_F / (dist * dist + 1);
+        this.vx -= (dx / dist) * f;
+        this.vy -= (dy / dist) * f;
+      } else {
+        const f = ATTRACT_F * (1 - dist / ATTRACT_R) * animSpeedMult;
+        this.vx += (dx / dist) * f;
+        this.vy += (dy / dist) * f;
+        this.opacity = this.base_opacity + (1 - dist / ATTRACT_R) * 0.4;
+      }
+    } else {
+      this.opacity += (this.base_opacity - this.opacity) * 0.05;
+    }
+    // Gentle random drift
+    this.vx += (Math.random() - 0.5) * 0.025;
+    this.vy += (Math.random() - 0.5) * 0.025;
+    // Damping & speed cap
+    this.vx *= 0.975; this.vy *= 0.975;
+    const spd = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
+    const maxSpd = 4 * animSpeedMult;
+    if (spd > maxSpd) { this.vx = this.vx/spd*maxSpd; this.vy = this.vy/spd*maxSpd; }
+    // Trail
+    this.trail.push({x: this.x, y: this.y});
+    if (this.trail.length > 8) this.trail.shift();
+    this.x += this.vx; this.y += this.vy;
+    // Bounce
+    if (this.x < 0) { this.x = 0; this.vx *= -0.8; }
+    if (this.x > canvas.width) { this.x = canvas.width; this.vx *= -0.8; }
+    if (this.y < 0) { this.y = 0; this.vy *= -0.8; }
+    if (this.y > canvas.height) { this.y = canvas.height; this.vy *= -0.8; }
+  }
+  draw() {
+    // Motion trail
+    if (this.trail.length > 2) {
+      const spd = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
+      if (spd > 1.2) {
+        ctx.beginPath();
+        ctx.moveTo(this.trail[0].x, this.trail[0].y);
+        for (let i = 1; i < this.trail.length; i++) ctx.lineTo(this.trail[i].x, this.trail[i].y);
+        ctx.strokeStyle = `rgba(${accentColor.join(',')},${Math.min(spd*0.04, 0.18)})`;
+        ctx.lineWidth = this.r * 0.6;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+    }
+    // Glow for excited particles
+    const dx = mouseX - this.x, dy = mouseY - this.y;
+    const d = Math.sqrt(dx*dx + dy*dy);
+    if (d < CURSOR_R) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${accentColor.join(',')},${(1-d/CURSOR_R)*0.08})`;
+      ctx.fill();
+    }
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${accentColor.join(',')},${this.opacity})`;
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = Array.from({ length: particleCount }, () => new Particle());
+}
+initParticles();
+
+let mouseX = -2000, mouseY = -2000;
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY + window.scrollY; });
+
+// Click pulse: shockwave + scatter
+let pulses = [];
+canvas.addEventListener('click', e => {
+  const py = e.clientY;
+  pulses.push({ x: e.clientX, y: py, r: 0, opacity: 0.9 });
+  particles.forEach(p => {
+    const dx = p.x - e.clientX, dy = p.y - py;
+    const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+    if (dist < 220) {
+      const force = (1 - dist/220) * 9;
+      p.vx += (dx/dist) * force;
+      p.vy += (dy/dist) * force;
+    }
+  });
+});
+
+function drawFrame() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Ripple pulses
+  pulses = pulses.filter(p => p.opacity > 0.02);
+  pulses.forEach(p => {
+    for (let ring = 0; ring < 2; ring++) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r - ring * 14, 0, Math.PI*2);
+      ctx.strokeStyle = `rgba(${accentColor.join(',')},${p.opacity * (ring===0?1:0.4)})`;
+      ctx.lineWidth = ring===0 ? 1.5 : 0.7;
+      ctx.stroke();
+    }
+    p.r += 7; p.opacity *= 0.93;
+  });
+
+  // Cursor ambient glow
+  if (mouseX > -500) {
+    const g = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 100);
+    g.addColorStop(0, `rgba(${accentColor.join(',')},0.07)`);
+    g.addColorStop(1, 'transparent');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  const near = []; // particles near cursor = constellation nodes
+  for (let i = 0; i < particles.length; i++) {
+    particles[i].update();
+    particles[i].draw();
+    const cdx = particles[i].x - mouseX, cdy = particles[i].y - mouseY;
+    if (Math.sqrt(cdx*cdx+cdy*cdy) < CURSOR_R) near.push(i);
+    // Normal inter-particle connections
+    for (let j = i+1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if (dist < CONNECT_R) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(${accentColor.join(',')},${(1-dist/CONNECT_R)*0.18})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Constellation: bright web between cursor-attracted particles
+  for (let a = 0; a < near.length; a++) {
+    const pa = particles[near[a]];
+    const da = Math.sqrt((pa.x-mouseX)**2+(pa.y-mouseY)**2);
+    // Line to cursor
+    ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(mouseX, mouseY);
+    ctx.strokeStyle = `rgba(${accentColor.join(',')},${(1-da/CURSOR_R)*0.55})`;
+    ctx.lineWidth = 0.9; ctx.stroke();
+    // Lines between constellation nodes
+    for (let b = a+1; b < near.length; b++) {
+      const pb = particles[near[b]];
+      const dab = Math.sqrt((pa.x-pb.x)**2+(pa.y-pb.y)**2);
+      if (dab < CURSOR_R * 1.3) {
+        ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y);
+        ctx.strokeStyle = `rgba(${accentColor.join(',')},${(1-dab/(CURSOR_R*1.3))*0.45})`;
+        ctx.lineWidth = 1.1; ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(drawFrame);
+}
+drawFrame();
+
+/* ── TYPEWRITER ────────────────────────────────────────────────────────── */
+const lines = [
+  'Computational Neuroscientist',
+  'Neurotechnology Engineer',
+  'ML & AI Researcher',
+  'IIT Madras Dual Degree · 2026',
+  'Builder of Brain-Machine Interfaces',
+];
+let li = 0, ci = 0, deleting = false;
+const tw = document.getElementById('typewriter-text');
+function type() {
+  const current = lines[li];
+  if (!deleting) {
+    tw.textContent = current.slice(0, ++ci);
+    if (ci === current.length) { deleting = true; setTimeout(type, 2000); return; }
+  } else {
+    tw.textContent = current.slice(0, --ci);
+    if (ci === 0) { deleting = false; li = (li + 1) % lines.length; }
+  }
+  setTimeout(type, deleting ? 40 : 70);
+}
+setTimeout(type, 800);
+
+/* ── CURSOR ────────────────────────────────────────────────────────────── */
+const cursorDot = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let cx = 0, cy = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
+function updateCursor() {
+  cursorDot.style.left = cx + 'px'; cursorDot.style.top = cy + 'px';
+  rx += (cx - rx) * 0.15; ry += (cy - ry) * 0.15;
+  cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
+  requestAnimationFrame(updateCursor);
+}
+updateCursor();
+
+/* ── NAV SCROLL ────────────────────────────────────────────────────────── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── REVEAL ON SCROLL ──────────────────────────────────────────────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── PROJECT CARD 3D TILT ───────────────────────────────────────────────── */
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(600px) rotateY(${x*8}deg) rotateX(${-y*6}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+/* ── BLOG PREVIEW ──────────────────────────────────────────────────────── */
+(function loadBlogPreview() {
+  const s = document.createElement('script');
+  s.src = 'blog-posts.js';
+  s.onload = () => {
+    const grid = document.getElementById('blog-preview-grid');
+    if (!grid || !window.BLOG_POSTS) return;
+    BLOG_POSTS.slice(0, 3).forEach((post, i) => {
+      const fmt = d => new Date(d).toLocaleDateString('en-US', {year:'numeric',month:'short',day:'numeric'});
+      const a = document.createElement('a');
+      a.href = `blog/${post.slug}.html`;
+      a.className = 'blog-prev-card reveal' + (i===1?' reveal-d1':i===2?' reveal-d2':'');
+      a.innerHTML = `
+        <div class="blog-prev-tags">${post.tags.slice(0,2).map(t=>`<span class="blog-prev-tag">${t}</span>`).join('')}</div>
+        <h3>${post.title}</h3>
+        <p>${post.excerpt.split('.')[0]}.</p>
+        <div class="blog-prev-meta">${fmt(post.date)} · ${post.readTime}</div>
+        <div class="blog-prev-cta">Read post →</div>`;
+      grid.appendChild(a);
+      observer.observe(a);
+    });
+  };
+  document.head.appendChild(s);
+})();
+
+/* ── TWEAKS ────────────────────────────────────────────────────────────── */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "mint",
+  "particleDensity": "95",
+  "animSpeed": "fast"
+}/*EDITMODE-END*/;
+const colorMap = {
+  cyan: [0, 217, 255], violet: [140, 80, 255], mint: [52, 211, 153], ember: [251, 146, 60]
+};
+const cssVarMap = {
+  cyan: '#00d9ff', violet: '#8c50ff', mint: '#34d399', ember: '#fb923c'
+};
+
+function applyTweaks(t) {
+  accentColor = colorMap[t.accentColor] || accentColor;
+  document.documentElement.style.setProperty('--cyan', cssVarMap[t.accentColor] || '#00d9ff');
+  particleCount = parseInt(t.particleDensity) || 70;
+  animSpeedMult = t.animSpeed === 'slow' ? 0.4 : t.animSpeed === 'fast' ? 2 : 1;
+  initParticles();
+}
+applyTweaks(TWEAK_DEFAULTS);
+
+window.addEventListener('message', e => {
+  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('visible');
+  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('visible');
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+document.getElementById('tweak-color').value = TWEAK_DEFAULTS.accentColor;
+document.getElementById('tweak-particles').value = TWEAK_DEFAULTS.particleDensity;
+document.getElementById('tweak-speed').value = TWEAK_DEFAULTS.animSpeed;
+
+function postTweakUpdate() {
+  const edits = {
+    accentColor: document.getElementById('tweak-color').value,
+    particleDensity: document.getElementById('tweak-particles').value,
+    animSpeed: document.getElementById('tweak-speed').value,
+  };
+  applyTweaks(edits);
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+}
+document.getElementById('tweak-color').addEventListener('change', postTweakUpdate);
+document.getElementById('tweak-particles').addEventListener('input', postTweakUpdate);
+document.getElementById('tweak-speed').addEventListener('change', postTweakUpdate);
+</script>
+
+
+</body></html>

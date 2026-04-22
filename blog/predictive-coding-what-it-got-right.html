@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive Coding — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="../blog-post.css">
+</head>
+<body>
+<div id="reading-progress"></div>
+
+<nav class="blog-nav">
+  <a class="blog-nav-logo" href="../index.html">SV_</a>
+  <div class="blog-nav-links">
+    <a href="../blog.html">All Posts</a>
+    <a href="../index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
+
+<div class="post-hero reveal">
+  <div class="post-tags">
+    <span class="post-tag">Neuroscience</span>
+    <span class="post-tag">Predictive Coding</span>
+    <span class="post-tag">Bayesian Brain</span>
+  </div>
+  <h1 class="post-title">What Predictive Coding Got Right (and What It's Still Missing)</h1>
+  <div class="post-meta">
+    <span>March 18, 2025</span>
+    <span>·</span>
+    <span>11 min read</span>
+    <span>·</span>
+    <span>Shobhith Vadlamudi</span>
+  </div>
+  <p class="post-excerpt">The predictive coding hypothesis has been around since Helmholtz. It's now the hottest framework in computational neuroscience. Here's an honest look at what the theory genuinely explains — and where it quietly sweeps things under the rug.</p>
+</div>
+
+<div class="post-body">
+
+  <p>Hermann von Helmholtz, in the 1860s, proposed that perception is a form of <em>unconscious inference</em>. The brain, he argued, doesn't passively receive sensory input — it actively predicts what the input should be and only updates when those predictions are violated. It took about 130 years for this idea to become a serious computational framework.</p>
+
+  <p>Today, predictive coding is everywhere in neuroscience. Karl Friston's free energy principle has extended it into a theory of everything: action, perception, attention, learning, and even psychiatric disorders are cast as inference problems under a hierarchical generative model. The framework is genuinely beautiful. It's also, in places, frustratingly vague.</p>
+
+  <p>I spent the better part of a year implementing predictive coding models, reading the theoretical literature, and trying to understand where the boundaries of the theory actually are. Here's what I came away with.</p>
+
+  <h2>The core idea — and why it's compelling</h2>
+
+  <p>The basic setup: the brain maintains a generative model of the world. At each level of a cortical hierarchy, neurons encode predictions about the activity in the level below. The neurons that actually fire the most are the <strong>error units</strong> — the ones that signal how much the prediction was wrong. Top-down connections carry predictions; bottom-up connections carry prediction errors.</p>
+
+  <div class="math-block">
+    ε<sub>l</sub> = x<sub>l</sub> − g(μ<sub>l+1</sub>)
+  </div>
+
+  <p>Where <code>ε_l</code> is the prediction error at level <code>l</code>, <code>x_l</code> is the actual activity, and <code>g(μ_{l+1})</code> is the top-down prediction from above. The system minimizes total prediction error across all levels.</p>
+
+  <p>This is compelling for several reasons. It provides a <strong>local learning rule</strong> — each neuron only needs information from its immediate neighbours to update. It unifies perception and action under the same objective (minimize prediction error, either by updating beliefs or by moving to make predictions come true). And it maps onto cortical anatomy in a way that's at least suggestive: layer 2/3 pyramidal cells in superficial layers carry predictions down, while layer 4 cells in granular layers carry errors up.</p>
+
+  <div class="callout">
+    <p><strong>The elegance:</strong> Predictive coding turns perception into a single optimization problem — minimize free energy — that simultaneously performs inference, learning, and motor control. That's a remarkable unification for a theory built on such simple local operations.</p>
+  </div>
+
+  <h2>What it genuinely explains</h2>
+
+  <p>Mismatch negativity. This is the clearest win for predictive coding. When you hear a sequence of identical tones and then a deviant tone, there's a distinctive neural response — the MMN — that appears automatically, even when you're not paying attention. Predictive coding explains this naturally: the deviant tone violates a strong prediction, generating a large error signal. Alternative theories require separate attention mechanisms to explain the same data.</p>
+
+  <p>Repetition suppression is another. When you see the same stimulus repeatedly, neural responses in higher visual areas decrease. The standard interpretation is fatigue or habituation. Predictive coding says something more interesting: the stimulus becomes predictable, so the error signal shrinks. Crucially, this predicts that the suppression should be <em>expectation-dependent</em> — and it is. If you make the repeated stimulus surprising (by following it with an unexpected stimulus), the suppression disappears.</p>
+
+  <p>Attention also falls out naturally. In the predictive coding framework, attention is <strong>precision weighting</strong> — the inverse variance assigned to prediction errors. When you attend to something, you increase the weight of its error signal, making it more influential on higher-level representations. This provides a mechanistic account of why attention sharpens perception without requiring a separate attentional spotlight.</p>
+
+  <div class="post-divider"><span>§</span></div>
+
+  <h2>Where it gets murky</h2>
+
+  <p>The theory's power is also its weakness: it's very flexible. Almost any neural phenomenon can be reinterpreted in terms of prediction errors, precision weighting, or prior beliefs. This makes it <strong>hard to falsify</strong>.</p>
+
+  <p>Take the anatomy. The claim that superficial layers carry predictions and granular layers carry errors is appealing, but it's more of a mapping suggestion than a verified fact. The real cortical anatomy is messier: there are feedback connections in every layer, and the directionality is not as clean as the theory implies.</p>
+
+  <p>The precision weighting mechanism is another example. It's invoked to explain attention, arousal, uncertainty, confidence, and several psychiatric conditions. When a single mechanism does that much work, you should be suspicious. It might be correct — but it's often unclear what would falsify a precision-weighting explanation of any particular phenomenon.</p>
+
+  <p>The free energy principle, Friston's broader formulation, faces the additional problem of scope. A principle that applies to "any self-organizing system that maintains its integrity over time" is either very deep or not very informative, depending on how charitable you're feeling. The mathematical formalism is rigorous, but connecting it to specific, testable predictions about neural circuits requires a lot of additional modeling choices that the theory itself doesn't constrain.</p>
+
+  <div class="pull-quote">
+    "Predictive coding is less a theory than a language — an extremely rich and productive language for asking questions about the brain. Whether it's the right answer is a separate question from whether it's a useful frame."
+  </div>
+
+  <h2>The comparison with backpropagation</h2>
+
+  <p>When I implemented a predictive coding network and compared it to a standard backprop network on MNIST, the results were instructive. The predictive coding model converges, learns hierarchical features, and generalizes — but it's slower and more sensitive to hyperparameters. For a classification task, backprop wins easily.</p>
+
+  <p>But this comparison misses the point. Predictive coding isn't primarily a proposal about how to train classifiers. It's a proposal about how the brain performs <em>inference</em> — recovering latent causes from ambiguous data — which is a richer and harder problem than classification. The fair comparison is generative modeling, not supervised classification, and there the predictive coding formulation (as a form of variational EM) is on much stronger footing.</p>
+
+  <h2>Where I think the field should go</h2>
+
+  <p>The most productive path is probably to treat predictive coding as a <strong>normative framework</strong> — a theory of what the brain is <em>trying</em> to do — and then separately investigate the <em>mechanistic</em> question of how it's actually implemented. These are different questions, and conflating them is the source of much confusion in the literature.</p>
+
+  <p>On the mechanistic side, we need cleaner experiments that can distinguish predictive coding from alternative accounts. Single-unit recording in higher cortical areas during carefully designed expectation-violation paradigms is one promising direction. So is closed-loop optogenetics, where you can directly test whether silencing putative error units disrupts the expected updating of higher-level representations.</p>
+
+  <p>The framework is too productive to abandon. But it needs more teeth — more specific, more falsifiable predictions — to graduate from a compelling story to a confirmed theory of cortical computation.</p>
+
+</div>
+
+<div class="post-footer">
+  <a href="neural-odes-continuous-time.html">← Neural ODEs</a>
+  <a href="building-prosthetic-feedback.html">Next: Prosthetic Feedback →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const bar = document.getElementById('reading-progress');
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  bar.style.width = Math.min(el.scrollTop / (el.scrollHeight - el.clientHeight) * 100, 100) + '%';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural ODEs — Shobhith Vadlamudi</title>
+  <link rel="stylesheet" href="../blog-post.css">
+</head>
+<body>
+<div id="reading-progress"></div>
+
+<nav class="blog-nav">
+  <a class="blog-nav-logo" href="../index.html">SV_</a>
+  <div class="blog-nav-links">
+    <a href="../blog.html">All Posts</a>
+    <a href="../index.html" class="back-btn">← Home</a>
+  </div>
+</nav>
+
+<div class="post-hero reveal">
+  <div class="post-tags">
+    <span class="post-tag">Computational Neuroscience</span>
+    <span class="post-tag">Deep Learning</span>
+    <span class="post-tag">Neural ODE</span>
+  </div>
+  <h1 class="post-title">Neural ODEs: Teaching Machines to Think in Continuous Time</h1>
+  <div class="post-meta">
+    <span>April 10, 2025</span>
+    <span>·</span>
+    <span>9 min read</span>
+    <span>·</span>
+    <span>Shobhith Vadlamudi</span>
+  </div>
+  <p class="post-excerpt">Backpropagation assumes the world is discrete — a sequence of layers, a chain of operations. But the brain doesn't think in layers. Here's why Neural ODEs change the picture, and what they reveal about learning in continuous time.</p>
+</div>
+
+<div class="post-body">
+
+  <p>Most deep learning models are, at their core, discrete maps. You pass an input through layer 1, get an intermediate representation, pass it through layer 2, and so on. The depth of the network is a hyperparameter you choose before training. This discreteness is so built-in that we rarely question it.</p>
+
+  <p>But the brain — the system we most want to emulate — doesn't work this way. Neural activity evolves continuously in time. Signals propagate, decay, and interact as a dynamical system, not as a feedforward pipeline. The question naturally arises: what would it mean to build a neural network that <em>thinks</em> in continuous time?</p>
+
+  <h2>The key insight from Chen et al., 2018</h2>
+
+  <p>The Neural ODE paper by Ricky Chen and colleagues reframed residual networks through the lens of differential equations. A standard ResNet applies updates of the form:</p>
+
+  <div class="math-block">
+    h<sub>t+1</sub> = h<sub>t</sub> + f(h<sub>t</sub>, θ<sub>t</sub>)
+  </div>
+
+  <p>This is just Euler's method — a discrete approximation to an ODE. If you take the step size to zero, you get:</p>
+
+  <div class="math-block">
+    dh(t) / dt = f(h(t), t, θ)
+  </div>
+
+  <p>Now <code>h(t)</code> is a continuous function of time, parameterized by a neural network <code>f</code>. The "output" of the network is the solution to this ODE evaluated at some final time <code>T</code>:</p>
+
+  <div class="math-block">
+    h(T) = h(0) + ∫₀ᵀ f(h(t), t, θ) dt
+  </div>
+
+  <p>You train by backpropagating through the ODE solver — not through the individual steps it took, but through the solution itself. This requires the <strong>adjoint sensitivity method</strong>, which computes gradients by solving a second ODE backwards in time. Memory cost becomes O(1) in depth instead of O(N).</p>
+
+  <div class="callout">
+    <p><strong>Why this matters:</strong> A standard ResNet with N layers requires storing N intermediate activations for backprop. A Neural ODE stores only the current state and integrates backwards — so you can have arbitrarily "deep" continuous dynamics without the memory blowup.</p>
+  </div>
+
+  <h2>What this means for modeling the brain</h2>
+
+  <p>For computational neuroscience, continuous-time dynamics aren't a nice-to-have — they're the point. Neural circuits don't wait for a clock signal before updating. Oscillations, adaptation, and resonance are fundamentally continuous phenomena that discretization destroys or obscures.</p>
+
+  <p>When I started working on heart–brain interaction modeling for my master's thesis, this became immediately clear. The cardiac cycle doesn't tick on a discrete grid. The coupling between heart rate variability and cortical activity happens through a continuous feedback loop where the timescale itself is part of the information.</p>
+
+  <p>We modeled cortical regions as <strong>coupled Hopf oscillators</strong> — a biologically grounded continuous-time dynamical system that captures the limit-cycle behavior of neural populations. The Neural ODE framework let us put a learnable <code>f</code> on top of this mechanistic backbone, fitting the observation model to real MEG and ECG data while respecting the continuous-time structure.</p>
+
+  <div class="post-divider"><span>§</span></div>
+
+  <h2>The adjoint trick, explained simply</h2>
+
+  <p>Here's the part that intimidates people. To train a Neural ODE, you need gradients of the loss with respect to the parameters θ. But the ODE solver may take thousands of steps — you can't just backprop through all of them.</p>
+
+  <p>The adjoint method defines a new quantity: <code>a(t) = dL/dh(t)</code>, the gradient of the loss with respect to the hidden state at time <code>t</code>. It turns out that <code>a(t)</code> satisfies its own ODE:</p>
+
+  <div class="math-block">
+    da(t)/dt = −a(t)ᵀ · ∂f/∂h
+  </div>
+
+  <p>You solve this <em>backwards</em> in time, starting from <code>a(T) = dL/dh(T)</code> at the final state. Along the way, you accumulate gradients with respect to θ. The whole thing costs the same as running the forward ODE once — no storage of intermediate states needed.</p>
+
+  <p>This is one of those mathematical results that feels almost too good to be true, but the derivation is elegant: it's just the method of Lagrange multipliers applied to a continuous constraint.</p>
+
+  <h2>Practical realities</h2>
+
+  <p>Neural ODEs are powerful but not a free lunch. A few things I learned the hard way:</p>
+
+  <ul>
+    <li><strong>Stiff ODEs are a problem.</strong> If your dynamics have very different timescales — fast oscillations embedded in slow trends — the ODE solver takes tiny steps to stay stable, and training becomes expensive. Stiffness-aware solvers (like Rosenbrock methods) help, but they're slower per step.</li>
+    <li><strong>Adaptive step size hides structure.</strong> The solver chooses its own step sizes based on error tolerance. This means the effective "depth" of the network varies with the input, which is interesting but makes it harder to reason about what the network is doing.</li>
+    <li><strong>Initialization matters more.</strong> Unlike ResNets where zero-initialization of residual blocks gives a stable identity function, Neural ODE parameters that produce divergent initial dynamics will cause the solver to fail immediately.</li>
+  </ul>
+
+  <div class="pull-quote">
+    "The brain doesn't have layers. It has dynamics. Neural ODEs are the closest thing we have to a principled bridge between those two framings."
+  </div>
+
+  <h2>Where I think this is heading</h2>
+
+  <p>The most exciting direction is <strong>latent Neural ODEs</strong> for multimodal time-series. When you have signals from different sensors — MEG from cortex, ECG from heart, EMG from muscle — sampled at different rates and with different noise structures, you want a shared latent dynamics that generates all of them. A Neural ODE in the latent space is a natural fit: it's continuous, so it handles irregular sampling gracefully, and it's differentiable, so you can optimize it end-to-end.</p>
+
+  <p>We're also seeing Neural ODEs appear in graph settings — where the nodes of a graph evolve continuously and edges modulate the dynamics. This is especially relevant for brain connectivity, where the graph structure (structural connectivity) is known from tractography and the dynamics (functional connectivity) is what you're trying to model or predict.</p>
+
+  <p>None of this is solved. But the framing — continuous dynamics as the fundamental object, discrete observations as the measurement model — feels deeply right to me. It's how the brain actually works, and it's probably how our models should work too.</p>
+
+</div>
+
+<div class="post-footer">
+  <a href="../blog.html">← All Posts</a>
+  <a href="predictive-coding-what-it-got-right.html">Next: Predictive Coding →</a>
+</div>
+
+<script>
+const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const bar = document.getElementById('reading-progress');
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const pct = el.scrollTop / (el.scrollHeight - el.clientHeight) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+});
+</script>
+</body>
+</html>
