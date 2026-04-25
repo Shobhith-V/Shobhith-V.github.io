@@ -84,6 +84,16 @@
     }
     .nav-links a:hover { color: var(--white); }
     .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-toggle {
+      display: none; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--cyan); background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 0.85rem;
+    }
+    .nav-toggle span {
+      display: block; width: 16px; height: 1px; background: var(--cyan);
+      box-shadow: 0 5px 0 var(--cyan), 0 -5px 0 var(--cyan);
+    }
 
     /* ── HERO ───────────────────────────────────────────────────── */
     #hero {
@@ -371,20 +381,6 @@
 .blog-prev-meta { font-family:var(--mono); font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
 .blog-prev-cta { font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--cyan); margin-top:auto; }
 
-/* ── TWEAKS PANEL ───────────────────────────────────────────── */
-    #tweaks-panel {
-      display: none; position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 5000;
-      background: rgba(12,12,30,0.95); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.25rem; width: 240px;
-      backdrop-filter: blur(16px); box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-    }
-    #tweaks-panel.visible { display: block; }
-    #tweaks-panel h4 { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 1rem; }
-    .tweak-row { margin-bottom: 1rem; }
-    .tweak-row label { display: block; font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem; }
-    .tweak-row select, .tweak-row input[type=range] { width: 100%; background: var(--bg3); border: 1px solid var(--border); color: var(--white); border-radius: 4px; padding: 0.35rem 0.5rem; font-size: 0.75rem; font-family: var(--mono); }
-    .tweak-row input[type=range] { padding: 0; accent-color: var(--cyan); }
-
     /* ── RESPONSIVE ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
@@ -397,48 +393,89 @@
       .cybathlon-grid { grid-template-columns: 1fr; }
       .hero-name { font-size: clamp(2.5rem,10vw,4rem); }
     }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .projects-grid { grid-template-columns: 1fr; }
+    @media (max-width: 760px) {
+      #cursor, #cursor-ring { display: none; }
+      body { cursor: auto; }
+      nav {
+        padding: 0.8rem 1rem;
+        background: rgba(5,5,16,0.9);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-toggle { display: inline-flex; }
+      .nav-links {
+        position: absolute; top: calc(100% + 0.6rem); left: 1rem; right: 1rem;
+        display: grid; gap: 0.25rem; padding: 0.65rem;
+        background: rgba(12,12,30,0.96); border: 1px solid var(--border);
+        border-radius: 12px; box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+        transform: translateY(-8px); opacity: 0; pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease;
+      }
+      nav.open .nav-links { opacity: 1; pointer-events: auto; transform: none; }
+      .nav-links a {
+        display: block; padding: 0.85rem 0.9rem; font-size: 0.72rem;
+        border-radius: 8px; background: rgba(255,255,255,0.02);
+      }
+      .nav-links a::after { display: none; }
+      #hero {
+        min-height: 92svh; padding: 6.2rem 1rem 3rem; align-items: flex-start;
+      }
+      #neural-canvas { opacity: 0.38; }
+      .hero-content { max-width: 100%; }
+      .hero-label { font-size: 0.62rem; line-height: 1.6; letter-spacing: 0.14em; margin-bottom: 1rem; }
+      .hero-label::before { width: 20px; }
+      .hero-name { font-size: clamp(2.55rem, 16vw, 4.6rem); line-height: 0.95; margin-bottom: 1rem; }
+      .hero-typewriter { font-size: 0.92rem; min-height: 1.7em; margin-bottom: 1rem; }
+      .hero-bio { font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; }
+      .hero-cta { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+      .btn { width: 100%; text-align: center; padding: 0.85rem 1rem; }
+      .scroll-hint { display: none; }
+      section { padding: 3.8rem 1rem; }
+      .section-label { font-size: 0.62rem; letter-spacing: 0.14em; }
+      .section-title { font-size: clamp(1.9rem, 10vw, 2.7rem); margin-bottom: 1.8rem; }
+      .about-grid { gap: 2rem; }
+      .about-text p { font-size: 0.96rem; line-height: 1.7; }
+      .about-stats { grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem; }
+      .stat-card { padding: 0.9rem; }
+      .stat-num { font-size: 1.5rem; }
+      .stat-label { font-size: 0.62rem; line-height: 1.35; }
+      .about-photo-wrap { max-width: none; }
+      .about-photo-wrap img { height: 300px; }
+      .research-grid, .projects-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+      .research-card, .project-card-body, .pub-item, .blog-prev-card { padding: 1.1rem; }
+      .research-card:hover, .project-card:hover, .blog-prev-card:hover, .social-link:hover { transform: none; }
+      .project-card-img { height: 125px; }
+      .cybathlon-grid { gap: 1.5rem; }
+      #cybathlon::before { font-size: 4.4rem; top: 3rem; opacity: 0.7; }
+      .cybathlon-info h2 { font-size: 1.65rem; }
+      .cybathlon-info p { font-size: 0.95rem; line-height: 1.65; }
+      .cybathlon-badge { font-size: 0.6rem; line-height: 1.5; }
+      .cybathlon-stat { gap: 1rem; justify-content: space-between; }
+      .cstat-num { font-size: 1.65rem; }
+      .cstat-label { font-size: 0.62rem; }
+      .pub-item h3 { font-size: 0.95rem; }
+      #blog-preview-grid { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
+      .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
+      .social-link { justify-content: center; padding: 0.8rem 0.7rem; font-size: 0.68rem; }
+      .contact-email { font-size: 0.9rem; word-break: break-word; }
+      footer { padding: 1.5rem 1rem; line-height: 1.8; }
+    }
+    @media (max-width: 420px) {
+      .about-stats, .social-links { grid-template-columns: 1fr; }
     }
   </style>
 <link id="gfont-Fira-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Ubuntu" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Caveat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Abril-Fatface" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@300;400;500;600;700&amp;display=swap"><link id="gfont-Bitter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;500;600;700&amp;display=swap"></head>
-<body style="font-family: monospace; cursor: crosshair;" data-cc-id="cc-1">
+<body>
 
 <!-- Custom cursor -->
 <div id="cursor" style="left: 1237px; top: 4px;"></div>
 <div id="cursor-ring" style="left: 1237px; top: 4px;"></div>
 
-<!-- Tweaks panel -->
-<div id="tweaks-panel" class="visible">
-  <h4>Tweaks</h4>
-  <div class="tweak-row">
-    <label>Accent Color</label>
-    <select id="tweak-color">
-      <option value="cyan">Electric Cyan</option>
-      <option value="violet">Deep Violet</option>
-      <option value="mint">Bioluminescent Mint</option>
-      <option value="ember">Ember Orange</option>
-    </select>
-  </div>
-  <div class="tweak-row">
-    <label>Particle Density</label>
-    <input type="range" id="tweak-particles" min="30" max="140" value="70">
-  </div>
-  <div class="tweak-row">
-    <label>Animation Speed</label>
-    <select id="tweak-speed">
-      <option value="slow">Slow</option>
-      <option value="normal" selected="">Normal</option>
-      <option value="fast">Fast</option>
-    </select>
-  </div>
-</div>
-
 <!-- Navigation -->
 <nav id="main-nav" class="">
   <a class="nav-logo" href="#hero">SV_</a>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span aria-hidden="true"></span>Menu</button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -769,6 +806,7 @@ const PROJECTS = [
 ];
 
 const grid = document.getElementById('projects-grid');
+grid.innerHTML = '';
 PROJECTS.forEach((p, i) => {
   const delay = i % 3 === 0 ? '' : i % 3 === 1 ? 'reveal-d1' : 'reveal-d2';
   grid.innerHTML += `
@@ -789,12 +827,13 @@ PROJECTS.forEach((p, i) => {
 /* ── NEURAL CANVAS (upgraded) ─────────────────────────────────────────── */
 const canvas = document.getElementById('neural-canvas');
 const ctx = canvas.getContext('2d');
-let particles = [], particleCount = 68, animSpeedMult = 1;
-let accentColor = [52, 211, 153]; // mint default matches saved tweak
+let particles = [], particleCount = window.matchMedia('(max-width: 760px)').matches ? 34 : 68, animSpeedMult = 1;
+let accentColor = [52, 211, 153];
 
 function resize() {
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
+  particleCount = window.matchMedia('(max-width: 760px)').matches ? 34 : 68;
 }
 resize();
 window.addEventListener('resize', () => { resize(); initParticles(); });
@@ -1012,8 +1051,19 @@ updateCursor();
 
 /* ── NAV SCROLL ────────────────────────────────────────────────────────── */
 const nav = document.getElementById('main-nav');
+const navToggle = document.querySelector('.nav-toggle');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+navToggle.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 
 /* ── REVEAL ON SCROLL ──────────────────────────────────────────────────── */
@@ -1058,50 +1108,6 @@ document.querySelectorAll('.project-card').forEach(card => {
   document.head.appendChild(s);
 })();
 
-/* ── TWEAKS ────────────────────────────────────────────────────────────── */
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accentColor": "mint",
-  "particleDensity": "95",
-  "animSpeed": "fast"
-}/*EDITMODE-END*/;
-const colorMap = {
-  cyan: [0, 217, 255], violet: [140, 80, 255], mint: [52, 211, 153], ember: [251, 146, 60]
-};
-const cssVarMap = {
-  cyan: '#00d9ff', violet: '#8c50ff', mint: '#34d399', ember: '#fb923c'
-};
-
-function applyTweaks(t) {
-  accentColor = colorMap[t.accentColor] || accentColor;
-  document.documentElement.style.setProperty('--cyan', cssVarMap[t.accentColor] || '#00d9ff');
-  particleCount = parseInt(t.particleDensity) || 70;
-  animSpeedMult = t.animSpeed === 'slow' ? 0.4 : t.animSpeed === 'fast' ? 2 : 1;
-  initParticles();
-}
-applyTweaks(TWEAK_DEFAULTS);
-
-window.addEventListener('message', e => {
-  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').classList.add('visible');
-  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('visible');
-});
-window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-
-document.getElementById('tweak-color').value = TWEAK_DEFAULTS.accentColor;
-document.getElementById('tweak-particles').value = TWEAK_DEFAULTS.particleDensity;
-document.getElementById('tweak-speed').value = TWEAK_DEFAULTS.animSpeed;
-
-function postTweakUpdate() {
-  const edits = {
-    accentColor: document.getElementById('tweak-color').value,
-    particleDensity: document.getElementById('tweak-particles').value,
-    animSpeed: document.getElementById('tweak-speed').value,
-  };
-  applyTweaks(edits);
-  window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-}
-document.getElementById('tweak-color').addEventListener('change', postTweakUpdate);
-document.getElementById('tweak-particles').addEventListener('input', postTweakUpdate);
-document.getElementById('tweak-speed').addEventListener('change', postTweakUpdate);
 </script>
 
 
