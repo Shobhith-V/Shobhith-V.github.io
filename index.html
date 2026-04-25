@@ -120,8 +120,10 @@
       background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 60%, var(--violet) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
+      cursor: pointer;
     }
-    .hero-name:hover { cursor: default; animation: glitch .4s steps(2) infinite; }
+    .hero-name:hover { animation: glitch .4s steps(2) infinite; }
+    .hero-name:focus-visible { outline: 2px solid var(--cyan); outline-offset: 0.35rem; border-radius: 8px; }
     @keyframes glitch {
       0%   { text-shadow: 2px 0 var(--cyan), -2px 0 var(--violet); }
       25%  { text-shadow: -2px 0 var(--cyan), 2px 0 var(--gold); }
@@ -381,6 +383,68 @@
 .blog-prev-meta { font-family:var(--mono); font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
 .blog-prev-cta { font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--cyan); margin-top:auto; }
 
+    /* ── SIGNAL GAME ─────────────────────────────────────────────── */
+    .game-modal {
+      position: fixed; inset: 0; z-index: 6000; display: none;
+      align-items: center; justify-content: center; padding: 1.25rem;
+      background: rgba(5,5,16,0.76); backdrop-filter: blur(18px);
+    }
+    .game-modal.open { display: flex; }
+    .game-card {
+      width: min(720px, 100%); background: rgba(12,12,30,0.97);
+      border: 1px solid rgba(52,211,153,0.26); border-radius: 16px;
+      box-shadow: 0 24px 90px rgba(0,0,0,0.65), var(--glow);
+      overflow: hidden;
+    }
+    .game-head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+      padding: 1.2rem 1.25rem; border-bottom: 1px solid var(--border);
+    }
+    .game-kicker {
+      font-family: var(--mono); font-size: 0.62rem; color: var(--cyan);
+      letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.35rem;
+    }
+    .game-head h2 { font-size: 1.35rem; line-height: 1.2; margin: 0 0 0.25rem; }
+    .game-head p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+    .game-close {
+      flex: 0 0 auto; width: 38px; height: 38px; border-radius: 999px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.03);
+      color: var(--white); font-size: 1.2rem; cursor: pointer;
+    }
+    .game-body { padding: 1.25rem; }
+    .game-stage {
+      position: relative; height: 240px; border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(52,211,153,0.08), transparent 58%),
+        var(--bg);
+      background-size: 48px 48px, 48px 48px, auto, auto;
+    }
+    #signal-game-canvas { width: 100%; height: 100%; display: block; }
+    .target-band {
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 18%; transform: translateX(-50%);
+      border-left: 1px solid rgba(52,211,153,0.6); border-right: 1px solid rgba(52,211,153,0.6);
+      background: linear-gradient(90deg, transparent, rgba(52,211,153,0.12), transparent);
+      pointer-events: none;
+    }
+    .game-readout {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1rem 0;
+    }
+    .readout-box {
+      border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem;
+      background: rgba(255,255,255,0.025);
+    }
+    .readout-label {
+      font-family: var(--mono); font-size: 0.58rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.25rem;
+    }
+    .readout-value { font-family: var(--mono); color: var(--cyan); font-size: 1.25rem; }
+    .game-controls { display: flex; gap: 0.75rem; align-items: center; }
+    .game-status { flex: 1; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+    .game-pulse { animation: gamePulse .28s ease; }
+    @keyframes gamePulse { 50% { box-shadow: inset 0 0 50px rgba(52,211,153,0.18); } }
+
     /* ── RESPONSIVE ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
@@ -459,6 +523,18 @@
       .social-link { justify-content: center; padding: 0.8rem 0.7rem; font-size: 0.68rem; }
       .contact-email { font-size: 0.9rem; word-break: break-word; }
       footer { padding: 1.5rem 1rem; line-height: 1.8; }
+      .game-modal { padding: 0.75rem; align-items: flex-end; }
+      .game-card { border-radius: 16px 16px 0 0; }
+      .game-head { padding: 1rem; }
+      .game-head h2 { font-size: 1.1rem; }
+      .game-stage { height: 190px; }
+      .game-body { padding: 1rem; }
+      .game-readout { grid-template-columns: 1fr; gap: 0.55rem; }
+      .readout-box { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0.8rem; }
+      .readout-label { margin-bottom: 0; }
+      .readout-value { font-size: 1rem; }
+      .game-controls { display: grid; grid-template-columns: 1fr; }
+      .game-status { order: -1; }
     }
     @media (max-width: 420px) {
       .about-stats, .social-links { grid-template-columns: 1fr; }
@@ -491,7 +567,7 @@
   <canvas id="neural-canvas" width="1430" height="889"></canvas>
   <div class="hero-content">
     <div class="hero-label">Computational Neuroscience · IIT Madras</div>
-    <h1 class="hero-name">Shobhith<br>Vadlamudi</h1>
+    <h1 class="hero-name" id="hero-name" role="button" tabindex="0" aria-label="Open neural signal calibration game">Shobhith<br>Vadlamudi</h1>
     <div class="hero-typewriter"><span id="typewriter-text">Computational Neuroscien</span><span class="cursor-blink">_</span></div>
     <p class="hero-bio">
       I work at the intersection of dynamical systems, neural computation, and neurotechnology.
@@ -507,6 +583,45 @@
     <span>SCROLL</span>
   </div>
 </section>
+
+<!-- Neural Signal Calibration Game -->
+<div class="game-modal" id="game-modal" aria-hidden="true">
+  <div class="game-card" role="dialog" aria-modal="true" aria-labelledby="game-title">
+    <div class="game-head">
+      <div>
+        <div class="game-kicker">Hidden Lab Console</div>
+        <h2 id="game-title">Neural Signal Calibration</h2>
+        <p>Tap or click when the moving signal enters the calibration window. Five clean locks completes the run.</p>
+      </div>
+      <button class="game-close" type="button" aria-label="Close calibration game">x</button>
+    </div>
+    <div class="game-body">
+      <div class="game-stage" id="game-stage">
+        <canvas id="signal-game-canvas"></canvas>
+        <div class="target-band" aria-hidden="true"></div>
+      </div>
+      <div class="game-readout">
+        <div class="readout-box">
+          <div class="readout-label">Signal Lock</div>
+          <div class="readout-value" id="game-score">0/5</div>
+        </div>
+        <div class="readout-box">
+          <div class="readout-label">Accuracy</div>
+          <div class="readout-value" id="game-accuracy">--</div>
+        </div>
+        <div class="readout-box">
+          <div class="readout-label">Grade</div>
+          <div class="readout-value" id="game-grade">Idle</div>
+        </div>
+      </div>
+      <div class="game-controls">
+        <button class="btn btn-primary" id="game-tap" type="button">Calibrate</button>
+        <button class="btn btn-outline" id="game-reset" type="button">Restart</button>
+        <div class="game-status" id="game-status">Click your name anytime to reopen this lab console.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- About -->
 <section id="about">
@@ -1065,6 +1180,149 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     navToggle.setAttribute('aria-expanded', 'false');
   });
 });
+
+/* ── SIGNAL CALIBRATION GAME ───────────────────────────────────────────── */
+const heroName = document.getElementById('hero-name');
+const gameModal = document.getElementById('game-modal');
+const gameClose = document.querySelector('.game-close');
+const gameCanvas = document.getElementById('signal-game-canvas');
+const gameCtx = gameCanvas.getContext('2d');
+const gameStage = document.getElementById('game-stage');
+const gameTap = document.getElementById('game-tap');
+const gameReset = document.getElementById('game-reset');
+const gameScore = document.getElementById('game-score');
+const gameAccuracy = document.getElementById('game-accuracy');
+const gameGrade = document.getElementById('game-grade');
+const gameStatus = document.getElementById('game-status');
+let gameOpen = false, gameHits = 0, gameAttempts = 0, gameBest = 0, signalPhase = 0;
+let signalSpeed = 2.15, gameRaf = null;
+
+function resizeGameCanvas() {
+  const rect = gameCanvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  gameCanvas.width = Math.max(1, Math.floor(rect.width * dpr));
+  gameCanvas.height = Math.max(1, Math.floor(rect.height * dpr));
+  gameCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function resetGame() {
+  gameHits = 0; gameAttempts = 0; gameBest = 0; signalPhase = 0; signalSpeed = 2.15;
+  updateGameReadout('Awaiting calibration input.');
+}
+
+function updateGameReadout(status) {
+  const accuracy = gameAttempts ? Math.round((gameHits / gameAttempts) * 100) : null;
+  gameScore.textContent = `${gameHits}/5`;
+  gameAccuracy.textContent = accuracy === null ? '--' : `${accuracy}%`;
+  gameGrade.textContent = gameHits >= 5 ? 'Locked' : gameBest > 88 ? 'Clean' : gameBest > 68 ? 'Noisy' : 'Idle';
+  gameStatus.textContent = status;
+}
+
+function currentSignal() {
+  const w = gameCanvas.clientWidth || 1;
+  const h = gameCanvas.clientHeight || 1;
+  const progress = (signalPhase % w) / w;
+  const x = progress * w;
+  const y = h * 0.52 + Math.sin(progress * Math.PI * 6 + signalPhase * 0.018) * h * 0.18 + Math.sin(signalPhase * 0.045) * h * 0.08;
+  return { x, y, progress };
+}
+
+function drawGame() {
+  if (!gameOpen) return;
+  const w = gameCanvas.clientWidth;
+  const h = gameCanvas.clientHeight;
+  gameCtx.clearRect(0, 0, w, h);
+  const targetX = w * 0.5;
+  const targetWidth = w * 0.18;
+
+  gameCtx.strokeStyle = 'rgba(255,255,255,0.08)';
+  gameCtx.lineWidth = 1;
+  gameCtx.beginPath();
+  gameCtx.moveTo(0, h * 0.52);
+  gameCtx.lineTo(w, h * 0.52);
+  gameCtx.stroke();
+
+  gameCtx.beginPath();
+  for (let px = 0; px <= w; px += 4) {
+    const p = px / w;
+    const py = h * 0.52 + Math.sin(p * Math.PI * 6 + signalPhase * 0.018) * h * 0.18 + Math.sin((signalPhase + px) * 0.045) * h * 0.08;
+    if (px === 0) gameCtx.moveTo(px, py); else gameCtx.lineTo(px, py);
+  }
+  gameCtx.strokeStyle = 'rgba(52,211,153,0.78)';
+  gameCtx.lineWidth = 2;
+  gameCtx.shadowColor = 'rgba(52,211,153,0.5)';
+  gameCtx.shadowBlur = 12;
+  gameCtx.stroke();
+  gameCtx.shadowBlur = 0;
+
+  const sig = currentSignal();
+  const closeness = Math.max(0, 1 - Math.abs(sig.x - targetX) / (targetWidth * 0.5));
+  gameCtx.beginPath();
+  gameCtx.arc(sig.x, sig.y, 5 + closeness * 5, 0, Math.PI * 2);
+  gameCtx.fillStyle = closeness > 0 ? 'rgba(255,176,32,0.95)' : 'rgba(52,211,153,0.95)';
+  gameCtx.fill();
+
+  signalPhase += signalSpeed;
+  gameRaf = requestAnimationFrame(drawGame);
+}
+
+function calibrateSignal() {
+  if (gameHits >= 5) return;
+  const w = gameCanvas.clientWidth || 1;
+  const sig = currentSignal();
+  const targetX = w * 0.5;
+  const targetWidth = w * 0.18;
+  const accuracy = Math.max(0, Math.round((1 - Math.abs(sig.x - targetX) / (targetWidth * 0.75)) * 100));
+  gameAttempts++;
+  gameBest = Math.max(gameBest, accuracy);
+  gameStage.classList.remove('game-pulse');
+  void gameStage.offsetWidth;
+  gameStage.classList.add('game-pulse');
+  if (accuracy >= 68) {
+    gameHits++;
+    signalSpeed += 0.18;
+    updateGameReadout(gameHits >= 5 ? 'Signal locked. Closed-loop feedback stabilized.' : `Clean lock: ${accuracy}%. Keep going.`);
+  } else {
+    updateGameReadout(`Missed lock: ${accuracy}%. Wait for the trace to enter the center band.`);
+  }
+}
+
+function openGame() {
+  gameOpen = true;
+  gameModal.classList.add('open');
+  gameModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  resizeGameCanvas();
+  resetGame();
+  cancelAnimationFrame(gameRaf);
+  drawGame();
+  gameTap.focus();
+}
+
+function closeGame() {
+  gameOpen = false;
+  gameModal.classList.remove('open');
+  gameModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  cancelAnimationFrame(gameRaf);
+  heroName.focus();
+}
+
+heroName.addEventListener('click', openGame);
+heroName.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGame(); }
+});
+gameTap.addEventListener('click', calibrateSignal);
+gameStage.addEventListener('click', calibrateSignal);
+gameReset.addEventListener('click', resetGame);
+gameClose.addEventListener('click', closeGame);
+gameModal.addEventListener('click', e => { if (e.target === gameModal) closeGame(); });
+document.addEventListener('keydown', e => {
+  if (!gameOpen) return;
+  if (e.key === 'Escape') closeGame();
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); calibrateSignal(); }
+});
+window.addEventListener('resize', () => { if (gameOpen) resizeGameCanvas(); });
 
 /* ── REVEAL ON SCROLL ──────────────────────────────────────────────────── */
 const observer = new IntersectionObserver(entries => {
