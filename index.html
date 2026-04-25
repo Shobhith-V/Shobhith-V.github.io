@@ -312,6 +312,55 @@
     .cstat { }
     .cstat-num { font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: var(--mono); }
     .cstat-label { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; }
+    .cybathlon-game {
+      margin-top: 3rem; background: rgba(12,12,30,0.74); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden; position: relative; box-shadow: 0 18px 70px rgba(0,0,0,0.32);
+    }
+    .cybathlon-game::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--violet));
+    }
+    .cy-game-head {
+      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+      padding: 1.35rem 1.5rem; border-bottom: 1px solid var(--border);
+    }
+    .cy-game-kicker {
+      font-family: var(--mono); font-size: 0.64rem; color: var(--gold);
+      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 0.45rem;
+    }
+    .cy-game-head h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
+    .cy-game-head p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; margin: 0; }
+    .cy-game-body { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.25rem; padding: 1.5rem; }
+    .cy-game-stage {
+      position: relative; height: 260px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
+      overflow: hidden; background:
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        radial-gradient(circle at 50% 75%, rgba(255,176,32,0.08), transparent 55%),
+        var(--bg);
+      background-size: 42px 42px, 42px 42px, auto, auto;
+      touch-action: manipulation;
+    }
+    #cybathlon-game-canvas { width: 100%; height: 100%; display: block; }
+    .cy-game-panel { display: flex; flex-direction: column; gap: 0.75rem; }
+    .cy-readout {
+      border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem;
+      background: rgba(255,255,255,0.025);
+    }
+    .cy-readout-label {
+      font-family: var(--mono); font-size: 0.58rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.25rem;
+    }
+    .cy-readout-value { font-family: var(--mono); color: var(--gold); font-size: 1.25rem; }
+    .cy-game-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .cy-control-btn {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--white);
+      border: 1px solid var(--border); border-radius: 8px; background: rgba(255,255,255,0.035);
+      padding: 0.85rem 0.5rem; cursor: pointer; transition: border-color .2s, background .2s;
+      user-select: none;
+    }
+    .cy-control-btn:active, .cy-control-btn.active { border-color: rgba(255,176,32,0.6); background: rgba(255,176,32,0.12); }
+    .cy-game-status { color: var(--muted); font-size: 0.85rem; line-height: 1.55; margin: 0; }
 
     /* ── PUBLICATIONS ───────────────────────────────────────────── */
     #publications { background: var(--bg2); }
@@ -517,6 +566,14 @@
       .cybathlon-stat { gap: 1rem; justify-content: space-between; }
       .cstat-num { font-size: 1.65rem; }
       .cstat-label { font-size: 0.62rem; }
+      .cybathlon-game { margin-top: 2rem; }
+      .cy-game-head { grid-template-columns: 1fr; padding: 1rem; }
+      .cy-game-body { grid-template-columns: 1fr; padding: 1rem; gap: 1rem; }
+      .cy-game-stage { height: 210px; }
+      .cy-game-panel { display: grid; grid-template-columns: 1fr; }
+      .cy-readout { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 0.8rem; }
+      .cy-readout-label { margin-bottom: 0; }
+      .cy-readout-value { font-size: 1rem; }
       .pub-item h3 { font-size: 0.95rem; }
       #blog-preview-grid { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
       .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
@@ -655,6 +712,40 @@
       <div class="about-photo-wrap reveal reveal-d2 in">
         <img src="assets/images/IMG_2602.jpg" alt="Shobhith Vadlamudi">
         <div class="about-photo-label">Shobhith Vadlamudi · IIT Madras</div>
+      </div>
+    </div>
+    <div class="cybathlon-game reveal">
+      <div class="cy-game-head">
+        <div>
+          <div class="cy-game-kicker">Playable Prosthesis Challenge</div>
+          <h3>Cybathlon Balance Run</h3>
+          <p>Keep the virtual pilot centered while terrain noise pushes the prosthetic knee off balance. Use arrow keys, tap the track, or hold the left/right controls.</p>
+        </div>
+        <button class="btn btn-primary" id="cy-game-start" type="button">Start Run</button>
+      </div>
+      <div class="cy-game-body">
+        <div class="cy-game-stage" id="cy-game-stage" aria-label="Cybathlon balance game field">
+          <canvas id="cybathlon-game-canvas"></canvas>
+        </div>
+        <div class="cy-game-panel">
+          <div class="cy-readout">
+            <div class="cy-readout-label">Stability</div>
+            <div class="cy-readout-value" id="cy-stability">100%</div>
+          </div>
+          <div class="cy-readout">
+            <div class="cy-readout-label">Time</div>
+            <div class="cy-readout-value" id="cy-time">0.0s</div>
+          </div>
+          <div class="cy-readout">
+            <div class="cy-readout-label">Best</div>
+            <div class="cy-readout-value" id="cy-best">0.0s</div>
+          </div>
+          <div class="cy-game-controls">
+            <button class="cy-control-btn" id="cy-left" type="button">Left</button>
+            <button class="cy-control-btn" id="cy-right" type="button">Right</button>
+          </div>
+          <p class="cy-game-status" id="cy-status">Goal: survive 30 seconds without drifting outside the balance corridor.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1323,6 +1414,166 @@ document.addEventListener('keydown', e => {
   if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); calibrateSignal(); }
 });
 window.addEventListener('resize', () => { if (gameOpen) resizeGameCanvas(); });
+
+/* ── CYBATHLON BALANCE GAME ────────────────────────────────────────────── */
+const cyCanvas = document.getElementById('cybathlon-game-canvas');
+const cyCtx = cyCanvas.getContext('2d');
+const cyStage = document.getElementById('cy-game-stage');
+const cyStart = document.getElementById('cy-game-start');
+const cyLeft = document.getElementById('cy-left');
+const cyRight = document.getElementById('cy-right');
+const cyStability = document.getElementById('cy-stability');
+const cyTime = document.getElementById('cy-time');
+const cyBest = document.getElementById('cy-best');
+const cyStatus = document.getElementById('cy-status');
+let cyRunning = false, cyRaf = null, cyStartTime = 0, cyLastFrame = 0, cyElapsed = 0, cyBestTime = 0;
+let cyPos = 0, cyVel = 0, cyControl = 0, cyStabilityScore = 100, cyTerrain = 0;
+
+function resizeCyGame() {
+  const rect = cyCanvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  cyCanvas.width = Math.max(1, Math.floor(rect.width * dpr));
+  cyCanvas.height = Math.max(1, Math.floor(rect.height * dpr));
+  cyCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function resetCyGame() {
+  cyPos = 0; cyVel = 0; cyControl = 0; cyElapsed = 0; cyStabilityScore = 100; cyTerrain = 0;
+  cyStability.textContent = '100%';
+  cyTime.textContent = '0.0s';
+  cyStatus.textContent = 'Goal: survive 30 seconds without drifting outside the balance corridor.';
+  drawCyGame();
+}
+
+function drawCyGame() {
+  const w = cyCanvas.clientWidth || 1;
+  const h = cyCanvas.clientHeight || 1;
+  cyCtx.clearRect(0, 0, w, h);
+  const centerX = w / 2;
+  const groundY = h * 0.72;
+  const safeHalf = w * 0.24;
+  const pilotX = centerX + cyPos * w * 0.32;
+
+  cyCtx.fillStyle = 'rgba(52,211,153,0.08)';
+  cyCtx.fillRect(centerX - safeHalf, 0, safeHalf * 2, h);
+  cyCtx.strokeStyle = 'rgba(52,211,153,0.42)';
+  cyCtx.lineWidth = 1;
+  cyCtx.beginPath();
+  cyCtx.moveTo(centerX - safeHalf, 0); cyCtx.lineTo(centerX - safeHalf, h);
+  cyCtx.moveTo(centerX + safeHalf, 0); cyCtx.lineTo(centerX + safeHalf, h);
+  cyCtx.stroke();
+
+  cyCtx.beginPath();
+  for (let x = 0; x <= w; x += 6) {
+    const y = groundY + Math.sin((x + cyTerrain) * 0.03) * 10 + Math.sin((x + cyTerrain) * 0.011) * 15;
+    if (x === 0) cyCtx.moveTo(x, y); else cyCtx.lineTo(x, y);
+  }
+  cyCtx.strokeStyle = 'rgba(255,176,32,0.65)';
+  cyCtx.lineWidth = 2;
+  cyCtx.stroke();
+
+  cyCtx.strokeStyle = 'rgba(255,255,255,0.28)';
+  cyCtx.lineWidth = 3;
+  cyCtx.lineCap = 'round';
+  cyCtx.beginPath();
+  cyCtx.moveTo(pilotX, groundY - 70);
+  cyCtx.lineTo(pilotX + cyPos * 26, groundY - 34);
+  cyCtx.lineTo(pilotX + cyPos * 38, groundY + 2);
+  cyCtx.stroke();
+
+  cyCtx.beginPath();
+  cyCtx.arc(pilotX, groundY - 80, 11, 0, Math.PI * 2);
+  cyCtx.fillStyle = 'rgba(240,240,250,0.9)';
+  cyCtx.fill();
+
+  cyCtx.beginPath();
+  cyCtx.arc(pilotX + cyPos * 38, groundY + 2, 8, 0, Math.PI * 2);
+  cyCtx.fillStyle = Math.abs(cyPos) > 0.72 ? 'rgba(255,68,68,0.92)' : 'rgba(52,211,153,0.95)';
+  cyCtx.shadowColor = cyCtx.fillStyle;
+  cyCtx.shadowBlur = 14;
+  cyCtx.fill();
+  cyCtx.shadowBlur = 0;
+
+  cyCtx.fillStyle = 'rgba(255,255,255,0.7)';
+  cyCtx.font = '11px JetBrains Mono, monospace';
+  cyCtx.fillText('balance corridor', centerX - safeHalf + 10, 22);
+}
+
+function finishCyGame(message) {
+  cyRunning = false;
+  cancelAnimationFrame(cyRaf);
+  cyBestTime = Math.max(cyBestTime, cyElapsed);
+  cyBest.textContent = `${cyBestTime.toFixed(1)}s`;
+  cyStart.textContent = 'Restart Run';
+  cyStatus.textContent = message;
+}
+
+function stepCyGame(now) {
+  if (!cyRunning) return;
+  const dt = Math.min(0.033, (now - cyLastFrame) / 1000 || 0.016);
+  cyLastFrame = now;
+  cyElapsed = (now - cyStartTime) / 1000;
+  cyTerrain += 75 * dt;
+  const disturbance = Math.sin(cyElapsed * 1.7) * 0.28 + Math.sin(cyElapsed * 3.1) * 0.16;
+  cyVel += (disturbance + cyControl * 1.35 - cyPos * 0.38) * dt;
+  cyVel *= 0.985;
+  cyPos += cyVel * dt;
+  cyPos = Math.max(-1.25, Math.min(1.25, cyPos));
+  const drift = Math.abs(cyPos);
+  if (drift > 0.72) cyStabilityScore -= (drift - 0.72) * 58 * dt;
+  else cyStabilityScore = Math.min(100, cyStabilityScore + 8 * dt);
+  cyStability.textContent = `${Math.max(0, Math.round(cyStabilityScore))}%`;
+  cyTime.textContent = `${cyElapsed.toFixed(1)}s`;
+  drawCyGame();
+  if (cyStabilityScore <= 0) { finishCyGame('Run failed: balance lost. Restart and counter-steer earlier.'); return; }
+  if (cyElapsed >= 30) { finishCyGame('Course cleared. Proprioceptive feedback stabilized the run.'); return; }
+  cyRaf = requestAnimationFrame(stepCyGame);
+}
+
+function startCyGame() {
+  resizeCyGame();
+  resetCyGame();
+  cyRunning = true;
+  cyStart.textContent = 'Restart Run';
+  cyStatus.textContent = 'Counter-steer gently. Staying near center restores stability.';
+  cyStartTime = performance.now();
+  cyLastFrame = cyStartTime;
+  cancelAnimationFrame(cyRaf);
+  cyRaf = requestAnimationFrame(stepCyGame);
+}
+
+function setCyControl(value) {
+  cyControl = value;
+  cyLeft.classList.toggle('active', value < 0);
+  cyRight.classList.toggle('active', value > 0);
+}
+
+function bindCyHold(button, value) {
+  button.addEventListener('pointerdown', e => { e.preventDefault(); setCyControl(value); button.setPointerCapture(e.pointerId); });
+  button.addEventListener('pointerup', () => setCyControl(0));
+  button.addEventListener('pointercancel', () => setCyControl(0));
+  button.addEventListener('pointerleave', () => setCyControl(0));
+}
+
+cyStart.addEventListener('click', startCyGame);
+bindCyHold(cyLeft, -1);
+bindCyHold(cyRight, 1);
+cyStage.addEventListener('pointerdown', e => {
+  const rect = cyStage.getBoundingClientRect();
+  setCyControl(e.clientX < rect.left + rect.width / 2 ? -1 : 1);
+});
+cyStage.addEventListener('pointerup', () => setCyControl(0));
+cyStage.addEventListener('pointercancel', () => setCyControl(0));
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') setCyControl(-1);
+  if (e.key === 'ArrowRight') setCyControl(1);
+});
+document.addEventListener('keyup', e => {
+  if ((e.key === 'ArrowLeft' && cyControl < 0) || (e.key === 'ArrowRight' && cyControl > 0)) setCyControl(0);
+});
+window.addEventListener('resize', () => { resizeCyGame(); drawCyGame(); });
+resizeCyGame();
+resetCyGame();
 
 /* ── REVEAL ON SCROLL ──────────────────────────────────────────────────── */
 const observer = new IntersectionObserver(entries => {
