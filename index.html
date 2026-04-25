@@ -312,56 +312,6 @@
     .cstat { }
     .cstat-num { font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: var(--mono); }
     .cstat-label { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; }
-    .cybathlon-game {
-      margin-top: 3rem; background: rgba(12,12,30,0.74); border: 1px solid var(--border);
-      border-radius: 14px; overflow: hidden; position: relative; box-shadow: 0 18px 70px rgba(0,0,0,0.32);
-    }
-    .cybathlon-game::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--violet));
-    }
-    .cy-game-head {
-      display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
-      padding: 1.35rem 1.5rem; border-bottom: 1px solid var(--border);
-    }
-    .cy-game-kicker {
-      font-family: var(--mono); font-size: 0.64rem; color: var(--gold);
-      text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 0.45rem;
-    }
-    .cy-game-head h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
-    .cy-game-head p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; margin: 0; }
-    .cy-game-body { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.25rem; padding: 1.5rem; }
-    .cy-game-stage {
-      position: relative; height: 260px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
-      overflow: hidden; background:
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-        radial-gradient(circle at 50% 75%, rgba(255,176,32,0.08), transparent 55%),
-        var(--bg);
-      background-size: 42px 42px, 42px 42px, auto, auto;
-      touch-action: manipulation;
-    }
-    #cybathlon-game-canvas { width: 100%; height: 100%; display: block; }
-    .cy-game-panel { display: flex; flex-direction: column; gap: 0.75rem; }
-    .cy-readout {
-      border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem;
-      background: rgba(255,255,255,0.025);
-    }
-    .cy-readout-label {
-      font-family: var(--mono); font-size: 0.58rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.25rem;
-    }
-    .cy-readout-value { font-family: var(--mono); color: var(--gold); font-size: 1.25rem; }
-    .cy-game-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-    .cy-control-btn {
-      font-family: var(--mono); font-size: 0.72rem; color: var(--white);
-      border: 1px solid var(--border); border-radius: 8px; background: rgba(255,255,255,0.035);
-      padding: 0.85rem 0.5rem; cursor: pointer; transition: border-color .2s, background .2s;
-      user-select: none;
-    }
-    .cy-control-btn:active, .cy-control-btn.active { border-color: rgba(255,176,32,0.6); background: rgba(255,176,32,0.12); }
-    .cy-game-status { color: var(--muted); font-size: 0.85rem; line-height: 1.55; margin: 0; }
-
     /* ── PUBLICATIONS ───────────────────────────────────────────── */
     #publications { background: var(--bg2); }
     .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -432,67 +382,59 @@
 .blog-prev-meta { font-family:var(--mono); font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
 .blog-prev-cta { font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--cyan); margin-top:auto; }
 
-    /* ── SIGNAL GAME ─────────────────────────────────────────────── */
-    .game-modal {
+    /* ── OSCILLATOR LAB ──────────────────────────────────────────── */
+    .osc-modal {
       position: fixed; inset: 0; z-index: 6000; display: none;
       align-items: center; justify-content: center; padding: 1.25rem;
       background: rgba(5,5,16,0.76); backdrop-filter: blur(18px);
     }
-    .game-modal.open { display: flex; }
-    .game-card {
-      width: min(720px, 100%); background: rgba(12,12,30,0.97);
-      border: 1px solid rgba(52,211,153,0.26); border-radius: 16px;
+    .osc-modal.open { display: flex; }
+    .osc-card {
+      width: min(860px, 100%); background: rgba(12,12,30,0.97);
+      border: 1px solid rgba(52,211,153,0.28); border-radius: 16px;
       box-shadow: 0 24px 90px rgba(0,0,0,0.65), var(--glow);
       overflow: hidden;
     }
-    .game-head {
+    .osc-head {
       display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
       padding: 1.2rem 1.25rem; border-bottom: 1px solid var(--border);
     }
-    .game-kicker {
+    .osc-kicker {
       font-family: var(--mono); font-size: 0.62rem; color: var(--cyan);
       letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.35rem;
     }
-    .game-head h2 { font-size: 1.35rem; line-height: 1.2; margin: 0 0 0.25rem; }
-    .game-head p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
-    .game-close {
+    .osc-head h2 { font-size: 1.35rem; line-height: 1.2; margin: 0 0 0.25rem; }
+    .osc-head p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; max-width: 620px; }
+    .osc-close {
       flex: 0 0 auto; width: 38px; height: 38px; border-radius: 999px;
       border: 1px solid var(--border); background: rgba(255,255,255,0.03);
       color: var(--white); font-size: 1.2rem; cursor: pointer;
     }
-    .game-body { padding: 1.25rem; }
-    .game-stage {
-      position: relative; height: 240px; border: 1px solid var(--border); border-radius: 12px;
+    .osc-body { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 1.25rem; padding: 1.25rem; }
+    .osc-stage {
+      position: relative; height: 380px; border: 1px solid var(--border); border-radius: 12px;
       overflow: hidden; background:
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-        radial-gradient(circle at 50% 50%, rgba(52,211,153,0.08), transparent 58%),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        radial-gradient(circle at 50% 45%, rgba(52,211,153,0.1), transparent 58%),
         var(--bg);
-      background-size: 48px 48px, 48px 48px, auto, auto;
+      background-size: 46px 46px, 46px 46px, auto, auto;
     }
-    #signal-game-canvas { width: 100%; height: 100%; display: block; }
-    .target-band {
-      position: absolute; top: 0; bottom: 0; left: 50%; width: 18%; transform: translateX(-50%);
-      border-left: 1px solid rgba(52,211,153,0.6); border-right: 1px solid rgba(52,211,153,0.6);
-      background: linear-gradient(90deg, transparent, rgba(52,211,153,0.12), transparent);
-      pointer-events: none;
-    }
-    .game-readout {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 1rem 0;
-    }
-    .readout-box {
+    #osc-canvas { width: 100%; height: 100%; display: block; }
+    .osc-panel { display: flex; flex-direction: column; gap: 0.8rem; }
+    .osc-readout, .osc-control {
       border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem;
       background: rgba(255,255,255,0.025);
     }
-    .readout-label {
+    .osc-label {
       font-family: var(--mono); font-size: 0.58rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.25rem;
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.35rem;
     }
-    .readout-value { font-family: var(--mono); color: var(--cyan); font-size: 1.25rem; }
-    .game-controls { display: flex; gap: 0.75rem; align-items: center; }
-    .game-status { flex: 1; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
-    .game-pulse { animation: gamePulse .28s ease; }
-    @keyframes gamePulse { 50% { box-shadow: inset 0 0 50px rgba(52,211,153,0.18); } }
+    .osc-value { font-family: var(--mono); color: var(--cyan); font-size: 1.25rem; }
+    .osc-control input[type=range] { width: 100%; accent-color: var(--cyan); }
+    .osc-control-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .osc-hint { color: var(--muted); font-size: 0.85rem; line-height: 1.55; margin: 0; }
+    .osc-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
 
     /* ── RESPONSIVE ─────────────────────────────────────────────── */
     @media (max-width: 900px) {
@@ -566,32 +508,22 @@
       .cybathlon-stat { gap: 1rem; justify-content: space-between; }
       .cstat-num { font-size: 1.65rem; }
       .cstat-label { font-size: 0.62rem; }
-      .cybathlon-game { margin-top: 2rem; }
-      .cy-game-head { grid-template-columns: 1fr; padding: 1rem; }
-      .cy-game-body { grid-template-columns: 1fr; padding: 1rem; gap: 1rem; }
-      .cy-game-stage { height: 210px; }
-      .cy-game-panel { display: grid; grid-template-columns: 1fr; }
-      .cy-readout { display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 0.8rem; }
-      .cy-readout-label { margin-bottom: 0; }
-      .cy-readout-value { font-size: 1rem; }
       .pub-item h3 { font-size: 0.95rem; }
       #blog-preview-grid { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
       .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
       .social-link { justify-content: center; padding: 0.8rem 0.7rem; font-size: 0.68rem; }
       .contact-email { font-size: 0.9rem; word-break: break-word; }
       footer { padding: 1.5rem 1rem; line-height: 1.8; }
-      .game-modal { padding: 0.75rem; align-items: flex-end; }
-      .game-card { border-radius: 16px 16px 0 0; }
-      .game-head { padding: 1rem; }
-      .game-head h2 { font-size: 1.1rem; }
-      .game-stage { height: 190px; }
-      .game-body { padding: 1rem; }
-      .game-readout { grid-template-columns: 1fr; gap: 0.55rem; }
-      .readout-box { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0.8rem; }
-      .readout-label { margin-bottom: 0; }
-      .readout-value { font-size: 1rem; }
-      .game-controls { display: grid; grid-template-columns: 1fr; }
-      .game-status { order: -1; }
+      .osc-modal { padding: 0.75rem; align-items: flex-end; }
+      .osc-card { border-radius: 16px 16px 0 0; }
+      .osc-head { padding: 1rem; }
+      .osc-head h2 { font-size: 1.1rem; }
+      .osc-body { grid-template-columns: 1fr; padding: 1rem; gap: 1rem; }
+      .osc-stage { height: 280px; }
+      .osc-panel { display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
+      .osc-readout { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0.8rem; }
+      .osc-label { margin-bottom: 0; }
+      .osc-value { font-size: 1rem; }
     }
     @media (max-width: 420px) {
       .about-stats, .social-links { grid-template-columns: 1fr; }
@@ -624,7 +556,7 @@
   <canvas id="neural-canvas" width="1430" height="889"></canvas>
   <div class="hero-content">
     <div class="hero-label">Computational Neuroscience · IIT Madras</div>
-    <h1 class="hero-name" id="hero-name" role="button" tabindex="0" aria-label="Open neural signal calibration game">Shobhith<br>Vadlamudi</h1>
+    <h1 class="hero-name" id="hero-name" role="button" tabindex="0" aria-label="Open coupled oscillator demonstration">Shobhith<br>Vadlamudi</h1>
     <div class="hero-typewriter"><span id="typewriter-text">Computational Neuroscien</span><span class="cursor-blink">_</span></div>
     <p class="hero-bio">
       I work at the intersection of dynamical systems, neural computation, and neurotechnology.
@@ -641,40 +573,49 @@
   </div>
 </section>
 
-<!-- Neural Signal Calibration Game -->
-<div class="game-modal" id="game-modal" aria-hidden="true">
-  <div class="game-card" role="dialog" aria-modal="true" aria-labelledby="game-title">
-    <div class="game-head">
+<!-- Coupled Oscillator Demo -->
+<div class="osc-modal" id="osc-modal" aria-hidden="true">
+  <div class="osc-card" role="dialog" aria-modal="true" aria-labelledby="osc-title">
+    <div class="osc-head">
       <div>
-        <div class="game-kicker">Hidden Lab Console</div>
-        <h2 id="game-title">Neural Signal Calibration</h2>
-        <p>Tap or click when the moving signal enters the calibration window. Five clean locks completes the run.</p>
+        <div class="osc-kicker">Hidden Dynamics Lab</div>
+        <h2 id="osc-title">Kuramoto Oscillator Synchronization</h2>
+        <p>Each point has its own natural rhythm. Increase coupling and the population phase-locks into a coherent collective rhythm.</p>
       </div>
-      <button class="game-close" type="button" aria-label="Close calibration game">x</button>
+      <button class="osc-close" type="button" aria-label="Close oscillator demonstration">x</button>
     </div>
-    <div class="game-body">
-      <div class="game-stage" id="game-stage">
-        <canvas id="signal-game-canvas"></canvas>
-        <div class="target-band" aria-hidden="true"></div>
+    <div class="osc-body">
+      <div class="osc-stage">
+        <canvas id="osc-canvas"></canvas>
       </div>
-      <div class="game-readout">
-        <div class="readout-box">
-          <div class="readout-label">Signal Lock</div>
-          <div class="readout-value" id="game-score">0/5</div>
+      <div class="osc-panel">
+        <div class="osc-readout">
+          <div class="osc-label">Order Parameter R</div>
+          <div class="osc-value" id="osc-order">0.00</div>
         </div>
-        <div class="readout-box">
-          <div class="readout-label">Accuracy</div>
-          <div class="readout-value" id="game-accuracy">--</div>
+        <div class="osc-readout">
+          <div class="osc-label">State</div>
+          <div class="osc-value" id="osc-state">Drifting</div>
         </div>
-        <div class="readout-box">
-          <div class="readout-label">Grade</div>
-          <div class="readout-value" id="game-grade">Idle</div>
+        <label class="osc-control">
+          <div class="osc-control-row">
+            <span class="osc-label">Coupling</span>
+            <span class="osc-value" id="osc-coupling-value">0.80</span>
+          </div>
+          <input id="osc-coupling" type="range" min="0" max="3" step="0.05" value="0.8">
+        </label>
+        <label class="osc-control">
+          <div class="osc-control-row">
+            <span class="osc-label">Noise</span>
+            <span class="osc-value" id="osc-noise-value">0.08</span>
+          </div>
+          <input id="osc-noise" type="range" min="0" max="0.5" step="0.01" value="0.08">
+        </label>
+        <div class="osc-actions">
+          <button class="btn btn-primary" id="osc-sync" type="button">Sync</button>
+          <button class="btn btn-outline" id="osc-reset" type="button">Reset</button>
         </div>
-      </div>
-      <div class="game-controls">
-        <button class="btn btn-primary" id="game-tap" type="button">Calibrate</button>
-        <button class="btn btn-outline" id="game-reset" type="button">Restart</button>
-        <div class="game-status" id="game-status">Click your name anytime to reopen this lab console.</div>
+        <p class="osc-hint">R near 0 means phases are spread out. R near 1 means synchronized population activity.</p>
       </div>
     </div>
   </div>
@@ -712,40 +653,6 @@
       <div class="about-photo-wrap reveal reveal-d2 in">
         <img src="assets/images/IMG_2602.jpg" alt="Shobhith Vadlamudi">
         <div class="about-photo-label">Shobhith Vadlamudi · IIT Madras</div>
-      </div>
-    </div>
-    <div class="cybathlon-game reveal">
-      <div class="cy-game-head">
-        <div>
-          <div class="cy-game-kicker">Playable Prosthesis Challenge</div>
-          <h3>Cybathlon Balance Run</h3>
-          <p>Keep the virtual pilot centered while terrain noise pushes the prosthetic knee off balance. Use arrow keys, tap the track, or hold the left/right controls.</p>
-        </div>
-        <button class="btn btn-primary" id="cy-game-start" type="button">Start Run</button>
-      </div>
-      <div class="cy-game-body">
-        <div class="cy-game-stage" id="cy-game-stage" aria-label="Cybathlon balance game field">
-          <canvas id="cybathlon-game-canvas"></canvas>
-        </div>
-        <div class="cy-game-panel">
-          <div class="cy-readout">
-            <div class="cy-readout-label">Stability</div>
-            <div class="cy-readout-value" id="cy-stability">100%</div>
-          </div>
-          <div class="cy-readout">
-            <div class="cy-readout-label">Time</div>
-            <div class="cy-readout-value" id="cy-time">0.0s</div>
-          </div>
-          <div class="cy-readout">
-            <div class="cy-readout-label">Best</div>
-            <div class="cy-readout-value" id="cy-best">0.0s</div>
-          </div>
-          <div class="cy-game-controls">
-            <button class="cy-control-btn" id="cy-left" type="button">Left</button>
-            <button class="cy-control-btn" id="cy-right" type="button">Right</button>
-          </div>
-          <p class="cy-game-status" id="cy-status">Goal: survive 30 seconds without drifting outside the balance corridor.</p>
-        </div>
       </div>
     </div>
   </div>
@@ -1272,308 +1179,173 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-/* ── SIGNAL CALIBRATION GAME ───────────────────────────────────────────── */
+/* ── OSCILLATOR LAB ────────────────────────────────────────────────────── */
 const heroName = document.getElementById('hero-name');
-const gameModal = document.getElementById('game-modal');
-const gameClose = document.querySelector('.game-close');
-const gameCanvas = document.getElementById('signal-game-canvas');
-const gameCtx = gameCanvas.getContext('2d');
-const gameStage = document.getElementById('game-stage');
-const gameTap = document.getElementById('game-tap');
-const gameReset = document.getElementById('game-reset');
-const gameScore = document.getElementById('game-score');
-const gameAccuracy = document.getElementById('game-accuracy');
-const gameGrade = document.getElementById('game-grade');
-const gameStatus = document.getElementById('game-status');
-let gameOpen = false, gameHits = 0, gameAttempts = 0, gameBest = 0, signalPhase = 0;
-let signalSpeed = 2.15, gameRaf = null;
+const oscModal = document.getElementById('osc-modal');
+const oscCanvas = document.getElementById('osc-canvas');
+const oscCtx = oscCanvas.getContext('2d');
+const oscClose = document.querySelector('.osc-close');
+const oscCoupling = document.getElementById('osc-coupling');
+const oscNoise = document.getElementById('osc-noise');
+const oscCouplingValue = document.getElementById('osc-coupling-value');
+const oscNoiseValue = document.getElementById('osc-noise-value');
+const oscOrder = document.getElementById('osc-order');
+const oscState = document.getElementById('osc-state');
+const oscSync = document.getElementById('osc-sync');
+const oscReset = document.getElementById('osc-reset');
+const oscCount = 34;
+let oscillators = [];
+let oscOpen = false, oscRaf = null, oscLast = 0;
 
-function resizeGameCanvas() {
-  const rect = gameCanvas.getBoundingClientRect();
+function resizeOscCanvas() {
+  const rect = oscCanvas.getBoundingClientRect();
   const dpr = window.devicePixelRatio || 1;
-  gameCanvas.width = Math.max(1, Math.floor(rect.width * dpr));
-  gameCanvas.height = Math.max(1, Math.floor(rect.height * dpr));
-  gameCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  oscCanvas.width = Math.max(1, Math.floor(rect.width * dpr));
+  oscCanvas.height = Math.max(1, Math.floor(rect.height * dpr));
+  oscCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 
-function resetGame() {
-  gameHits = 0; gameAttempts = 0; gameBest = 0; signalPhase = 0; signalSpeed = 2.15;
-  updateGameReadout('Awaiting calibration input.');
+function resetOscillators(clustered = false) {
+  oscillators = Array.from({ length: oscCount }, (_, i) => {
+    const ring = i / oscCount;
+    return {
+      theta: clustered ? Math.random() * 0.4 : Math.random() * Math.PI * 2,
+      omega: 0.7 + Math.random() * 1.2,
+      lane: 0.52 + Math.sin(ring * Math.PI * 4) * 0.18,
+      hue: 160 + Math.random() * 55
+    };
+  });
 }
 
-function updateGameReadout(status) {
-  const accuracy = gameAttempts ? Math.round((gameHits / gameAttempts) * 100) : null;
-  gameScore.textContent = `${gameHits}/5`;
-  gameAccuracy.textContent = accuracy === null ? '--' : `${accuracy}%`;
-  gameGrade.textContent = gameHits >= 5 ? 'Locked' : gameBest > 88 ? 'Clean' : gameBest > 68 ? 'Noisy' : 'Idle';
-  gameStatus.textContent = status;
+function getOrderParameter() {
+  let sx = 0, sy = 0;
+  oscillators.forEach(o => { sx += Math.cos(o.theta); sy += Math.sin(o.theta); });
+  sx /= oscillators.length; sy /= oscillators.length;
+  return { r: Math.sqrt(sx * sx + sy * sy), phase: Math.atan2(sy, sx) };
 }
 
-function currentSignal() {
-  const w = gameCanvas.clientWidth || 1;
-  const h = gameCanvas.clientHeight || 1;
-  const progress = (signalPhase % w) / w;
-  const x = progress * w;
-  const y = h * 0.52 + Math.sin(progress * Math.PI * 6 + signalPhase * 0.018) * h * 0.18 + Math.sin(signalPhase * 0.045) * h * 0.08;
-  return { x, y, progress };
+function updateOscReadout(r) {
+  oscOrder.textContent = r.toFixed(2);
+  oscState.textContent = r > 0.82 ? 'Locked' : r > 0.48 ? 'Cohering' : 'Drifting';
+  oscCouplingValue.textContent = Number(oscCoupling.value).toFixed(2);
+  oscNoiseValue.textContent = Number(oscNoise.value).toFixed(2);
 }
 
-function drawGame() {
-  if (!gameOpen) return;
-  const w = gameCanvas.clientWidth;
-  const h = gameCanvas.clientHeight;
-  gameCtx.clearRect(0, 0, w, h);
-  const targetX = w * 0.5;
-  const targetWidth = w * 0.18;
+function stepOscillators(dt) {
+  const coupling = Number(oscCoupling.value);
+  const noise = Number(oscNoise.value);
+  const phases = oscillators.map(o => o.theta);
+  oscillators.forEach((o, i) => {
+    let pull = 0;
+    for (let j = 0; j < phases.length; j++) pull += Math.sin(phases[j] - phases[i]);
+    pull = (coupling / phases.length) * pull;
+    o.theta += (o.omega + pull + (Math.random() - 0.5) * noise) * dt;
+  });
+}
 
-  gameCtx.strokeStyle = 'rgba(255,255,255,0.08)';
-  gameCtx.lineWidth = 1;
-  gameCtx.beginPath();
-  gameCtx.moveTo(0, h * 0.52);
-  gameCtx.lineTo(w, h * 0.52);
-  gameCtx.stroke();
+function drawOscillators() {
+  const w = oscCanvas.clientWidth || 1;
+  const h = oscCanvas.clientHeight || 1;
+  const centerX = w * 0.5;
+  const centerY = h * 0.5;
+  const radius = Math.min(w, h) * 0.28;
+  const order = getOrderParameter();
+  oscCtx.clearRect(0, 0, w, h);
 
-  gameCtx.beginPath();
-  for (let px = 0; px <= w; px += 4) {
-    const p = px / w;
-    const py = h * 0.52 + Math.sin(p * Math.PI * 6 + signalPhase * 0.018) * h * 0.18 + Math.sin((signalPhase + px) * 0.045) * h * 0.08;
-    if (px === 0) gameCtx.moveTo(px, py); else gameCtx.lineTo(px, py);
+  oscCtx.strokeStyle = 'rgba(255,255,255,0.08)';
+  oscCtx.lineWidth = 1;
+  for (let r = radius * 0.45; r <= radius * 1.4; r += radius * 0.32) {
+    oscCtx.beginPath();
+    oscCtx.arc(centerX, centerY, r, 0, Math.PI * 2);
+    oscCtx.stroke();
   }
-  gameCtx.strokeStyle = 'rgba(52,211,153,0.78)';
-  gameCtx.lineWidth = 2;
-  gameCtx.shadowColor = 'rgba(52,211,153,0.5)';
-  gameCtx.shadowBlur = 12;
-  gameCtx.stroke();
-  gameCtx.shadowBlur = 0;
 
-  const sig = currentSignal();
-  const closeness = Math.max(0, 1 - Math.abs(sig.x - targetX) / (targetWidth * 0.5));
-  gameCtx.beginPath();
-  gameCtx.arc(sig.x, sig.y, 5 + closeness * 5, 0, Math.PI * 2);
-  gameCtx.fillStyle = closeness > 0 ? 'rgba(255,176,32,0.95)' : 'rgba(52,211,153,0.95)';
-  gameCtx.fill();
+  const meanX = centerX + Math.cos(order.phase) * radius * order.r;
+  const meanY = centerY + Math.sin(order.phase) * radius * order.r;
+  oscCtx.beginPath();
+  oscCtx.moveTo(centerX, centerY);
+  oscCtx.lineTo(meanX, meanY);
+  oscCtx.strokeStyle = `rgba(${accentColor.join(',')},0.75)`;
+  oscCtx.lineWidth = 3;
+  oscCtx.shadowColor = `rgba(${accentColor.join(',')},0.45)`;
+  oscCtx.shadowBlur = 18;
+  oscCtx.stroke();
+  oscCtx.shadowBlur = 0;
 
-  signalPhase += signalSpeed;
-  gameRaf = requestAnimationFrame(drawGame);
+  oscillators.forEach((o, i) => {
+    const localRadius = radius * (0.76 + (i % 5) * 0.08);
+    const x = centerX + Math.cos(o.theta) * localRadius;
+    const y = centerY + Math.sin(o.theta) * localRadius;
+    if (Math.cos(o.theta - order.phase) > 0.82 && order.r > 0.35) {
+      oscCtx.beginPath();
+      oscCtx.moveTo(x, y);
+      oscCtx.lineTo(meanX, meanY);
+      oscCtx.strokeStyle = `rgba(${accentColor.join(',')},${0.08 + order.r * 0.16})`;
+      oscCtx.lineWidth = 0.8;
+      oscCtx.stroke();
+    }
+    oscCtx.beginPath();
+    oscCtx.arc(x, y, 4.5 + order.r * 2, 0, Math.PI * 2);
+    oscCtx.fillStyle = `hsla(${o.hue}, 78%, ${58 + order.r * 18}%, 0.92)`;
+    oscCtx.shadowColor = `hsla(${o.hue}, 78%, 60%, 0.45)`;
+    oscCtx.shadowBlur = 10 + order.r * 8;
+    oscCtx.fill();
+    oscCtx.shadowBlur = 0;
+  });
+
+  oscCtx.beginPath();
+  oscCtx.arc(centerX, centerY, 5 + order.r * 12, 0, Math.PI * 2);
+  oscCtx.fillStyle = `rgba(${accentColor.join(',')},${0.18 + order.r * 0.35})`;
+  oscCtx.fill();
+  updateOscReadout(order.r);
 }
 
-function calibrateSignal() {
-  if (gameHits >= 5) return;
-  const w = gameCanvas.clientWidth || 1;
-  const sig = currentSignal();
-  const targetX = w * 0.5;
-  const targetWidth = w * 0.18;
-  const accuracy = Math.max(0, Math.round((1 - Math.abs(sig.x - targetX) / (targetWidth * 0.75)) * 100));
-  gameAttempts++;
-  gameBest = Math.max(gameBest, accuracy);
-  gameStage.classList.remove('game-pulse');
-  void gameStage.offsetWidth;
-  gameStage.classList.add('game-pulse');
-  if (accuracy >= 68) {
-    gameHits++;
-    signalSpeed += 0.18;
-    updateGameReadout(gameHits >= 5 ? 'Signal locked. Closed-loop feedback stabilized.' : `Clean lock: ${accuracy}%. Keep going.`);
-  } else {
-    updateGameReadout(`Missed lock: ${accuracy}%. Wait for the trace to enter the center band.`);
-  }
+function animateOscillators(now) {
+  if (!oscOpen) return;
+  const dt = Math.min(0.04, (now - oscLast) / 1000 || 0.016);
+  oscLast = now;
+  stepOscillators(dt);
+  drawOscillators();
+  oscRaf = requestAnimationFrame(animateOscillators);
 }
 
-function openGame() {
-  gameOpen = true;
-  gameModal.classList.add('open');
-  gameModal.setAttribute('aria-hidden', 'false');
+function openOscLab() {
+  oscOpen = true;
+  oscModal.classList.add('open');
+  oscModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  resizeGameCanvas();
-  resetGame();
-  cancelAnimationFrame(gameRaf);
-  drawGame();
-  gameTap.focus();
+  resizeOscCanvas();
+  if (!oscillators.length) resetOscillators();
+  oscLast = performance.now();
+  cancelAnimationFrame(oscRaf);
+  oscRaf = requestAnimationFrame(animateOscillators);
+  oscCoupling.focus();
 }
 
-function closeGame() {
-  gameOpen = false;
-  gameModal.classList.remove('open');
-  gameModal.setAttribute('aria-hidden', 'true');
+function closeOscLab() {
+  oscOpen = false;
+  oscModal.classList.remove('open');
+  oscModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  cancelAnimationFrame(gameRaf);
+  cancelAnimationFrame(oscRaf);
   heroName.focus();
 }
 
-heroName.addEventListener('click', openGame);
+heroName.addEventListener('click', openOscLab);
 heroName.addEventListener('keydown', e => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGame(); }
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOscLab(); }
 });
-gameTap.addEventListener('click', calibrateSignal);
-gameStage.addEventListener('click', calibrateSignal);
-gameReset.addEventListener('click', resetGame);
-gameClose.addEventListener('click', closeGame);
-gameModal.addEventListener('click', e => { if (e.target === gameModal) closeGame(); });
-document.addEventListener('keydown', e => {
-  if (!gameOpen) return;
-  if (e.key === 'Escape') closeGame();
-  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); calibrateSignal(); }
+oscClose.addEventListener('click', closeOscLab);
+oscModal.addEventListener('click', e => { if (e.target === oscModal) closeOscLab(); });
+oscReset.addEventListener('click', () => resetOscillators());
+oscSync.addEventListener('click', () => {
+  resetOscillators(true);
+  oscCoupling.value = '2.25';
+  oscNoise.value = '0.03';
 });
-window.addEventListener('resize', () => { if (gameOpen) resizeGameCanvas(); });
-
-/* ── CYBATHLON BALANCE GAME ────────────────────────────────────────────── */
-const cyCanvas = document.getElementById('cybathlon-game-canvas');
-const cyCtx = cyCanvas.getContext('2d');
-const cyStage = document.getElementById('cy-game-stage');
-const cyStart = document.getElementById('cy-game-start');
-const cyLeft = document.getElementById('cy-left');
-const cyRight = document.getElementById('cy-right');
-const cyStability = document.getElementById('cy-stability');
-const cyTime = document.getElementById('cy-time');
-const cyBest = document.getElementById('cy-best');
-const cyStatus = document.getElementById('cy-status');
-let cyRunning = false, cyRaf = null, cyStartTime = 0, cyLastFrame = 0, cyElapsed = 0, cyBestTime = 0;
-let cyPos = 0, cyVel = 0, cyControl = 0, cyStabilityScore = 100, cyTerrain = 0;
-
-function resizeCyGame() {
-  const rect = cyCanvas.getBoundingClientRect();
-  const dpr = window.devicePixelRatio || 1;
-  cyCanvas.width = Math.max(1, Math.floor(rect.width * dpr));
-  cyCanvas.height = Math.max(1, Math.floor(rect.height * dpr));
-  cyCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-
-function resetCyGame() {
-  cyPos = 0; cyVel = 0; cyControl = 0; cyElapsed = 0; cyStabilityScore = 100; cyTerrain = 0;
-  cyStability.textContent = '100%';
-  cyTime.textContent = '0.0s';
-  cyStatus.textContent = 'Goal: survive 30 seconds without drifting outside the balance corridor.';
-  drawCyGame();
-}
-
-function drawCyGame() {
-  const w = cyCanvas.clientWidth || 1;
-  const h = cyCanvas.clientHeight || 1;
-  cyCtx.clearRect(0, 0, w, h);
-  const centerX = w / 2;
-  const groundY = h * 0.72;
-  const safeHalf = w * 0.24;
-  const pilotX = centerX + cyPos * w * 0.32;
-
-  cyCtx.fillStyle = 'rgba(52,211,153,0.08)';
-  cyCtx.fillRect(centerX - safeHalf, 0, safeHalf * 2, h);
-  cyCtx.strokeStyle = 'rgba(52,211,153,0.42)';
-  cyCtx.lineWidth = 1;
-  cyCtx.beginPath();
-  cyCtx.moveTo(centerX - safeHalf, 0); cyCtx.lineTo(centerX - safeHalf, h);
-  cyCtx.moveTo(centerX + safeHalf, 0); cyCtx.lineTo(centerX + safeHalf, h);
-  cyCtx.stroke();
-
-  cyCtx.beginPath();
-  for (let x = 0; x <= w; x += 6) {
-    const y = groundY + Math.sin((x + cyTerrain) * 0.03) * 10 + Math.sin((x + cyTerrain) * 0.011) * 15;
-    if (x === 0) cyCtx.moveTo(x, y); else cyCtx.lineTo(x, y);
-  }
-  cyCtx.strokeStyle = 'rgba(255,176,32,0.65)';
-  cyCtx.lineWidth = 2;
-  cyCtx.stroke();
-
-  cyCtx.strokeStyle = 'rgba(255,255,255,0.28)';
-  cyCtx.lineWidth = 3;
-  cyCtx.lineCap = 'round';
-  cyCtx.beginPath();
-  cyCtx.moveTo(pilotX, groundY - 70);
-  cyCtx.lineTo(pilotX + cyPos * 26, groundY - 34);
-  cyCtx.lineTo(pilotX + cyPos * 38, groundY + 2);
-  cyCtx.stroke();
-
-  cyCtx.beginPath();
-  cyCtx.arc(pilotX, groundY - 80, 11, 0, Math.PI * 2);
-  cyCtx.fillStyle = 'rgba(240,240,250,0.9)';
-  cyCtx.fill();
-
-  cyCtx.beginPath();
-  cyCtx.arc(pilotX + cyPos * 38, groundY + 2, 8, 0, Math.PI * 2);
-  cyCtx.fillStyle = Math.abs(cyPos) > 0.72 ? 'rgba(255,68,68,0.92)' : 'rgba(52,211,153,0.95)';
-  cyCtx.shadowColor = cyCtx.fillStyle;
-  cyCtx.shadowBlur = 14;
-  cyCtx.fill();
-  cyCtx.shadowBlur = 0;
-
-  cyCtx.fillStyle = 'rgba(255,255,255,0.7)';
-  cyCtx.font = '11px JetBrains Mono, monospace';
-  cyCtx.fillText('balance corridor', centerX - safeHalf + 10, 22);
-}
-
-function finishCyGame(message) {
-  cyRunning = false;
-  cancelAnimationFrame(cyRaf);
-  cyBestTime = Math.max(cyBestTime, cyElapsed);
-  cyBest.textContent = `${cyBestTime.toFixed(1)}s`;
-  cyStart.textContent = 'Restart Run';
-  cyStatus.textContent = message;
-}
-
-function stepCyGame(now) {
-  if (!cyRunning) return;
-  const dt = Math.min(0.033, (now - cyLastFrame) / 1000 || 0.016);
-  cyLastFrame = now;
-  cyElapsed = (now - cyStartTime) / 1000;
-  cyTerrain += 75 * dt;
-  const disturbance = Math.sin(cyElapsed * 1.7) * 0.28 + Math.sin(cyElapsed * 3.1) * 0.16;
-  cyVel += (disturbance + cyControl * 1.35 - cyPos * 0.38) * dt;
-  cyVel *= 0.985;
-  cyPos += cyVel * dt;
-  cyPos = Math.max(-1.25, Math.min(1.25, cyPos));
-  const drift = Math.abs(cyPos);
-  if (drift > 0.72) cyStabilityScore -= (drift - 0.72) * 58 * dt;
-  else cyStabilityScore = Math.min(100, cyStabilityScore + 8 * dt);
-  cyStability.textContent = `${Math.max(0, Math.round(cyStabilityScore))}%`;
-  cyTime.textContent = `${cyElapsed.toFixed(1)}s`;
-  drawCyGame();
-  if (cyStabilityScore <= 0) { finishCyGame('Run failed: balance lost. Restart and counter-steer earlier.'); return; }
-  if (cyElapsed >= 30) { finishCyGame('Course cleared. Proprioceptive feedback stabilized the run.'); return; }
-  cyRaf = requestAnimationFrame(stepCyGame);
-}
-
-function startCyGame() {
-  resizeCyGame();
-  resetCyGame();
-  cyRunning = true;
-  cyStart.textContent = 'Restart Run';
-  cyStatus.textContent = 'Counter-steer gently. Staying near center restores stability.';
-  cyStartTime = performance.now();
-  cyLastFrame = cyStartTime;
-  cancelAnimationFrame(cyRaf);
-  cyRaf = requestAnimationFrame(stepCyGame);
-}
-
-function setCyControl(value) {
-  cyControl = value;
-  cyLeft.classList.toggle('active', value < 0);
-  cyRight.classList.toggle('active', value > 0);
-}
-
-function bindCyHold(button, value) {
-  button.addEventListener('pointerdown', e => { e.preventDefault(); setCyControl(value); button.setPointerCapture(e.pointerId); });
-  button.addEventListener('pointerup', () => setCyControl(0));
-  button.addEventListener('pointercancel', () => setCyControl(0));
-  button.addEventListener('pointerleave', () => setCyControl(0));
-}
-
-cyStart.addEventListener('click', startCyGame);
-bindCyHold(cyLeft, -1);
-bindCyHold(cyRight, 1);
-cyStage.addEventListener('pointerdown', e => {
-  const rect = cyStage.getBoundingClientRect();
-  setCyControl(e.clientX < rect.left + rect.width / 2 ? -1 : 1);
-});
-cyStage.addEventListener('pointerup', () => setCyControl(0));
-cyStage.addEventListener('pointercancel', () => setCyControl(0));
-document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowLeft') setCyControl(-1);
-  if (e.key === 'ArrowRight') setCyControl(1);
-});
-document.addEventListener('keyup', e => {
-  if ((e.key === 'ArrowLeft' && cyControl < 0) || (e.key === 'ArrowRight' && cyControl > 0)) setCyControl(0);
-});
-window.addEventListener('resize', () => { resizeCyGame(); drawCyGame(); });
-resizeCyGame();
-resetCyGame();
+document.addEventListener('keydown', e => { if (oscOpen && e.key === 'Escape') closeOscLab(); });
+window.addEventListener('resize', () => { if (oscOpen) { resizeOscCanvas(); drawOscillators(); } });
+resetOscillators();
 
 /* ── REVEAL ON SCROLL ──────────────────────────────────────────────────── */
 const observer = new IntersectionObserver(entries => {
